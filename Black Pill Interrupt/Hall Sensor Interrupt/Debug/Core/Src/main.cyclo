@@ -3,4 +3,4 @@
 ../Core/Src/main.c:178:13:MX_ADC1_Init	3
 ../Core/Src/main.c:230:13:MX_TIM2_Init	8
 ../Core/Src/main.c:297:13:MX_GPIO_Init	1
-../Core/Src/main.c:336:6:Error_Handler	1
+../Core/Src/main.c:338:6:Error_Handler	1

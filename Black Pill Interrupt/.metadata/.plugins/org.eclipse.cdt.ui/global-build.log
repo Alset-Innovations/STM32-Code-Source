@@ -902,3 +902,163 @@ Finished building: default.size.stdout
  
 Finished building: Hall Sensor Interrupt.list
  
+17:26:09 **** Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:33: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                 ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: At top level:
+../Core/Src/stm32f4xx_it.c:260:6: warning: conflicting types for 'CheckActive'; have 'void(int)'
+  260 | void CheckActive(int x) {
+      |      ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c:244:33: note: previous implicit declaration of 'CheckActive' with type 'void(int)'
+  244 |         int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                 ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CheckActive':
+../Core/Src/stm32f4xx_it.c:262:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  262 |                 return 1;
+      |                        ^
+../Core/Src/stm32f4xx_it.c:260:6: note: declared here
+  260 | void CheckActive(int x) {
+      |      ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c:264:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  264 |                 return 0;
+      |                        ^
+../Core/Src/stm32f4xx_it.c:260:6: note: declared here
+  260 | void CheckActive(int x) {
+      |      ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11896	     24	   1712	  13632	   3540	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:26:21 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:33: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     24	   1712	  13640	   3548	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:27:52 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:245:33: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  245 |         TIM2->CCR1 = PWMPulse * CheckActive(TIM2->CCR2);
+      |                                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11888	     24	   1712	  13624	   3538	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:28:13 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:33: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     24	   1712	  13640	   3548	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:28:41 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:38: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         uint32_t temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                      ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     24	   1712	  13640	   3548	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:28:52 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:38: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         uint32_t temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                      ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: At top level:
+../Core/Src/stm32f4xx_it.c:260:10: error: conflicting types for 'CheckActive'; have 'uint32_t(uint32_t)' {aka 'long unsigned int(long unsigned int)'}
+  260 | uint32_t CheckActive(uint32_t x) {
+      |          ^~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c:244:38: note: previous implicit declaration of 'CheckActive' with type 'int()'
+  244 |         uint32_t temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                      ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/stm32f4xx_it.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:29:18 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI9_5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:244:33: warning: implicit declaration of function 'CheckActive' [-Wimplicit-function-declaration]
+  244 |         int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+      |                                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     24	   1712	  13640	   3548	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
+17:30:45 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Interrupt.elf
+ 
+arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
+arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     24	   1712	  13640	   3548	Hall Sensor Interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Interrupt.list
+ 
