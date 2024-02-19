@@ -32,6 +32,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+extern int PWMPulse;
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -59,8 +61,6 @@ int CheckActive(uint32_t x);
 /* External variables --------------------------------------------------------*/
 
 /* USER CODE BEGIN EV */
-
-extern int PWMPulse;
 
 /* USER CODE END EV */
 
@@ -216,12 +216,12 @@ void EXTI9_5_IRQHandler(void)
 	int PWMV = PWMPulse * CheckActive(TIM2->CCR2);
 	int PWMW = PWMPulse * CheckActive(TIM2->CCR3);
 
-	// Set PWM duty cycle to zero for switching MOSFETS states
+	// Set PWM duty cycle to zero for switching active MOSFETS
 	TIM2->CCR1 = 0;
 	TIM2->CCR2 = 0;
 	TIM2->CCR3 = 0;
 
-	// Set new MOSFETS states
+	// Set new active MOSFETS
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output U to HAL state W
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output V to HAL state U
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output W to HAL state V

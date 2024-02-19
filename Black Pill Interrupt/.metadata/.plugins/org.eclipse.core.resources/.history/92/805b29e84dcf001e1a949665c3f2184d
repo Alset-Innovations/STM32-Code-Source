@@ -32,6 +32,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+extern int PWMPulse;
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -59,8 +61,6 @@ int CheckActive(uint32_t x);
 /* External variables --------------------------------------------------------*/
 
 /* USER CODE BEGIN EV */
-
-extern int PWMPulse;
 
 /* USER CODE END EV */
 
