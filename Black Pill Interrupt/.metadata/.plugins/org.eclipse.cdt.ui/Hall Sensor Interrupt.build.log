@@ -1,17 +1,17 @@
-18:30:42 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
+15:21:53 **** Incremental Build of configuration Debug for project Hall Sensor Interrupt ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
 arm-none-eabi-gcc -o "Hall Sensor Interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Hall Sensor Interrupt.elf
  
 arm-none-eabi-size   Hall\ Sensor\ Interrupt.elf 
 arm-none-eabi-objdump -h -S  Hall\ Sensor\ Interrupt.elf  > "Hall Sensor Interrupt.list"
    text	   data	    bss	    dec	    hex	filename
-  12144	     24	   1712	  13880	   3638	Hall Sensor Interrupt.elf
+  13988	     20	   1876	  15884	   3e0c	Hall Sensor Interrupt.elf
 Finished building: default.size.stdout
  
 Finished building: Hall Sensor Interrupt.list
  
 
-18:30:43 Build Finished. 0 errors, 0 warnings. (took 919ms)
+15:21:56 Build Finished. 0 errors, 0 warnings. (took 2s.546ms)
 

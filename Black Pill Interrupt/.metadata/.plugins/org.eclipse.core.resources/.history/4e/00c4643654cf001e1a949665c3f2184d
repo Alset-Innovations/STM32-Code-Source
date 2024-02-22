@@ -42,8 +42,6 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -224,18 +222,9 @@ void EXTI9_5_IRQHandler(void)
 	TIM2->CCR3 = 0;
 
 	// Set new MOSFETS states
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HALPrevW); // Set output U to HAL state W
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HALPrevU); // Set output V to HAL state U
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HALPrevV); // Set output W to HAL state V
-
-	HALPrevU = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
-	HALPrevV = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6);
-	HALPrevW = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7);
-
-	// OR
-
-	GPIOC->ODR |= HALPrev;
-	HALPrev = GPIOB->IDR << 8;
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output U to HAL state W
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output V to HAL state U
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output W to HAL state V
 
 	// Set PWM duty cycle to previous saved state of preceding channel
 	TIM2->CCR1 = PWMV;
@@ -258,17 +247,17 @@ void EXTI9_5_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
+  * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
   */
-void TIM1_TRG_COM_TIM11_IRQHandler(void)
+void TIM1_UP_TIM10_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
+  /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

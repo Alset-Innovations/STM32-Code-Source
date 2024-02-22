@@ -42,8 +42,6 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
