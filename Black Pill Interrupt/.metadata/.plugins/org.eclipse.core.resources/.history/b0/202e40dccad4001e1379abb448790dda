@@ -224,14 +224,18 @@ void EXTI9_5_IRQHandler(void)
 	TIM2->CCR3 = 0;
 
 	// Set new MOSFETS states
-	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output U to HAL state W
-	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output V to HAL state U
-	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output W to HAL state V
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HALPrevW); // Set output U to HAL state W
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HALPrevU); // Set output V to HAL state U
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HALPrevV); // Set output W to HAL state V
+
+	HALPrevU = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
+	HALPrevV = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6);
+	HALPrevW = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7);
 
 	// OR
 
-	GPIOC->ODR = GPIOB->IDR << 8;
-	// HALPrev = GPIOB->IDR << 8;
+	//GPIOC->ODR |= HALPrev;
+	//HALPrev = GPIOB->IDR << 8;
 
 	// Set PWM duty cycle to previous saved state of preceding channel
 	TIM2->CCR1 = PWMV;

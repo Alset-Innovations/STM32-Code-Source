@@ -117,45 +117,6 @@ int main(void)
 
   GPIOC->ODR = GPIOB->IDR << 8;
 
-  int A = (GPIOB->IDR >> 7) & 0x01;
-  int B = (GPIOB->IDR >> 5) & 0x01;
-  int C = (GPIOB->IDR >> 6) & 0x01;
-
-  if(A && B && !C) {
-	  TIM2->CCR1 = 0;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 200;
-  }
-
-  if(!A && B && !C) {
-	  TIM2->CCR1 = 200;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 0;
-  }
-
-  if(!A && B && C) {
-  	  TIM2->CCR1 = 200;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(!A && !B && C) {
-  	  TIM2->CCR1 = 0;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(A && !B && C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = 0;
-    }
-
-  if(A && !B && !C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = 200;
-    }
 
   /* USER CODE END 2 */
 
@@ -163,7 +124,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  int A = (GPIOB->IDR >> 7) & 0x01;
+	  int B = (GPIOB->IDR >> 5) & 0x01;
+	  int C = (GPIOB->IDR >> 6) & 0x01;
 	  //HAL_ADC_Start(&hadc1);
 	  //HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	  //PWMPulse = HAL_ADC_GetValue(&hadc1) / 20;

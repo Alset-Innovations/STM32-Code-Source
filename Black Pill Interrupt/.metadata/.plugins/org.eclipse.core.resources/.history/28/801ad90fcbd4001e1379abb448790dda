@@ -230,7 +230,7 @@ void EXTI9_5_IRQHandler(void)
 
 	// OR
 
-	GPIOC->ODR = GPIOB->IDR << 8;
+	GPIOC->ODR |= GPIOB->IDR << 8;
 	// HALPrev = GPIOB->IDR << 8;
 
 	// Set PWM duty cycle to previous saved state of preceding channel

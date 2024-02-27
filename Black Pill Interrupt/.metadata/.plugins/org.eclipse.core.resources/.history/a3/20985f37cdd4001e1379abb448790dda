@@ -121,41 +121,7 @@ int main(void)
   int B = (GPIOB->IDR >> 5) & 0x01;
   int C = (GPIOB->IDR >> 6) & 0x01;
 
-  if(A && B && !C) {
-	  TIM2->CCR1 = 0;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 200;
-  }
-
-  if(!A && B && !C) {
-	  TIM2->CCR1 = 200;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 0;
-  }
-
-  if(!A && B && C) {
-  	  TIM2->CCR1 = 200;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(!A && !B && C) {
-  	  TIM2->CCR1 = 0;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(A && !B && C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = 0;
-    }
-
-  if(A && !B && !C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = 200;
-    }
+  if (A && B && C)
 
   /* USER CODE END 2 */
 

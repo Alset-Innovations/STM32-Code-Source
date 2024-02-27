@@ -105,57 +105,15 @@ int main(void)
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-  // HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  // HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
-  // HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 
   // Startup sequence
   // Set active MOSFETS
-  // HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output U to HAL state W
-  // HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output V to HAL state U
-  // HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output W to HAL state V
-
-  GPIOC->ODR = GPIOB->IDR << 8;
-
-  int A = (GPIOB->IDR >> 7) & 0x01;
-  int B = (GPIOB->IDR >> 5) & 0x01;
-  int C = (GPIOB->IDR >> 6) & 0x01;
-
-  if(A && B && !C) {
-	  TIM2->CCR1 = 0;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 200;
-  }
-
-  if(!A && B && !C) {
-	  TIM2->CCR1 = 200;
-	  TIM2->CCR2 = PWMPulse;
-	  TIM2->CCR3 = 0;
-  }
-
-  if(!A && B && C) {
-  	  TIM2->CCR1 = 200;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(!A && !B && C) {
-  	  TIM2->CCR1 = 0;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = PWMPulse;
-    }
-
-  if(A && !B && C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 200;
-  	  TIM2->CCR3 = 0;
-    }
-
-  if(A && !B && !C) {
-  	  TIM2->CCR1 = PWMPulse;
-  	  TIM2->CCR2 = 0;
-  	  TIM2->CCR3 = 200;
-    }
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output U to HAL state W
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output V to HAL state U
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output W to HAL state V
 
   /* USER CODE END 2 */
 
@@ -164,9 +122,9 @@ int main(void)
   while (1)
   {
 
-	  //HAL_ADC_Start(&hadc1);
-	  //HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	  //PWMPulse = HAL_ADC_GetValue(&hadc1) / 20;
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	  PWMPulse = HAL_ADC_GetValue(&hadc1) / 20;
 
 	  /*for(int i = 0; i < 199; i++) {
 		TIM2->CCR1 = i;
@@ -390,7 +348,7 @@ static void MX_TIM2_Init(void)
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.Pulse = 100;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
@@ -400,7 +358,6 @@ static void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.Pulse = 0;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
