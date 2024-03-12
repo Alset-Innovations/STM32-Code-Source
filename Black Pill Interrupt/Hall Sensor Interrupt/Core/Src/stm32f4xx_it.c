@@ -42,7 +42,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0;
+int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0, j = 0;
 
 /* USER CODE END PV */
 
@@ -60,9 +60,11 @@ int CheckActive(uint32_t x);
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
 extern int PWMPulse;
+extern double sintab[];
 
 /* USER CODE END EV */
 
@@ -211,17 +213,18 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 
+	/*
 	//TIM2->CCR3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) * PWMPulse;
 
 	// Save current state of Timers with new PWM duty cycle
-	int PWMU = PWMPulse * CheckActive(TIM2->CCR1);
-	int PWMV = PWMPulse * CheckActive(TIM2->CCR2);
-	int PWMW = PWMPulse * CheckActive(TIM2->CCR3);
+	int PWMU = PWMPulse * CheckActive(TIM3->CCR1);
+	int PWMV = PWMPulse * CheckActive(TIM3->CCR2);
+	int PWMW = PWMPulse * CheckActive(TIM3->CCR3);
 
 	// Set PWM duty cycle to zero for switching MOSFETS states
-	TIM2->CCR1 = 0;
-	TIM2->CCR2 = 0;
-	TIM2->CCR3 = 0;
+	TIM3->CCR1 = 0;
+	TIM3->CCR2 = 0;
+	TIM3->CCR3 = 0;
 
 	// Set new MOSFETS states
 	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output U to HAL state W
@@ -234,9 +237,9 @@ void EXTI9_5_IRQHandler(void)
 	// HALPrev = GPIOB->IDR << 8;
 
 	// Set PWM duty cycle to previous saved state of preceding channel
-	TIM2->CCR1 = PWMV;
-	TIM2->CCR2 = PWMW;
-	TIM2->CCR3 = PWMU;
+	TIM3->CCR1 = PWMU;
+	TIM3->CCR2 = PWMV;
+	TIM3->CCR3 = PWMW;
 
 	// Cycle through states
 	/*int temp   = PWMPulse * CheckActive(TIM2->CCR1);
@@ -245,12 +248,34 @@ void EXTI9_5_IRQHandler(void)
 	TIM2->CCR3 = temp; */
 
   /* USER CODE END EXTI9_5_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
 
   /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
+  */
+void TIM1_BRK_TIM9_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
+
+  uint32_t ARR = TIM3->ARR;
+  TIM3->CCR1 = ARR / sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+  TIM3->CCR2 = ARR / sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+  TIM3->CCR3 = ARR / sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
+
+  j = (j + 1) % AANTAL_TIJDSTAPPEN;
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim9);
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
 }
 
 /**
