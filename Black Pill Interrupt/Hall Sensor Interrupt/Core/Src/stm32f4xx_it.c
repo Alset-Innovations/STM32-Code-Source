@@ -22,6 +22,9 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,12 +47,15 @@
 
 int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0, j = 0;
 
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
 
 int CheckActive(uint32_t x);
+
+extern uint8_t CDC_Transmit_FS(uint8_t* buf, uint16_t len);
 
 /* USER CODE END PFP */
 
@@ -59,12 +65,16 @@ int CheckActive(uint32_t x);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim9;
+extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+extern TIM_HandleTypeDef htim4;
 /* USER CODE BEGIN EV */
 
 extern int PWMPulse;
 extern double sintab[];
+extern uint16_t CurrentRPM, WantedRPM;
+extern ADC_HandleTypeDef hadc1;
+
+// extern UART_HandleTypeDef huart6;
 
 /* USER CODE END EV */
 
@@ -213,6 +223,16 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 
+	// Calculate CurrentRPM using TIM2 and Hall Sensor Interrupt
+	CurrentRPM = (Fapb1clk / TIM2->CNT) * 60;
+
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
+
+	// Reset TIM2 for next measurement
+	TIM2->CNT = 0x0000;
+
 	/*
 	//TIM2->CCR3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) * PWMPulse;
 
@@ -242,10 +262,11 @@ void EXTI9_5_IRQHandler(void)
 	TIM3->CCR3 = PWMW;
 
 	// Cycle through states
-	/*int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+	int temp   = PWMPulse * CheckActive(TIM2->CCR1);
 	TIM2->CCR1 = PWMPulse * CheckActive(TIM2->CCR2);
 	TIM2->CCR2 = PWMPulse * CheckActive(TIM2->CCR3);
-	TIM2->CCR3 = temp; */
+	TIM2->CCR3 = temp;
+	*/
 
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
@@ -257,39 +278,43 @@ void EXTI9_5_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
+  * @brief This function handles TIM4 global interrupt.
   */
-void TIM1_BRK_TIM9_IRQHandler(void)
+void TIM4_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
+  /* USER CODE BEGIN TIM4_IRQn 0 */
 
-  uint32_t ARR = TIM3->ARR;
-  TIM3->CCR1 = ARR / sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
-  TIM3->CCR2 = ARR / sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
-  TIM3->CCR3 = ARR / sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
+	// Set PWM timers to next step in sinusoid generation
+	uint32_t ARR = TIM3->ARR;
+	TIM3->CCR1 = ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR2 = ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR3 = ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
 
-  j = (j + 1) % AANTAL_TIJDSTAPPEN;
+	j++;
 
-  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  HAL_TIM_IRQHandler(&htim9);
-  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+	if( j > AANTAL_TIJDSTAPPEN) {
+	  j = 0; // Reset j when full sinusoid has been made.
+	}
 
-  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+  /* USER CODE END TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim4);
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
 }
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
+  * @brief This function handles USB On The Go FS global interrupt.
   */
-void TIM1_TRG_COM_TIM11_IRQHandler(void)
+void OTG_FS_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
+  /* USER CODE BEGIN OTG_FS_IRQn 0 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
+  /* USER CODE END OTG_FS_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
+  /* USER CODE BEGIN OTG_FS_IRQn 1 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
+  /* USER CODE END OTG_FS_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
