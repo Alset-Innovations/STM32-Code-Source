@@ -46,7 +46,7 @@
 /* USER CODE BEGIN PV */
 
 int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0, j = 0;
-
+uint16_t RPM = 0;
 
 /* USER CODE END PV */
 
@@ -66,7 +66,9 @@ extern uint8_t CDC_Transmit_FS(uint8_t* buf, uint16_t len);
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
-extern TIM_HandleTypeDef htim4;
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim9;
+extern TIM_HandleTypeDef htim10;
 /* USER CODE BEGIN EV */
 
 extern int PWMPulse;
@@ -223,8 +225,11 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 
+	RPM++;
+
+	/*
 	// Calculate CurrentRPM using TIM2 and Hall Sensor Interrupt
-	CurrentRPM = (Fapb1clk / TIM2->CNT) * 60;
+	CurrentRPM = (TIM2->CNT / Fapb1clk) * 360;
 
 	if (CurrentRPM > MaximumRPM) {
 		GPIOC->ODR &= 0x1FFF;
@@ -232,6 +237,7 @@ void EXTI9_5_IRQHandler(void)
 
 	// Reset TIM2 for next measurement
 	TIM2->CNT = 0x0000;
+	*/
 
 	/*
 	//TIM2->CCR3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) * PWMPulse;
@@ -278,17 +284,40 @@ void EXTI9_5_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM4 global interrupt.
+  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
   */
-void TIM4_IRQHandler(void)
+void TIM1_BRK_TIM9_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM4_IRQn 0 */
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
+
+	CurrentRPM = 600 * (RPM / 6.0f);
+	RPM = 0;
+
+	// Disable Gate Drivers if RPM is too high.
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim9);
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
+  */
+void TIM1_UP_TIM10_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
+
 
 	// Set PWM timers to next step in sinusoid generation
-	uint32_t ARR = TIM3->ARR;
-	TIM3->CCR1 = ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
-	TIM3->CCR2 = ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
-	TIM3->CCR3 = ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR1 = TIM3ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR2 = TIM3ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR3 = TIM3ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
 
 	j++;
 
@@ -296,11 +325,13 @@ void TIM4_IRQHandler(void)
 	  j = 0; // Reset j when full sinusoid has been made.
 	}
 
-  /* USER CODE END TIM4_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim4);
-  /* USER CODE BEGIN TIM4_IRQn 1 */
 
-  /* USER CODE END TIM4_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim10);
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 
 /**
