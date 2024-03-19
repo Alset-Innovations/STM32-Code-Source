@@ -69,6 +69,8 @@ static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
+void StartupSequence();
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
