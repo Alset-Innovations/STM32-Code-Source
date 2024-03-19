@@ -1,0 +1,10 @@
+00:52:30 **** Incremental Build of configuration Debug for project Hall Sensor Sinus ****
+make -j12 all 
+arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
+Finished building: default.size.stdout
+ 
+
+00:52:30 Build Finished. 0 errors, 0 warnings. (took 230ms)
+
