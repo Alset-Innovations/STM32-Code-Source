@@ -1111,3 +1111,1800 @@ arm-none-eabi-size  Sinus.elf
   49416	    340	  13784	  63540	   f834	Sinus.elf
 Finished building: default.size.stdout
  
+00:56:07 **** Build of configuration Debug for project Black Pill Test ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f411ceux.d" -MT"Core/Startup/startup_stm32f411ceux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f411ceux.o" "../Core/Startup/startup_stm32f411ceux.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "Black Pill Test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Test\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Black Pill Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Black Pill Test.elf
+ 
+arm-none-eabi-size  Black\ Pill\ Test.elf 
+arm-none-eabi-objdump -h -S Black\ Pill\ Test.elf  > "Black Pill Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9576	     20	   1644	  11240	   2be8	Black Pill Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: Black Pill Test.list
+ 
+00:56:12 **** Build of configuration Debug for project Black pill v2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f411ceux.d" -MT"Core/Startup/startup_stm32f411ceux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f411ceux.o" "../Core/Startup/startup_stm32f411ceux.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "Black pill v2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black pill v2\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Black pill v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Black pill v2.elf
+ 
+arm-none-eabi-size  Black\ pill\ v2.elf 
+arm-none-eabi-objdump -h -S Black\ pill\ v2.elf  > "Black pill v2.list"
+   text	   data	    bss	    dec	    hex	filename
+   4756	     20	   1572	   6348	   18cc	Black pill v2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Black pill v2.list
+ 
+00:56:16 **** Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+00:56:18 **** Build of configuration Debug for project Hall Sensor Sinus ****
+make -j8 all 
+arm-none-eabi-gcc -o "Hall Sensor Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Hall Sensor Sinus.elf
+ 
+arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
+arm-none-eabi-objdump -h -S Hall\ Sensor\ Sinus.elf  > "Hall Sensor Sinus.list"
+   text	   data	    bss	    dec	    hex	filename
+  50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
+Finished building: default.size.stdout
+ 
+Finished building: Hall Sensor Sinus.list
+ 
+00:56:20 **** Build of configuration Debug for project Sinus ****
+make -j8 all 
+arm-none-eabi-gcc -o "Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Sinus\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sinus.elf
+ 
+arm-none-eabi-size  Sinus.elf 
+arm-none-eabi-objdump -h -S Sinus.elf  > "Sinus.list"
+   text	   data	    bss	    dec	    hex	filename
+  49416	    340	  13784	  63540	   f834	Sinus.elf
+Finished building: default.size.stdout
+ 
+Finished building: Sinus.list
+ 
+10:57:50 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+10:58:01 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+10:58:28 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+10:59:22 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+11:01:08 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+11:01:22 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39216	    260	   9276	  48752	   be70	Commutation.elf
+Finished building: default.size.stdout
+ 
+11:12:35 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:29: error: 'TIM_CHANNEL_1N' undeclared (first use in this function); did you mean 'TIM_CHANNEL_1'?
+  125 |   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1N);
+      |                             ^~~~~~~~~~~~~~
+      |                             TIM_CHANNEL_1
+../Core/Src/main.c:125:29: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:12:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38484	    260	   9276	  48020	   bb94	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+11:22:28 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39668	    260	   9276	  49204	   c034	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+11:22:34 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39668	    260	   9276	  49204	   c034	Commutation.elf
+Finished building: default.size.stdout
+ 
+11:47:11 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:58:1: error: unknown type name 'TIM_HallSensor_InitTypdef'; did you mean 'TIM_HallSensor_InitTypeDef'?
+   58 | TIM_HallSensor_InitTypdef sconfig;
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~
+      | TIM_HallSensor_InitTypeDef
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:135:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' makes pointer from integer without a cast [-Wint-conversion]
+  135 |   HAL_TIMEx_HallSensor_Init(&htim4, 1);
+      |                                     ^
+      |                                     |
+      |                                     int
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'MX_TIM4_Init':
+../Core/Src/main.c:473:37: error: incompatible type for argument 2 of 'HAL_TIMEx_HallSensor_Init'
+  473 |   HAL_TIMEx_HallSensor_Init(&htim4, sConfigOC);
+      |                                     ^~~~~~~~~
+      |                                     |
+      |                                     TIM_OC_InitTypeDef
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_OC_InitTypeDef'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:51:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:61:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   61 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:62:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   62 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:63:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   63 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:141:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' makes pointer from integer without a cast [-Wint-conversion]
+  141 |   HAL_TIMEx_HallSensor_Init(&htim4, 1);
+      |                                     ^
+      |                                     |
+      |                                     int
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:52:36 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:61:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   61 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:62:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   62 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:63:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   63 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:53:00 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: error: initializer element is not constant
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: note: (near initialization for 'TimHallConfig.IC1Polarity')
+../Core/Src/main.c:60:50: error: expected '}' before ';' token
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |                                                  ^
+../Core/Src/main.c:58:44: note: to match this '{'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {
+      |                                            ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:53:17 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: error: initializer element is not constant
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: note: (near initialization for 'TimHallConfig.IC1Polarity')
+../Core/Src/main.c:61:1: error: expected '}' before 'TimHallConfig'
+   61 | TimHallConfig.IC1Filter = 0
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:58:44: note: to match this '{'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {
+      |                                            ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:53:33 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: error: initializer element is not constant
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: note: (near initialization for 'TimHallConfig.IC1Polarity')
+../Core/Src/main.c:61:1: error: expected '}' before 'TimHallConfig'
+   61 | TimHallConfig.IC1Filter = 0
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:58:44: note: to match this '{'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {
+      |                                            ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:54:15 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   60 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:61:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   61 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:62:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   62 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:63:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   63 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:59:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:63:3: error: conflicting types for 'TIM_HallSensor_InitTypeDef'; have 'struct __TIM_HallSensor_InitTypeDef'
+   63 | } TIM_HallSensor_InitTypeDef;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:60:3: note: previous declaration of 'TIM_HallSensor_InitTypeDef' with type 'TIM_HallSensor_InitTypeDef'
+   60 | } TIM_HallSensor_InitTypeDef;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:67:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   67 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  147 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     TIM_HallSensor_InitTypeDef * {aka struct __TIM_HallSensor_InitTypeDef *}
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_HallSensor_InitTypeDef *' {aka 'struct __TIM_HallSensor_InitTypeDef *'}
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:01:23 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:63:2: error: conflicting types for 'TIM_HallSensor_InitTypeDef'; have 'struct __TIM_HallSensor_InitTypeDef'
+   63 | }TIM_HallSensor_InitTypeDef;
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:60:3: note: previous declaration of 'TIM_HallSensor_InitTypeDef' with type 'TIM_HallSensor_InitTypeDef'
+   60 | } TIM_HallSensor_InitTypeDef;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:67:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   67 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  147 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     TIM_HallSensor_InitTypeDef * {aka struct __TIM_HallSensor_InitTypeDef *}
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_HallSensor_InitTypeDef *' {aka 'struct __TIM_HallSensor_InitTypeDef *'}
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:01:42 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:63:2: error: conflicting types for 'TIM_HallSensor_InitTypeDef'; have 'struct TIM_HallSensor_InitTypeDef'
+   63 | }TIM_HallSensor_InitTypeDef;
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:60:3: note: previous declaration of 'TIM_HallSensor_InitTypeDef' with type 'TIM_HallSensor_InitTypeDef'
+   60 | } TIM_HallSensor_InitTypeDef;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:67:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   67 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  147 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     TIM_HallSensor_InitTypeDef *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_HallSensor_InitTypeDef *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:02:02 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:63:1: warning: useless storage class specifier in empty declaration
+   63 | };
+      | ^
+../Core/Src/main.c:67:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   67 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:02:32 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:63:2: error: conflicting types for 'TIM_HallSensor_InitTypeDef'; have 'struct __TIM_HallSensor_InitTypeDef'
+   63 | }TIM_HallSensor_InitTypeDef;
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:60:3: note: previous declaration of 'TIM_HallSensor_InitTypeDef' with type 'TIM_HallSensor_InitTypeDef'
+   60 | } TIM_HallSensor_InitTypeDef;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:67:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   67 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  147 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     TIM_HallSensor_InitTypeDef * {aka struct __TIM_HallSensor_InitTypeDef *}
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_HallSensor_InitTypeDef *' {aka 'struct __TIM_HallSensor_InitTypeDef *'}
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:03:55 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:71:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   71 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:04:13 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:68:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   68 | TimHallConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+      |              ^
+../Core/Src/main.c:69:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   69 | TimHallConfig.IC1Filter = 0;
+      |              ^
+../Core/Src/main.c:70:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   70 | TimHallConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+      |              ^
+../Core/Src/main.c:71:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+   71 | TimHallConfig.Commutation_Delay = 0;
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     TIM_HallSensor_InitTypeDef1 * {aka struct __TIM_HallSensor_InitTypeDef *}
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'TIM_HallSensor_InitTypeDef1 *' {aka 'struct __TIM_HallSensor_InitTypeDef *'}
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:04:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:68:1: warning: data definition has no type or storage class
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:68:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:68:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:68:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: data definition has no type or storage class
+   69 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:69:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:69:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   69 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:70:1: warning: data definition has no type or storage class
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:70:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:70:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:70:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: data definition has no type or storage class
+   71 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:71:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:71:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   71 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:05:40 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:68:1: warning: data definition has no type or storage class
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:68:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:68:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:68:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: data definition has no type or storage class
+   69 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:69:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:69:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   69 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:70:1: warning: data definition has no type or storage class
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:70:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:70:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:70:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: data definition has no type or storage class
+   71 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:71:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:71:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   71 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:06:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:68:1: warning: data definition has no type or storage class
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:68:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:68:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:68:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   68 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: data definition has no type or storage class
+   69 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:69:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:69:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:69:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   69 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:70:1: warning: data definition has no type or storage class
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:70:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:70:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:70:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   70 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: data definition has no type or storage class
+   71 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:71:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:71:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:66:29: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef1' {aka 'struct __TIM_HallSensor_InitTypeDef1'}
+   66 | TIM_HallSensor_InitTypeDef1 TimHallConfig = {0};
+      |                             ^~~~~~~~~~~~~
+../Core/Src/main.c:71:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   71 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:08:14 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:09:05 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | TimHallConfig,IC1Polarity = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | TimHallConfig,IC1Polarity = 0;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | TimHallConfig,IC1Prescaler = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | TimHallConfig,IC1Prescaler = 0;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:09:17 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | TimHallConfig,IC1Prescaler = TIM_ICPSC_DIV1;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:10:37 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:59:9: error: incompatible types when initializing type 'long unsigned int' using type 'TIM_HallSensor_InitTypeDef'
+   59 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:59:23: error: 'IC1Polarity' undeclared here (not in a function)
+   59 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |                       ^~~~~~~~~~~
+../Core/Src/main.c:59:58: error: expected '}' before ';' token
+   59 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING;
+      |                                                          ^
+../Core/Src/main.c:58:44: note: to match this '{'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {
+      |                                            ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:11:38 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:59:9: error: incompatible types when initializing type 'long unsigned int' using type 'TIM_HallSensor_InitTypeDef'
+   59 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:59:23: error: 'IC1Polarity' undeclared here (not in a function)
+   59 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING
+      |                       ^~~~~~~~~~~
+../Core/Src/main.c:60:9: error: expected '}' before 'TimHallConfig'
+   60 |         TimHallConfig,IC1Filter = 0
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:58:44: note: to match this '{'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {
+      |                                            ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:11:49 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:9: error: incompatible types when initializing type 'long unsigned int' using type 'TIM_HallSensor_InitTypeDef'
+   60 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:60:23: error: 'IC1Polarity' undeclared here (not in a function)
+   60 |         TimHallConfig,IC1Polarity = TIM_ICPOLARITY_RISING
+      |                       ^~~~~~~~~~~
+../Core/Src/main.c:61:9: error: expected '}' before 'TimHallConfig'
+   61 |         TimHallConfig,IC1Filter = 0
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:59:1: note: to match this '{'
+   59 | {
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:17:33 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:9: error: incompatible types when initializing type 'long unsigned int' using type 'TIM_HallSensor_InitTypeDef'
+   60 |         TimHallConfig,IC1Polarity = 1
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:60:23: error: 'IC1Polarity' undeclared here (not in a function)
+   60 |         TimHallConfig,IC1Polarity = 1
+      |                       ^~~~~~~~~~~
+../Core/Src/main.c:61:9: error: expected '}' before 'TimHallConfig'
+   61 |         TimHallConfig,IC1Filter = 0
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:59:1: note: to match this '{'
+   59 | {
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:18:24 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | TimHallConfig,IC1Polarity = 1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | TimHallConfig,IC1Polarity = 1;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | TimHallConfig,IC1Prescaler = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | TimHallConfig,IC1Prescaler = 0;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:28:19 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | TimHallConfig,IC1Polarity = 1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | TimHallConfig,IC1Polarity = 1;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | TimHallConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | TimHallConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | TimHallConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | TimHallConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:62:36: error: 'TIM_TypeDef' has no member named 'CCRM1'; did you mean 'CCMR1'?
+   62 | TimHallConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |                                    ^~~~~
+      |                                    CCMR1
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | TimHallConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'TimHallConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'TimHallConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'TimHallConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef TimHallConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | TimHallConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:29:21 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | HallTimConfig,IC1Polarity = 1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | HallTimConfig,IC1Polarity = 1;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | HallTimConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | HallTimConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:62:36: error: 'TIM_TypeDef' has no member named 'CCRM1'; did you mean 'CCMR1'?
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |                                    ^~~~~
+      |                                    CCMR1
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | HallTimConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | HallTimConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:38: error: 'TimHallConfig' undeclared (first use in this function)
+  140 |   HAL_TIMEx_HallSensor_Init(&htim4, &TimHallConfig);
+      |                                      ^~~~~~~~~~~~~
+../Core/Src/main.c:140:38: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:32:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | HallTimConfig,IC1Polarity = 1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | HallTimConfig,IC1Polarity = 1;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | HallTimConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | HallTimConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:62:36: error: 'TIM_TypeDef' has no member named 'CCRM1'; did you mean 'CCMR1'?
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |                                    ^~~~~
+      |                                    CCMR1
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | HallTimConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {0};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | HallTimConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |   HAL_TIMEx_HallSensor_Init(&htim4, &HallTimConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:32:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:60:1: warning: data definition has no type or storage class
+   60 | HallTimConfig,IC1Polarity = 1;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:60:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:60:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:60:15: warning: type defaults to 'int' in declaration of 'IC1Polarity' [-Wimplicit-int]
+   60 | HallTimConfig,IC1Polarity = 1;
+      |               ^~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: data definition has no type or storage class
+   61 | HallTimConfig,IC1Filter = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:61:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:61:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:61:15: warning: type defaults to 'int' in declaration of 'IC1Filter' [-Wimplicit-int]
+   61 | HallTimConfig,IC1Filter = 0;
+      |               ^~~~~~~~~
+../Core/Src/main.c:62:1: warning: data definition has no type or storage class
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:62:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:62:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:62:15: warning: type defaults to 'int' in declaration of 'IC1Prescaler' [-Wimplicit-int]
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |               ^~~~~~~~~~~~
+../Core/Src/main.c:62:36: error: 'TIM_TypeDef' has no member named 'CCRM1'; did you mean 'CCMR1'?
+   62 | HallTimConfig,IC1Prescaler = TIM4->CCRM1 &= 0x000C;
+      |                                    ^~~~~
+      |                                    CCMR1
+../Core/Src/main.c:63:1: warning: data definition has no type or storage class
+   63 | HallTimConfig,Commutation_Delay = 0;
+      | ^~~~~~~~~~~~~
+../Core/Src/main.c:63:1: warning: type defaults to 'int' in declaration of 'HallTimConfig' [-Wimplicit-int]
+../Core/Src/main.c:63:1: error: conflicting types for 'HallTimConfig'; have 'int'
+../Core/Src/main.c:58:28: note: previous definition of 'HallTimConfig' with type 'TIM_HallSensor_InitTypeDef'
+   58 | TIM_HallSensor_InitTypeDef HallTimConfig = {};
+      |                            ^~~~~~~~~~~~~
+../Core/Src/main.c:63:15: warning: type defaults to 'int' in declaration of 'Commutation_Delay' [-Wimplicit-int]
+   63 | HallTimConfig,Commutation_Delay = 0;
+      |               ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:140:37: warning: passing argument 2 of 'HAL_TIMEx_HallSensor_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |   HAL_TIMEx_HallSensor_Init(&htim4, &HallTimConfig);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     |
+      |                                     int *
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1876,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:208:98: note: expected 'TIM_HallSensor_InitTypeDef *' but argument is of type 'int *'
+  208 | HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
+      |                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:35:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39260	    260	   9276	  48796	   be9c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+12:54:33 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'MX_NVIC_Init'; did you mean 'MX_SPI1_Init'? [-Wimplicit-function-declaration]
+  119 |   MX_NVIC_Init();
+      |   ^~~~~~~~~~~~
+      |   MX_SPI1_Init
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/Debug/../Core/Src/main.c:119: undefined reference to `MX_NVIC_Init'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:68: Commutation.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:54:57 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39296	    260	   9276	  48832	   bec0	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:04:24 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:26: error: 'htim2' undeclared (first use in this function); did you mean 'htim9'?
+  123 |   HAL_TIM_Base_Start_IT(&htim2);
+      |                          ^~~~~
+      |                          htim9
+../Core/Src/main.c:123:26: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:04:36 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:26: error: 'htim2' undeclared (first use in this function); did you mean 'htim9'?
+  123 |   HAL_TIM_Base_Start_IT(&htim2);
+      |                          ^~~~~
+      |                          htim9
+../Core/Src/main.c:123:26: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:04:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39504	    260	   9276	  49040	   bf90	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:04:57 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39504	    260	   9276	  49040	   bf90	Commutation.elf
+Finished building: default.size.stdout
+ 
+13:56:10 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39512	    260	   9276	  49048	   bf98	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:56:46 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39512	    260	   9276	  49048	   bf98	Commutation.elf
+Finished building: default.size.stdout
+ 
+13:58:03 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:9: error: 'i' undeclared (first use in this function)
+  149 |         i++;
+      |         ^
+../Core/Src/main.c:149:9: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:58:30 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39528	    260	   9276	  49064	   bfa8	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+14:01:05 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39564	    260	   9276	  49100	   bfcc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+14:03:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39556	    260	   9276	  49092	   bfc4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+14:05:02 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39520	    260	   9276	  49056	   bfa0	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+14:06:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39520	    260	   9276	  49056	   bfa0	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+14:09:06 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39532	    260	   9276	  49068	   bfac	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:29:15 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:121:44: error: 'TIM_TS_ITS1' undeclared (first use in this function); did you mean 'TIM_TS_ITR1'?
+  121 |   HAL_TIMEx_ConfigCommutationEvent(&htim1, TIM_TS_ITS1, TIM_COMMUTATION_TRGI);
+      |                                            ^~~~~~~~~~~
+      |                                            TIM_TS_ITR1
+../Core/Src/main.c:121:44: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:34:34 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39532	    260	   9276	  49068	   bfac	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:36:42 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39024	    260	   9204	  48488	   bd68	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:05:20 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c:57:27: error: invalid initializer
+   57 | uint16_t Commutation[6] = 0;
+      |                           ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:05:36 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38912	    260	   9204	  48376	   bcf8	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:05:53 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38912	    260	   9204	  48376	   bcf8	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:12:42 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38912	    260	   9204	  48376	   bcf8	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:15:09 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38912	    260	   9204	  48376	   bcf8	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:16:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38948	    260	   9204	  48412	   bd1c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:22:44 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:24:20 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:27:24 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:30:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38972	    260	   9204	  48436	   bd34	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:40:03 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38972	    260	   9204	  48436	   bd34	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:48:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38972	    260	   9204	  48436	   bd34	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:50:21 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:55:37 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38956	    260	   9204	  48420	   bd24	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:57:00 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:12:55 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38964	    260	   9204	  48428	   bd2c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:13:24 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38956	    260	   9204	  48420	   bd24	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:31:36 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38956	    260	   9204	  48420	   bd24	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:39:34 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38968	    260	   9204	  48432	   bd30	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:46:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38960	    260	   9204	  48424	   bd28	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+19:48:46 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38980	    260	   9204	  48444	   bd3c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
