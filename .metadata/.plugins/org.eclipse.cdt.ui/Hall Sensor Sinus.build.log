@@ -1,16 +1,10 @@
-00:56:18 **** Build of configuration Debug for project Hall Sensor Sinus ****
+16:39:07 **** Incremental Build of configuration Debug for project Hall Sensor Sinus ****
 make -j8 all 
-arm-none-eabi-gcc -o "Hall Sensor Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Hall Sensor Sinus.elf
- 
 arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
-arm-none-eabi-objdump -h -S Hall\ Sensor\ Sinus.elf  > "Hall Sensor Sinus.list"
    text	   data	    bss	    dec	    hex	filename
   50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
 Finished building: default.size.stdout
  
-Finished building: Hall Sensor Sinus.list
- 
 
-00:56:20 Build Finished. 0 errors, 0 warnings. (took 1s.635ms)
+16:39:08 Build Finished. 0 errors, 0 warnings. (took 518ms)
 

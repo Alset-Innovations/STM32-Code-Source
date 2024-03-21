@@ -47,6 +47,10 @@
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
 
+HAL_StatusTypeDef StartupSequence(char Direction);
+HAL_StatusTypeDef StopSequence();
+HAL_StatusTypeDef PrepareCommutation(char Direction);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -58,9 +62,10 @@
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint8_t HallSensor;
+extern double CurrentRPM;
 
 /* USER CODE END EV */
 
@@ -203,15 +208,34 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
+  */
+void TIM1_BRK_TIM9_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
+
+  CurrentRPM = 0;
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim9);
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
   */
 void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	// Set new Commutation states CCxE, CCxNE, OCxM in CCER and CCMR1 and CCMR2 according to array
-	// Reset COMIF in SR register
+  // Set next Commutation states
+  PrepareCommutation('F');
 
+  // Reset COMIF in SR register
+  TIM1->SR &= ~TIM_SR_COMIF;
 
   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -226,6 +250,16 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+
+  uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+  if ( HallTime > 0 ) {
+	  CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
+  } else {
+	  CurrentRPM = 0;
+  }
+
+  // Reset Timer 9 counter.
+  TIM9->CNT = 0x0;
 
   // Set COMG bit in EGR
   TIM1->EGR |= TIM_EGR_COMG;
