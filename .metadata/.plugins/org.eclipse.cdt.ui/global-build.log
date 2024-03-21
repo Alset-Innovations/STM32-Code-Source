@@ -2908,3 +2908,314 @@ Finished building: default.size.stdout
  
 Finished building: Commutation.list
  
+09:07:37 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:72:22: error: unknown type name 'bool'
+   72 | void StartupSequence(bool Direction);
+      |                      ^~~~
+../Core/Src/main.c:22:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   21 | #include "usb_device.h"
+  +++ |+#include <stdbool.h>
+   22 | 
+../Core/Src/main.c:169:22: error: unknown type name 'bool'
+  169 | void StartupSequence(bool Direction);
+      |                      ^~~~
+../Core/Src/main.c:169:22: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:09:34 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38980	    260	   9204	  48444	   bd3c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:09:54 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:72:35: error: expected ';', ',' or ')' before '=' token
+   72 | int StartupSequence(int Direction = 1);
+      |                                   ^
+../Core/Src/main.c:169:35: error: expected ';', ',' or ')' before '=' token
+  169 | int StartupSequence(int Direction = 1);
+      |                                   ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:11:04 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38980	    260	   9204	  48444	   bd3c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:23:31 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:539:3: warning: implicit declaration of function 'HAL_TIM_Base_IT_Start'; did you mean 'HAL_TIM_Base_Start'? [-Wimplicit-function-declaration]
+  539 |   HAL_TIM_Base_IT_Start(&htim2);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+      |   HAL_TIM_Base_Start
+../Core/Src/main.c:542:1: warning: control reaches end of non-void function [-Wreturn-type]
+  542 | }
+      | ^
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38504	    260	   9204	  47968	   bb60	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:24:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:542:1: warning: control reaches end of non-void function [-Wreturn-type]
+  542 | }
+      | ^
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38504	    260	   9204	  47968	   bb60	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:24:46 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38504	    260	   9204	  47968	   bb60	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:29:02 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    260	   9204	  47976	   bb68	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:36:18 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:529:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(int)'
+  529 | HAL_StatusTypeDef StartupSequence(int Direction) {
+      |                   ^~~~~~~~~~~~~~~
+../Core/Src/main.c:73:5: note: previous declaration of 'StartupSequence' with type 'int(int)'
+   73 | int StartupSequence(int Direction);
+      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrepareCommutation':
+../Core/Src/main.c:559:1: warning: control reaches end of non-void function [-Wreturn-type]
+  559 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:37:23 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:529:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(int)'
+  529 | HAL_StatusTypeDef StartupSequence(int Direction) {
+      |                   ^~~~~~~~~~~~~~~
+../Core/Src/main.c:73:5: note: previous declaration of 'StartupSequence' with type 'int(int)'
+   73 | int StartupSequence(int Direction);
+      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:38:12 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:529:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef()'
+  529 | HAL_StatusTypeDef StartupSequence() {
+      |                   ^~~~~~~~~~~~~~~
+../Core/Src/main.c:73:5: note: previous declaration of 'StartupSequence' with type 'int(int)'
+   73 | int StartupSequence(int Direction);
+      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:39:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:529:6: error: conflicting types for 'StartupSequence'; have 'void()'
+  529 | void StartupSequence() {
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:73:5: note: previous declaration of 'StartupSequence' with type 'int(int)'
+   73 | int StartupSequence(int Direction);
+      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:533:18: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  533 |           return HAL_ERROR;
+      |                  ^~~~~~~~~
+../Core/Src/main.c:529:6: note: declared here
+  529 | void StartupSequence() {
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:39:52 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:529:6: error: conflicting types for 'StartupSequence'; have 'void()'
+  529 | void StartupSequence() {
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:73:5: note: previous declaration of 'StartupSequence' with type 'int(int)'
+   73 | int StartupSequence(int Direction);
+      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:40:11 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:532:7: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:555:19: error: conflicting types for 'PrepareCommutation'; have 'HAL_StatusTypeDef()'
+  555 | HAL_StatusTypeDef PrepareCommutation() {
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:532:7: note: previous implicit declaration of 'PrepareCommutation' with type 'int()'
+  532 |   if (PrepareCommutation() == HAL_ERROR) {
+      |       ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:40:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    260	   9204	  47976	   bb68	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:41:28 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    260	   9204	  47976	   bb68	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+09:41:32 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38512	    260	   9204	  47976	   bb68	Commutation.elf
+Finished building: default.size.stdout
+ 
+09:44:13 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  39060	    260	   9204	  48524	   bd8c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 

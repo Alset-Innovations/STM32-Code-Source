@@ -60,8 +60,6 @@ extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN EV */
 
-extern uint8_t HallSensor;
-
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -227,8 +225,8 @@ void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
 
-  // Set COMG bit in EGR
-  TIM1->EGR |= TIM_EGR_COMG;
+	// Set COMG bit in EGR
+	TIM1->EGR = TIM_EGR_COMG;
 
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);

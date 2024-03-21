@@ -553,15 +553,6 @@ HAL_StatusTypeDef StartupSequence(char Direction) {
 
 HAL_StatusTypeDef PrepareCommutation() {
 
-  // Read IDR for Hall Sensor status
-  uint8_t Hall = GPOIA->IDR & 0x0007;
-
-  switch (Hall) {
-  case 0b001:
-	  HallSensor = 0;
-  break;
-  }
-
   return HAL_OK;
 
 }

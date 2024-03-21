@@ -122,8 +122,6 @@ int main(void)
   TIM1->SR &= ~TIM_SR_COMIF; 	// Set COMIF low in SR to not trigger commutation event
   TIM1->DIER |= TIM_DIER_COMIE; // Enable Commutation events in DIER register
 
-  StartupSequence('F');
-
   /*
   // Registers for XOR function (Done in IOC)
   TIM4->ARR = 0xFFFFFFFF; 	// Set ARR to max value (32 bits)
@@ -132,6 +130,10 @@ int main(void)
   TIM4->CCMR1 &= 0xFCFF; 	// Can also be done in the ioc.
   TIM4->CCMR1 |= 0x7003; 	// Can also be done in the ioc.
   */
+
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
   // Dead-time can be controlled using DTG[7:0] in TIM1->BDTR register.
   // Control timer output with TIM1->CCER register.
@@ -552,15 +554,6 @@ HAL_StatusTypeDef StartupSequence(char Direction) {
 }
 
 HAL_StatusTypeDef PrepareCommutation() {
-
-  // Read IDR for Hall Sensor status
-  uint8_t Hall = GPOIA->IDR & 0x0007;
-
-  switch (Hall) {
-  case 0b001:
-	  HallSensor = 0;
-  break;
-  }
 
   return HAL_OK;
 
