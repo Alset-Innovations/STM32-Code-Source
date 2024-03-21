@@ -62,10 +62,6 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 
-#define CCERH
-#define CCERL
-#define CCERO
-
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

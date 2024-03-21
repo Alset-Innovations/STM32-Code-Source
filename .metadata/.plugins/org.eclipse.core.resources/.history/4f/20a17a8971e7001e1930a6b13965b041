@@ -55,14 +55,7 @@ UART_HandleTypeDef huart1;
 /* USER CODE BEGIN PV */
 
 uint8_t HallSensor = 0;
-uint16_t Commutation[6][3] = {
-		{0x0, 0xF, 0xF},
-		{},
-		{},
-		{},
-		{},
-		{}
-};
+uint16_t Commutation[6][3];
 
 /* USER CODE END PV */
 
