@@ -5003,3 +5003,144 @@ Finished building: default.size.stdout
  
 Finished building: Commutation.list
  
+10:51:27 **** Incremental Build of configuration Debug for project Black Pill Test ****
+make -j8 all 
+arm-none-eabi-size  Black\ Pill\ Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9576	     20	   1644	  11240	   2be8	Black Pill Test.elf
+Finished building: default.size.stdout
+ 
+10:51:27 **** Incremental Build of configuration Debug for project Black pill v2 ****
+make -j8 all 
+arm-none-eabi-size  Black\ pill\ v2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4756	     20	   1572	   6348	   18cc	Black pill v2.elf
+Finished building: default.size.stdout
+ 
+10:51:28 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  63340	    752	   9688	  73780	  12034	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+10:51:31 **** Incremental Build of configuration Debug for project Hall Sensor Sinus ****
+make -j8 all 
+arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
+Finished building: default.size.stdout
+ 
+10:51:31 **** Incremental Build of configuration Debug for project Sinus ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Sinus\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sinus.elf
+ 
+arm-none-eabi-size  Sinus.elf 
+arm-none-eabi-objdump -h -S Sinus.elf  > "Sinus.list"
+   text	   data	    bss	    dec	    hex	filename
+  49496	    340	  13784	  63620	   f884	Sinus.elf
+Finished building: default.size.stdout
+ 
+Finished building: Sinus.list
+ 
+18:45:42 **** Incremental Build of configuration Debug for project Black Pill Test ****
+make -j8 all 
+arm-none-eabi-size  Black\ Pill\ Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9576	     20	   1644	  11240	   2be8	Black Pill Test.elf
+Finished building: default.size.stdout
+ 
+18:45:43 **** Incremental Build of configuration Debug for project Black pill v2 ****
+make -j8 all 
+arm-none-eabi-size  Black\ pill\ v2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4756	     20	   1572	   6348	   18cc	Black pill v2.elf
+Finished building: default.size.stdout
+ 
+18:45:45 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartupSequence':
+../Core/Src/main.c:621:22: error: 'TIM_ST_COMIF' undeclared (first use in this function); did you mean 'TIM_SR_COMIF'?
+  621 |         TIM1->SR &= ~TIM_ST_COMIF;              // Clear Commutation interrupt flag
+      |                      ^~~~~~~~~~~~
+      |                      TIM_SR_COMIF
+../Core/Src/main.c:621:22: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:622:22: error: 'TIM_ST_BIF' undeclared (first use in this function); did you mean 'TIM_SR_BIF'?
+  622 |         TIM1->SR &= ~TIM_ST_BIF;                // Clear Break interrupt flag
+      |                      ^~~~~~~~~~
+      |                      TIM_SR_BIF
+../Core/Src/main.c:623:22: error: 'TIM_ST_TIF' undeclared (first use in this function); did you mean 'TIM_SR_TIF'?
+  623 |         TIM2->SR &= ~TIM_ST_TIF;                // Clear timer 2 interrupt flag
+      |                      ^~~~~~~~~~
+      |                      TIM_SR_TIF
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:45:48 **** Incremental Build of configuration Debug for project Hall Sensor Sinus ****
+make -j8 all 
+arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
+Finished building: default.size.stdout
+ 
+18:45:49 **** Incremental Build of configuration Debug for project Sinus ****
+make -j8 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49496	    340	  13784	  63620	   f884	Sinus.elf
+Finished building: default.size.stdout
+ 
+18:46:04 **** Incremental Build of configuration Debug for project Black Pill Test ****
+make -j8 all 
+arm-none-eabi-size  Black\ Pill\ Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9576	     20	   1644	  11240	   2be8	Black Pill Test.elf
+Finished building: default.size.stdout
+ 
+18:46:05 **** Incremental Build of configuration Debug for project Black pill v2 ****
+make -j8 all 
+arm-none-eabi-size  Black\ pill\ v2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4756	     20	   1572	   6348	   18cc	Black pill v2.elf
+Finished building: default.size.stdout
+ 
+18:46:06 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  63436	    752	   9688	  73876	  12094	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:46:09 **** Incremental Build of configuration Debug for project Hall Sensor Sinus ****
+make -j8 all 
+arm-none-eabi-size  Hall\ Sensor\ Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50880	    340	  13872	  65092	   fe44	Hall Sensor Sinus.elf
+Finished building: default.size.stdout
+ 
+18:46:10 **** Incremental Build of configuration Debug for project Sinus ****
+make -j8 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49496	    340	  13784	  63620	   f884	Sinus.elf
+Finished building: default.size.stdout
+ 

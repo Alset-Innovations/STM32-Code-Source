@@ -55,8 +55,6 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
-uint8_t Hall = 0;
-
 // Hex values are for CCER, CCMR2 and CCMR1 in this order.
 // CCER enables output while CCMRx sets PWM mode, forced active or forced inactive.
 uint16_t Commutation[6][3] = {
@@ -170,6 +168,7 @@ int main(void)
 	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
 	TIM1->CR1 &= ~0x0002; // Enable Update Events
 
+	// Transmit RPM value to PC via USB
 	len = snprintf(buf, sizeof(buf), "\n\rCurrent RPM: %04.2lf", CurrentRPM);
 	CDC_Transmit_FS((uint8_t *) buf, len);
 
@@ -302,7 +301,7 @@ static void MX_I2C2_Init(void)
   hi2c2.Instance = I2C2;
   hi2c2.Init.ClockSpeed = 100000;
   hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c2.Init.OwnAddress1 = 0;
+  hi2c2.Init.OwnAddress1 = 36;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c2.Init.OwnAddress2 = 0;
@@ -594,29 +593,46 @@ static void MX_GPIO_Init(void)
 
 HAL_StatusTypeDef StartupSequence(char Direction) {
 
-  // Set first commutation state according to Hall sensors
-  if (PrepareCommutation(Direction) == HAL_ERROR) {
-	  return HAL_ERROR;
-  }
+	// Set first commutation state according to Hall sensors
+	if (PrepareCommutation(Direction) == HAL_ERROR) {
+		return HAL_ERROR;
+	}
 
-  // Start HallSensor timer
-  HAL_TIMEx_HallSensor_Start(&htim2);
+	// Start HallSensor timer
+	HAL_TIMEx_HallSensor_Start(&htim2);
 
-  // Start all PWM signals on TIM1
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+	// Start all PWM signals on TIM1
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
-  // Start Interrupts
-  HAL_TIM_Base_Start_IT(&htim1);
-  HAL_TIM_Base_Start_IT(&htim2);
-  HAL_TIM_Base_Start_IT(&htim9);
+	// Disable all interrupts
+	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
+	TIM1->DIER &= ~TIM_DIER_BIE; 	// Disable break interrupt as this is shared with timer 9 interrupt
+	TIM2->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 2
+	TIM9->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 9
 
-  // Write some registers
-  TIM1->CR2  |= 0x0005; 		// Set CCPC 1 and CCUS 1 in CR2
-  TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
-  TIM1->DIER |= TIM_DIER_COMIE; // Enable Commutation events in DIER register
-  // TIM1->BDTR |= TIM_BDTR_OSSR;
+	// Start Interrupts
+	HAL_TIM_Base_Start_IT(&htim1);
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_TIM_Base_Start_IT(&htim9);
+
+	// Clear all interrupt triggers
+	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag
+	TIM1->SR &= ~TIM_SR_BIF;		// Clear Break interrupt flag
+	TIM2->SR &= ~TIM_SR_TIF;		// Clear timer 2 interrupt flag
+	TIM9->SR &= ~TIM_SR_TIF;		// Clear timer 9 interrupt flag
+
+	// Enable interrupts
+	TIM1->DIER |= TIM_DIER_COMIE;	// Enable Commutation events in DIER register
+	TIM2->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 2
+	TIM9->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 9
+
+	// Write some registers
+	TIM1->CR2  |= 0x0005; 			// Set CCPC 1 and CCUS 1 in CR2
+	TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
+	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable Commutation events in DIER register
+	// TIM1->BDTR |= TIM_BDTR_OSSR;
 
   return HAL_OK;
 
@@ -637,15 +653,15 @@ HAL_StatusTypeDef StopSequence() {
   while (((TIM1->SR >> 5) & 0x1) == 1); // Wait until Commutation event has happened
   TIM1->DIER &= ~TIM_DIER_COMIE; // Disable Commutation events in DIER register
 
-  // Stop PWM Timers
-  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
-
   // Stop interrupts
   HAL_TIM_Base_Stop_IT(&htim1);
   HAL_TIM_Base_Stop_IT(&htim2);
   HAL_TIM_Base_Stop_IT(&htim9);
+
+  // Stop PWM Timers
+  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
 
   return HAL_OK;
 
@@ -654,17 +670,17 @@ HAL_StatusTypeDef StopSequence() {
 HAL_StatusTypeDef PrepareCommutation(char Direction) {
 
   // Read IDR for Hall Sensor status
-  Hall = (GPIOA->IDR & 0x0007) - 1;
+  uint8_t Hall = (GPIOA->IDR & 0x0007) - 1;
 
   // Edit Hall data according to direction.
   switch (Direction) {
   case 'F':
-  	  Hall += 1; // Select next value in the array to go forward
+  	  Hall += 2; // Select next value in the array to go forward
 	  Hall %= 6; // If original was 5 it needs to be 0 to we use % 6
   break;
   case 'B':
 	  Hall += 6; // To not go negative in the next step we add 6
-	  Hall -= 1; // Select previous value to go backwards
+	  Hall -= 2; // Select previous value to go backwards
 	  Hall %= 6; // If original was 0 it needs to become 5, this also negates the 6 we added previously
   break;
   default:
