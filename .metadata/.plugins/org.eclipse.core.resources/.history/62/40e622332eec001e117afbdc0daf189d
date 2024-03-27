@@ -49,30 +49,17 @@ I2C_HandleTypeDef hi2c2;
 SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim1;
-TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim9;
+TIM_HandleTypeDef htim10;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
-// Hex values are for CCER, CCMR2 and CCMR1 in this order.
-// CCER enables output while CCMRx sets PWM mode, forced active or forced inactive.
-uint16_t Commutation[6][3] = {
-		{0x0401, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
-		{0x0104, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
-		{0x0410, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
-		{0x0014, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
-		{0x0041, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
-		{0x0140, 0x0868, 0x5848}  // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
-};
-
 uint16_t len = 0;
-uint16_t TargetRPM = 0;
+uint32_t WantedRPM = 0, CurrentRPM = 0;
 
-uint8_t PWM = 100;
-
-double CurrentRPM = 0;
+double sintab[AANTAL_TIJDSTAPPEN];
 char buf[64];
 
 /* USER CODE END PV */
@@ -81,18 +68,14 @@ char buf[64];
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
-static void MX_TIM1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
-static void MX_USART1_UART_Init(void);
-static void MX_TIM2_Init(void);
 static void MX_TIM9_Init(void);
+static void MX_TIM10_Init(void);
+static void MX_USART1_UART_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
-
-HAL_StatusTypeDef StartupSequence(char Direction);
-HAL_StatusTypeDef StopSequence();
-HAL_StatusTypeDef PrepareCommutation(char Direction);
 
 extern uint8_t CDC_Transmit_FS(uint8_t* buf, uint16_t len);
 
@@ -132,28 +115,34 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
-  MX_TIM1_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
+  MX_TIM9_Init();
+  MX_TIM10_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
-  MX_TIM2_Init();
-  MX_TIM9_Init();
   MX_I2C1_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  StartupSequence('F');
+    // Activate necessary timers.
+  	HAL_TIM_OC_Start(&htim9, TIM_CHANNEL_1);
+  	HAL_TIM_OC_Start(&htim10, TIM_CHANNEL_1);
+  	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 
-  /*
-  // Registers for XOR function (Done in IOC)
-  TIM4->ARR = 0xFFFFFFFF; 	// Set ARR to max value (32 bits)
-  TIM4->PSC = 0xFFFF; 		// Set PSC to max value (16 bits)
-  TIM4->CR2 |= 0x00D0; 		// Turn on XOR function.
-  TIM4->CCMR1 &= 0xFCFF; 	// Can also be done in the ioc.
-  TIM4->CCMR1 |= 0x7003; 	// Can also be done in the ioc.
-  */
+  	// Start Interrupts
+  	HAL_TIM_Base_Start_IT(&htim9);
+  	HAL_TIM_Base_Start_IT(&htim10);
 
-  // Dead-time can be controlled using DTG[7:0] in TIM1->BDTR register.
+  	// Fill sintab array
+	for (int i = 0; i < AANTAL_TIJDSTAPPEN; i++) {
+		sintab[i] = sin(i*2*M_PI/AANTAL_TIJDSTAPPEN) * 0.5 + 0.5;
+	}
+
+	// Enable Gate Drivers.
+	GPIOC->ODR = 0xE000;
 
   /* USER CODE END 2 */
 
@@ -162,21 +151,23 @@ int main(void)
   while (1)
   {
 
-	// Read Hall sensor for new PWM calculation
+	// Read Potentiometer data from ADC for RPM control.
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	TargetRPM = (HAL_ADC_GetValue(&hadc1) / 4096.0) * TIM1->ARR;
+	WantedRPM = HAL_ADC_GetValue(&hadc1);
 
-	// Transmit RPM value to PC via USB
-	len = snprintf(buf, sizeof(buf), "\n\rCurrent RPM: %04.2lf", CurrentRPM);
+	// Keep RPM to the minimum set in main.h.
+	if (WantedRPM < MinimumRPM) {
+		WantedRPM = MinimumRPM;
+	}
+
+	// Set PSC to appropriate value for RPM
+	TIM10->PSC = (15 * Fapb2clk) / (256 * WantedRPM) - 1;
+
+	// Send RPM data to PC
+	len = snprintf(buf, sizeof(buf), "\n\rWanted RPM / Current RPM: %lu / %lu", WantedRPM, CurrentRPM);
 	CDC_Transmit_FS((uint8_t *) buf, len);
-
 	HAL_Delay(10);
-
-	// Update RPM
-	// Disable UDIS in CR1
-	// Change DC
-	// Enable UDIS in CR1
 
     /* USER CODE END WHILE */
 
@@ -222,7 +213,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV16;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
   {
@@ -334,7 +325,7 @@ static void MX_I2C2_Init(void)
   hi2c2.Instance = I2C2;
   hi2c2.Init.ClockSpeed = 100000;
   hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c2.Init.OwnAddress1 = 36;
+  hi2c2.Init.OwnAddress1 = 0;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c2.Init.OwnAddress2 = 0;
@@ -400,7 +391,6 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 0 */
 
-  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
@@ -415,17 +405,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
-  sSlaveConfig.InputTrigger = TIM_TS_ITR0;
-  if (HAL_TIM_SlaveConfigSynchro(&htim1, &sSlaveConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -436,7 +416,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -450,7 +430,6 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.Pulse = 0;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
@@ -474,50 +453,6 @@ static void MX_TIM1_Init(void)
 }
 
 /**
-  * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_HallSensor_InitTypeDef sConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 4294967295;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
-  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = 0;
-  sConfig.Commutation_Delay = 0;
-  if (HAL_TIMEx_HallSensor_Init(&htim2, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_OC2REF;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-
-  /* USER CODE END TIM2_Init 2 */
-
-}
-
-/**
   * @brief TIM9 Initialization Function
   * @param None
   * @retval None
@@ -535,9 +470,9 @@ static void MX_TIM9_Init(void)
 
   /* USER CODE END TIM9_Init 1 */
   htim9.Instance = TIM9;
-  htim9.Init.Prescaler = 9999;
+  htim9.Init.Prescaler = 1199;
   htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim9.Init.Period = 9599;
+  htim9.Init.Period = 999;
   htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_OC_Init(&htim9) != HAL_OK)
@@ -555,6 +490,51 @@ static void MX_TIM9_Init(void)
   /* USER CODE BEGIN TIM9_Init 2 */
 
   /* USER CODE END TIM9_Init 2 */
+
+}
+
+/**
+  * @brief TIM10 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM10_Init(void)
+{
+
+  /* USER CODE BEGIN TIM10_Init 0 */
+
+  /* USER CODE END TIM10_Init 0 */
+
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM10_Init 1 */
+
+  /* USER CODE END TIM10_Init 1 */
+  htim10.Instance = TIM10;
+  htim10.Init.Prescaler = 65535;
+  htim10.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim10.Init.Period = 1;
+  htim10.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim10.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim10) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_OC_Init(&htim10) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_TIMING;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_OC_ConfigChannel(&htim10, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM10_Init 2 */
+
+  /* USER CODE END TIM10_Init 2 */
 
 }
 
@@ -618,118 +598,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PA0 PA1 PA2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-
-HAL_StatusTypeDef StartupSequence(char Direction) {
-
-	// Set first commutation state according to Hall sensors
-	if (PrepareCommutation(Direction) == HAL_ERROR) {
-		return HAL_ERROR;
-	}
-
-	// Start HallSensor timer
-	HAL_TIMEx_HallSensor_Start(&htim2);
-
-	// Start all PWM signals on TIM1
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-
-	// Disable all interrupts
-	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
-	TIM1->DIER &= ~TIM_DIER_BIE; 	// Disable break interrupt as this is shared with timer 9 interrupt
-	TIM2->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 2
-	TIM9->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 9
-
-	// Start Interrupts
-	HAL_TIM_Base_Start_IT(&htim1);
-	HAL_TIM_Base_Start_IT(&htim2);
-	HAL_TIM_Base_Start_IT(&htim9);
-
-	// Clear all interrupt triggers
-	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag
-	TIM1->SR &= ~TIM_SR_BIF;		// Clear Break interrupt flag
-	TIM2->SR &= ~TIM_SR_TIF;		// Clear timer 2 interrupt flag
-	TIM9->SR &= ~TIM_SR_TIF;		// Clear timer 9 interrupt flag
-
-	// Enable interrupts
-	TIM1->DIER |= TIM_DIER_COMIE;	// Enable Commutation events in DIER register
-	TIM2->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 2
-	TIM9->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 9
-
-	// Write some registers
-	TIM1->CR2  |= 0x0005; 			// Set CCPC 1 and CCUS 1 in CR2
-	TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
-	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable Commutation events in DIER register
-	// TIM1->BDTR |= TIM_BDTR_OSSR;
-
-	return HAL_OK;
-
-}
-
-HAL_StatusTypeDef StopSequence() {
-
-	// Stop HallSensor timer
-	HAL_TIMEx_HallSensor_Stop(&htim2);
-
-	// Disable all output channels
-	TIM1->CCER  = 0x0000;
-	TIM1->CCMR1 = 0x0808;
-	TIM1->CCMR2 = 0x0808;
-
-	// Disable Commutation
-	TIM1->EGR |= TIM_EGR_COMG; // Trigger one last commutation event
-	while (((TIM1->SR >> 5) & 0x1) == 1); // Wait until Commutation event has happened
-	TIM1->DIER &= ~TIM_DIER_COMIE; // Disable Commutation events in DIER register
-
-	// Stop interrupts
-	HAL_TIM_Base_Stop_IT(&htim1);
-	HAL_TIM_Base_Stop_IT(&htim2);
-	HAL_TIM_Base_Stop_IT(&htim9);
-
-	// Stop PWM Timers
-	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
-	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
-
-	return HAL_OK;
-
-}
-
-HAL_StatusTypeDef PrepareCommutation(char Direction) {
-
-	// Read IDR for Hall Sensor status
-	uint8_t Hall = (GPIOA->IDR & 0x0007) - 1;
-
-	// Edit Hall data according to direction.
-	switch (Direction) {
-	case 'F':
-		Hall += 2; // Select next value in the array to go forward
-		Hall %= 6; // If original was 5 it needs to be 0 to we use % 6
-	break;
-	case 'B':
-		Hall += 6; // To not go negative in the next step we add 6
-		Hall -= 2; // Select previous value to go backwards
-		Hall %= 6; // If original was 0 it needs to become 5, this also negates the 6 we added previously
-	break;
-	default:
-		// If F or B is not supplied the function should return with an error
-		return HAL_ERROR;
-	break;
-	}
-
-	// Set Registers to required values
-	TIM1->CCER  = Commutation[Hall][0];
-	TIM1->CCMR1 = Commutation[Hall][2];
-	TIM1->CCMR2 = Commutation[Hall][1];
-
-	return HAL_OK;
-
-}
 
 /* USER CODE END 4 */
 

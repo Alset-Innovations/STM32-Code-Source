@@ -67,8 +67,6 @@ extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
 extern double CurrentRPM;
-extern uint16_t TargetRPM;
-extern uint8_t PWM;
 
 /* USER CODE END EV */
 
@@ -217,7 +215,7 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
-	CurrentRPM = 0;
+  CurrentRPM = 0;
 
   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -234,11 +232,11 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	// Set next Commutation states
-	PrepareCommutation('F');
+  // Set next Commutation states
+  PrepareCommutation('F');
 
-	// Reset COMIF in SR register
-	TIM1->SR &= ~TIM_SR_COMIF;
+  // Reset COMIF in SR register
+  TIM1->SR &= ~TIM_SR_COMIF;
 
   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -254,27 +252,12 @@ void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
 
-	uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
-	if ( HallTime > 0 ) {
-		CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
-	} else {
-		CurrentRPM = 0;
-	}
-
-	if ( TargetRPM < CurrentRPM) {
-		PWM++;
-	}
-
-	if ( TargetRPM > CurrentRPM) {
-		PWM--;
-	}
-
-	// Update PWM according to temporary potentiometer input
-	TIM1->CR1 |= 0x0002;  // Disable Update Events
-	TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
-	TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
-	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
-	TIM1->CR1 &= ~0x0002; // Enable Update Events
+  uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+  if ( HallTime > 0 ) {
+	  CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
+  } else {
+	  CurrentRPM = 0;
+  }
 
   // Reset Timer 9 counter.
   TIM9->CNT = 0x0;

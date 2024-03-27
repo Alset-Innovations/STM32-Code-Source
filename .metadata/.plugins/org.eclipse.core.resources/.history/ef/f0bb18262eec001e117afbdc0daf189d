@@ -42,14 +42,12 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
+uint16_t RPM = 0, j = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
-
-HAL_StatusTypeDef StartupSequence(char Direction);
-HAL_StatusTypeDef StopSequence();
-HAL_StatusTypeDef PrepareCommutation(char Direction);
 
 /* USER CODE END PFP */
 
@@ -60,15 +58,12 @@ HAL_StatusTypeDef PrepareCommutation(char Direction);
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
-extern I2C_HandleTypeDef hi2c2;
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
+extern TIM_HandleTypeDef htim10;
 /* USER CODE BEGIN EV */
 
-extern double CurrentRPM;
-extern uint16_t TargetRPM;
-extern uint8_t PWM;
+extern double sintab[];
+extern uint16_t CurrentRPM, WantedRPM;
 
 /* USER CODE END EV */
 
@@ -211,16 +206,70 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+
+	RPM++;
+
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line1 interrupt.
+  */
+void EXTI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI1_IRQn 0 */
+
+	RPM++;
+
+  /* USER CODE END EXTI1_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
+  /* USER CODE BEGIN EXTI1_IRQn 1 */
+
+  /* USER CODE END EXTI1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line2 interrupt.
+  */
+void EXTI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_IRQn 0 */
+
+	RPM++;
+
+  /* USER CODE END EXTI2_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+  /* USER CODE BEGIN EXTI2_IRQn 1 */
+
+  /* USER CODE END EXTI2_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
   */
 void TIM1_BRK_TIM9_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
-	CurrentRPM = 0;
+	// Calculate RPM and reset counter.
+	CurrentRPM = 600 * (RPM / 6.0f);
+	RPM = 0;
+
+	// Disable Gate Drivers if RPM is too high.
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
 
   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim9);
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
 
@@ -228,93 +277,28 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
+  * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
   */
-void TIM1_TRG_COM_TIM11_IRQHandler(void)
+void TIM1_UP_TIM10_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
 
-	// Set next Commutation states
-	PrepareCommutation('F');
+	// Set PWM timers to next step in sinusoid generation
+	TIM3->CCR1 = TIM3ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR2 = TIM3ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR3 = TIM3ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
 
-	// Reset COMIF in SR register
-	TIM1->SR &= ~TIM_SR_COMIF;
+	j++;
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
-
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM2 global interrupt.
-  */
-void TIM2_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM2_IRQn 0 */
-
-	uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
-	if ( HallTime > 0 ) {
-		CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
-	} else {
-		CurrentRPM = 0;
+	if( j > AANTAL_TIJDSTAPPEN) {
+		j = 0; // Reset j when full sinusoid has been made.
 	}
 
-	if ( TargetRPM < CurrentRPM) {
-		PWM++;
-	}
+  /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim10);
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-	if ( TargetRPM > CurrentRPM) {
-		PWM--;
-	}
-
-	// Update PWM according to temporary potentiometer input
-	TIM1->CR1 |= 0x0002;  // Disable Update Events
-	TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
-	TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
-	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
-	TIM1->CR1 &= ~0x0002; // Enable Update Events
-
-  // Reset Timer 9 counter.
-  TIM9->CNT = 0x0;
-
-  // Set COMG bit in EGR
-  TIM1->EGR |= TIM_EGR_COMG;
-
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-
-  /* USER CODE END TIM2_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C2 event interrupt.
-  */
-void I2C2_EV_IRQHandler(void)
-{
-  /* USER CODE BEGIN I2C2_EV_IRQn 0 */
-
-  /* USER CODE END I2C2_EV_IRQn 0 */
-  HAL_I2C_EV_IRQHandler(&hi2c2);
-  /* USER CODE BEGIN I2C2_EV_IRQn 1 */
-
-  /* USER CODE END I2C2_EV_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C2 error interrupt.
-  */
-void I2C2_ER_IRQHandler(void)
-{
-  /* USER CODE BEGIN I2C2_ER_IRQn 0 */
-
-  /* USER CODE END I2C2_ER_IRQn 0 */
-  HAL_I2C_ER_IRQHandler(&hi2c2);
-  /* USER CODE BEGIN I2C2_ER_IRQn 1 */
-
-  /* USER CODE END I2C2_ER_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 
 /**
