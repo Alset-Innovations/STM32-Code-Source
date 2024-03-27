@@ -71,7 +71,6 @@ uint16_t len = 0;
 uint16_t TargetRPM = 0;
 
 uint8_t PWM = 100;
-uint8_t Mode = 0;
 
 double CurrentRPM = 0;
 char buf[64];

@@ -66,12 +66,9 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint16_t TargetRPM;
-
-extern uint8_t PWM;
-extern uint8_t Mode;
-
 extern double CurrentRPM;
+extern uint16_t TargetRPM;
+extern uint8_t PWM;
 
 /* USER CODE END EV */
 
@@ -264,23 +261,12 @@ void TIM2_IRQHandler(void)
 		CurrentRPM = 0;
 	}
 
-	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
-	// Once the PWM reaches its target slowly adjust the PWM
-	if ( TargetRPM > CurrentRPM) {
+	if ( TargetRPM < CurrentRPM) {
 		PWM++;
 	}
 
-	if ( TargetRPM < CurrentRPM ) {
+	if ( TargetRPM > CurrentRPM) {
 		PWM--;
-	}
-
-	// If difference is bigger than SpeedUp increase PWM according to the current mode
-	if ( TargetRPM > CurrentRPM + SpeedUp) {
-		PWM += Mode;
-	}
-
-	if ( TargetRPM < CurrentRPM - SpeedUp) {
-		PWM -= Mode;
 	}
 
 	// Update PWM according to temporary potentiometer input
@@ -290,11 +276,11 @@ void TIM2_IRQHandler(void)
 	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
 	TIM1->CR1 &= ~0x0002; // Enable Update Events
 
-	// Reset Timer 9 counter.
-	TIM9->CNT = 0x0;
+  // Reset Timer 9 counter.
+  TIM9->CNT = 0x0;
 
-	// Set COMG bit in EGR
-	TIM1->EGR |= TIM_EGR_COMG;
+  // Set COMG bit in EGR
+  TIM1->EGR |= TIM_EGR_COMG;
 
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);

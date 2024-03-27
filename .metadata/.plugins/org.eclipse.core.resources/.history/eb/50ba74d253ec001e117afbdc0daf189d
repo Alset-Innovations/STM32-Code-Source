@@ -66,12 +66,9 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint16_t TargetRPM;
-
-extern uint8_t PWM;
-extern uint8_t Mode;
-
 extern double CurrentRPM;
+extern uint16_t TargetRPM;
+extern uint8_t PWM;
 
 /* USER CODE END EV */
 
@@ -264,23 +261,12 @@ void TIM2_IRQHandler(void)
 		CurrentRPM = 0;
 	}
 
-	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
-	// Once the PWM reaches its target slowly adjust the PWM
-	if ( TargetRPM > CurrentRPM) {
+	if ( TargetRPM < CurrentRPM) {
 		PWM++;
 	}
 
-	if ( TargetRPM < CurrentRPM ) {
+	if ( TargetRPM > CurrentRPM) {
 		PWM--;
-	}
-
-	// If difference is bigger than SpeedUp increase PWM according to the current mode
-	if ( TargetRPM > CurrentRPM + SpeedUp) {
-		PWM += Mode;
-	}
-
-	if ( TargetRPM < CurrentRPM - SpeedUp) {
-		PWM -= Mode;
 	}
 
 	// Update PWM according to temporary potentiometer input

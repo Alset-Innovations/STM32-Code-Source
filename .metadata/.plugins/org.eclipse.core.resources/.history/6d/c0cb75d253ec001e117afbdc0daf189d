@@ -65,7 +65,6 @@ void Error_Handler(void);
 #define MinimumRPM 0100
 #define MaximumRPM 5000
 #define Fapb1clk 96000000 // 96MHz
-#define SpeedUp 50;
 
 /* USER CODE END Private defines */
 
