@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0001b912  00000000  00000000  000427dc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001e591  00000000  00000000  0005e0ee  2**0
+ 18 .debug_line   0001e65c  00000000  00000000  0005e0ee  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000a25e9  00000000  00000000  0007c67f  2**0
+ 19 .debug_str    000a25e9  00000000  00000000  0007c74a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  0000730c  00000000  00000000  0011ec68  2**2
+ 20 .debug_frame  0000730c  00000000  00000000  0011ed34  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000075  00000000  00000000  00125f74  2**0
+ 21 .debug_line_str 00000075  00000000  00000000  00126040  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2458,9 +2458,20 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 	...
 
 08001610 <HAL_MspInit>:
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+                    /**
+  * Initializes the Global MSP.
+  */
+void HAL_MspInit(void)
+{
  8001610:	b480      	push	{r7}
  8001612:	b083      	sub	sp, #12
  8001614:	af00      	add	r7, sp, #0
+  /* USER CODE BEGIN MspInit 0 */
+
+  /* USER CODE END MspInit 0 */
+
+  __HAL_RCC_SYSCFG_CLK_ENABLE();
  8001616:	2300      	movs	r3, #0
  8001618:	607b      	str	r3, [r7, #4]
  800161a:	4b10      	ldr	r3, [pc, #64]	; (800165c <HAL_MspInit+0x4c>)
@@ -2473,6 +2484,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800162a:	f403 4380 	and.w	r3, r3, #16384	; 0x4000
  800162e:	607b      	str	r3, [r7, #4]
  8001630:	687b      	ldr	r3, [r7, #4]
+  __HAL_RCC_PWR_CLK_ENABLE();
  8001632:	2300      	movs	r3, #0
  8001634:	603b      	str	r3, [r7, #0]
  8001636:	4b09      	ldr	r3, [pc, #36]	; (800165c <HAL_MspInit+0x4c>)
@@ -2485,6 +2497,12 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001646:	f003 5380 	and.w	r3, r3, #268435456	; 0x10000000
  800164a:	603b      	str	r3, [r7, #0]
  800164c:	683b      	ldr	r3, [r7, #0]
+  /* System interrupt init*/
+
+  /* USER CODE BEGIN MspInit 1 */
+
+  /* USER CODE END MspInit 1 */
+}
  800164e:	bf00      	nop
  8001650:	370c      	adds	r7, #12
  8001652:	46bd      	mov	sp, r7
@@ -2494,10 +2512,17 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800165c:	40023800 	.word	0x40023800
 
 08001660 <HAL_ADC_MspInit>:
+* This function configures the hardware resources used in this example
+* @param hadc: ADC handle pointer
+* @retval None
+*/
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
+{
  8001660:	b580      	push	{r7, lr}
  8001662:	b08a      	sub	sp, #40	; 0x28
  8001664:	af00      	add	r7, sp, #0
  8001666:	6078      	str	r0, [r7, #4]
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
  8001668:	f107 0314 	add.w	r3, r7, #20
  800166c:	2200      	movs	r2, #0
  800166e:	601a      	str	r2, [r3, #0]
@@ -2505,11 +2530,18 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001672:	609a      	str	r2, [r3, #8]
  8001674:	60da      	str	r2, [r3, #12]
  8001676:	611a      	str	r2, [r3, #16]
+  if(hadc->Instance==ADC1)
  8001678:	687b      	ldr	r3, [r7, #4]
  800167a:	681b      	ldr	r3, [r3, #0]
  800167c:	4a17      	ldr	r2, [pc, #92]	; (80016dc <HAL_ADC_MspInit+0x7c>)
  800167e:	4293      	cmp	r3, r2
  8001680:	d127      	bne.n	80016d2 <HAL_ADC_MspInit+0x72>
+  {
+  /* USER CODE BEGIN ADC1_MspInit 0 */
+
+  /* USER CODE END ADC1_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_ADC1_CLK_ENABLE();
  8001682:	2300      	movs	r3, #0
  8001684:	613b      	str	r3, [r7, #16]
  8001686:	4b16      	ldr	r3, [pc, #88]	; (80016e0 <HAL_ADC_MspInit+0x80>)
@@ -2522,6 +2554,8 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001696:	f403 7380 	and.w	r3, r3, #256	; 0x100
  800169a:	613b      	str	r3, [r7, #16]
  800169c:	693b      	ldr	r3, [r7, #16]
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
  800169e:	2300      	movs	r3, #0
  80016a0:	60fb      	str	r3, [r7, #12]
  80016a2:	4b0f      	ldr	r3, [pc, #60]	; (80016e0 <HAL_ADC_MspInit+0x80>)
@@ -2534,16 +2568,29 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80016b2:	f003 0301 	and.w	r3, r3, #1
  80016b6:	60fb      	str	r3, [r7, #12]
  80016b8:	68fb      	ldr	r3, [r7, #12]
+    /**ADC1 GPIO Configuration
+    PA4     ------> ADC1_IN4
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
  80016ba:	2310      	movs	r3, #16
  80016bc:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
  80016be:	2303      	movs	r3, #3
  80016c0:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  80016c2:	2300      	movs	r3, #0
  80016c4:	61fb      	str	r3, [r7, #28]
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  80016c6:	f107 0314 	add.w	r3, r7, #20
  80016ca:	4619      	mov	r1, r3
  80016cc:	4805      	ldr	r0, [pc, #20]	; (80016e4 <HAL_ADC_MspInit+0x84>)
  80016ce:	f001 f8e9 	bl	80028a4 <HAL_GPIO_Init>
+  /* USER CODE BEGIN ADC1_MspInit 1 */
+
+  /* USER CODE END ADC1_MspInit 1 */
+  }
+
+}
  80016d2:	bf00      	nop
  80016d4:	3728      	adds	r7, #40	; 0x28
  80016d6:	46bd      	mov	sp, r7
@@ -2554,10 +2601,17 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80016e4:	40020000 	.word	0x40020000
 
 080016e8 <HAL_I2C_MspInit>:
+* This function configures the hardware resources used in this example
+* @param hi2c: I2C handle pointer
+* @retval None
+*/
+void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
+{
  80016e8:	b580      	push	{r7, lr}
  80016ea:	b08a      	sub	sp, #40	; 0x28
  80016ec:	af00      	add	r7, sp, #0
  80016ee:	6078      	str	r0, [r7, #4]
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
  80016f0:	f107 0314 	add.w	r3, r7, #20
  80016f4:	2200      	movs	r2, #0
  80016f6:	601a      	str	r2, [r3, #0]
@@ -2565,11 +2619,18 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80016fa:	609a      	str	r2, [r3, #8]
  80016fc:	60da      	str	r2, [r3, #12]
  80016fe:	611a      	str	r2, [r3, #16]
+  if(hi2c->Instance==I2C2)
  8001700:	687b      	ldr	r3, [r7, #4]
  8001702:	681b      	ldr	r3, [r3, #0]
  8001704:	4a22      	ldr	r2, [pc, #136]	; (8001790 <HAL_I2C_MspInit+0xa8>)
  8001706:	4293      	cmp	r3, r2
  8001708:	d13d      	bne.n	8001786 <HAL_I2C_MspInit+0x9e>
+  {
+  /* USER CODE BEGIN I2C2_MspInit 0 */
+
+  /* USER CODE END I2C2_MspInit 0 */
+
+    __HAL_RCC_GPIOB_CLK_ENABLE();
  800170a:	2300      	movs	r3, #0
  800170c:	613b      	str	r3, [r7, #16]
  800170e:	4b21      	ldr	r3, [pc, #132]	; (8001794 <HAL_I2C_MspInit+0xac>)
@@ -2582,34 +2643,54 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800171e:	f003 0302 	and.w	r3, r3, #2
  8001722:	613b      	str	r3, [r7, #16]
  8001724:	693b      	ldr	r3, [r7, #16]
+    /**I2C2 GPIO Configuration
+    PB10     ------> I2C2_SCL
+    PB9     ------> I2C2_SDA
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
  8001726:	f44f 6380 	mov.w	r3, #1024	; 0x400
  800172a:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
  800172c:	2312      	movs	r3, #18
  800172e:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  8001730:	2300      	movs	r3, #0
  8001732:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  8001734:	2303      	movs	r3, #3
  8001736:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
  8001738:	2304      	movs	r3, #4
  800173a:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  800173c:	f107 0314 	add.w	r3, r7, #20
  8001740:	4619      	mov	r1, r3
  8001742:	4815      	ldr	r0, [pc, #84]	; (8001798 <HAL_I2C_MspInit+0xb0>)
  8001744:	f001 f8ae 	bl	80028a4 <HAL_GPIO_Init>
+
+    GPIO_InitStruct.Pin = GPIO_PIN_9;
  8001748:	f44f 7300 	mov.w	r3, #512	; 0x200
  800174c:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
  800174e:	2312      	movs	r3, #18
  8001750:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  8001752:	2300      	movs	r3, #0
  8001754:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  8001756:	2303      	movs	r3, #3
  8001758:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF9_I2C2;
  800175a:	2309      	movs	r3, #9
  800175c:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  800175e:	f107 0314 	add.w	r3, r7, #20
  8001762:	4619      	mov	r1, r3
  8001764:	480c      	ldr	r0, [pc, #48]	; (8001798 <HAL_I2C_MspInit+0xb0>)
  8001766:	f001 f89d 	bl	80028a4 <HAL_GPIO_Init>
+
+    /* Peripheral clock enable */
+    __HAL_RCC_I2C2_CLK_ENABLE();
  800176a:	2300      	movs	r3, #0
  800176c:	60fb      	str	r3, [r7, #12]
  800176e:	4b09      	ldr	r3, [pc, #36]	; (8001794 <HAL_I2C_MspInit+0xac>)
@@ -2622,6 +2703,12 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800177e:	f403 0380 	and.w	r3, r3, #4194304	; 0x400000
  8001782:	60fb      	str	r3, [r7, #12]
  8001784:	68fb      	ldr	r3, [r7, #12]
+  /* USER CODE BEGIN I2C2_MspInit 1 */
+
+  /* USER CODE END I2C2_MspInit 1 */
+  }
+
+}
  8001786:	bf00      	nop
  8001788:	3728      	adds	r7, #40	; 0x28
  800178a:	46bd      	mov	sp, r7
@@ -2632,10 +2719,17 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001798:	40020400 	.word	0x40020400
 
 0800179c <HAL_SPI_MspInit>:
+* This function configures the hardware resources used in this example
+* @param hspi: SPI handle pointer
+* @retval None
+*/
+void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
+{
  800179c:	b580      	push	{r7, lr}
  800179e:	b08a      	sub	sp, #40	; 0x28
  80017a0:	af00      	add	r7, sp, #0
  80017a2:	6078      	str	r0, [r7, #4]
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
  80017a4:	f107 0314 	add.w	r3, r7, #20
  80017a8:	2200      	movs	r2, #0
  80017aa:	601a      	str	r2, [r3, #0]
@@ -2643,11 +2737,18 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80017ae:	609a      	str	r2, [r3, #8]
  80017b0:	60da      	str	r2, [r3, #12]
  80017b2:	611a      	str	r2, [r3, #16]
+  if(hspi->Instance==SPI1)
  80017b4:	687b      	ldr	r3, [r7, #4]
  80017b6:	681b      	ldr	r3, [r3, #0]
  80017b8:	4a28      	ldr	r2, [pc, #160]	; (800185c <HAL_SPI_MspInit+0xc0>)
  80017ba:	4293      	cmp	r3, r2
  80017bc:	d149      	bne.n	8001852 <HAL_SPI_MspInit+0xb6>
+  {
+  /* USER CODE BEGIN SPI1_MspInit 0 */
+
+  /* USER CODE END SPI1_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_SPI1_CLK_ENABLE();
  80017be:	2300      	movs	r3, #0
  80017c0:	613b      	str	r3, [r7, #16]
  80017c2:	4b27      	ldr	r3, [pc, #156]	; (8001860 <HAL_SPI_MspInit+0xc4>)
@@ -2660,6 +2761,8 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80017d2:	f403 5380 	and.w	r3, r3, #4096	; 0x1000
  80017d6:	613b      	str	r3, [r7, #16]
  80017d8:	693b      	ldr	r3, [r7, #16]
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
  80017da:	2300      	movs	r3, #0
  80017dc:	60fb      	str	r3, [r7, #12]
  80017de:	4b20      	ldr	r3, [pc, #128]	; (8001860 <HAL_SPI_MspInit+0xc4>)
@@ -2672,6 +2775,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80017ee:	f003 0301 	and.w	r3, r3, #1
  80017f2:	60fb      	str	r3, [r7, #12]
  80017f4:	68fb      	ldr	r3, [r7, #12]
+    __HAL_RCC_GPIOB_CLK_ENABLE();
  80017f6:	2300      	movs	r3, #0
  80017f8:	60bb      	str	r3, [r7, #8]
  80017fa:	4b19      	ldr	r3, [pc, #100]	; (8001860 <HAL_SPI_MspInit+0xc4>)
@@ -2684,34 +2788,58 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800180a:	f003 0302 	and.w	r3, r3, #2
  800180e:	60bb      	str	r3, [r7, #8]
  8001810:	68bb      	ldr	r3, [r7, #8]
+    /**SPI1 GPIO Configuration
+    PA5     ------> SPI1_SCK
+    PA7     ------> SPI1_MOSI
+    PB4     ------> SPI1_MISO
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_7;
  8001812:	23a0      	movs	r3, #160	; 0xa0
  8001814:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  8001816:	2302      	movs	r3, #2
  8001818:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  800181a:	2300      	movs	r3, #0
  800181c:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  800181e:	2303      	movs	r3, #3
  8001820:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
  8001822:	2305      	movs	r3, #5
  8001824:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  8001826:	f107 0314 	add.w	r3, r7, #20
  800182a:	4619      	mov	r1, r3
  800182c:	480d      	ldr	r0, [pc, #52]	; (8001864 <HAL_SPI_MspInit+0xc8>)
  800182e:	f001 f839 	bl	80028a4 <HAL_GPIO_Init>
+
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
  8001832:	2310      	movs	r3, #16
  8001834:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  8001836:	2302      	movs	r3, #2
  8001838:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  800183a:	2300      	movs	r3, #0
  800183c:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  800183e:	2303      	movs	r3, #3
  8001840:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
  8001842:	2305      	movs	r3, #5
  8001844:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  8001846:	f107 0314 	add.w	r3, r7, #20
  800184a:	4619      	mov	r1, r3
  800184c:	4806      	ldr	r0, [pc, #24]	; (8001868 <HAL_SPI_MspInit+0xcc>)
  800184e:	f001 f829 	bl	80028a4 <HAL_GPIO_Init>
+  /* USER CODE BEGIN SPI1_MspInit 1 */
+
+  /* USER CODE END SPI1_MspInit 1 */
+  }
+
+}
  8001852:	bf00      	nop
  8001854:	3728      	adds	r7, #40	; 0x28
  8001856:	46bd      	mov	sp, r7
@@ -2723,15 +2851,28 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001868:	40020400 	.word	0x40020400
 
 0800186c <HAL_TIM_PWM_MspInit>:
+* This function configures the hardware resources used in this example
+* @param htim_pwm: TIM_PWM handle pointer
+* @retval None
+*/
+void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
+{
  800186c:	b480      	push	{r7}
  800186e:	b085      	sub	sp, #20
  8001870:	af00      	add	r7, sp, #0
  8001872:	6078      	str	r0, [r7, #4]
+  if(htim_pwm->Instance==TIM3)
  8001874:	687b      	ldr	r3, [r7, #4]
  8001876:	681b      	ldr	r3, [r3, #0]
  8001878:	4a0b      	ldr	r2, [pc, #44]	; (80018a8 <HAL_TIM_PWM_MspInit+0x3c>)
  800187a:	4293      	cmp	r3, r2
  800187c:	d10d      	bne.n	800189a <HAL_TIM_PWM_MspInit+0x2e>
+  {
+  /* USER CODE BEGIN TIM3_MspInit 0 */
+
+  /* USER CODE END TIM3_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM3_CLK_ENABLE();
  800187e:	2300      	movs	r3, #0
  8001880:	60fb      	str	r3, [r7, #12]
  8001882:	4b0a      	ldr	r3, [pc, #40]	; (80018ac <HAL_TIM_PWM_MspInit+0x40>)
@@ -2744,6 +2885,12 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001892:	f003 0302 	and.w	r3, r3, #2
  8001896:	60fb      	str	r3, [r7, #12]
  8001898:	68fb      	ldr	r3, [r7, #12]
+  /* USER CODE BEGIN TIM3_MspInit 1 */
+
+  /* USER CODE END TIM3_MspInit 1 */
+  }
+
+}
  800189a:	bf00      	nop
  800189c:	3714      	adds	r7, #20
  800189e:	46bd      	mov	sp, r7
@@ -2754,15 +2901,28 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80018ac:	40023800 	.word	0x40023800
 
 080018b0 <HAL_TIM_OC_MspInit>:
+* This function configures the hardware resources used in this example
+* @param htim_oc: TIM_OC handle pointer
+* @retval None
+*/
+void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* htim_oc)
+{
  80018b0:	b580      	push	{r7, lr}
  80018b2:	b084      	sub	sp, #16
  80018b4:	af00      	add	r7, sp, #0
  80018b6:	6078      	str	r0, [r7, #4]
+  if(htim_oc->Instance==TIM9)
  80018b8:	687b      	ldr	r3, [r7, #4]
  80018ba:	681b      	ldr	r3, [r3, #0]
  80018bc:	4a0e      	ldr	r2, [pc, #56]	; (80018f8 <HAL_TIM_OC_MspInit+0x48>)
  80018be:	4293      	cmp	r3, r2
  80018c0:	d115      	bne.n	80018ee <HAL_TIM_OC_MspInit+0x3e>
+  {
+  /* USER CODE BEGIN TIM9_MspInit 0 */
+
+  /* USER CODE END TIM9_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM9_CLK_ENABLE();
  80018c2:	2300      	movs	r3, #0
  80018c4:	60fb      	str	r3, [r7, #12]
  80018c6:	4b0d      	ldr	r3, [pc, #52]	; (80018fc <HAL_TIM_OC_MspInit+0x4c>)
@@ -2775,12 +2935,21 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80018d6:	f403 3380 	and.w	r3, r3, #65536	; 0x10000
  80018da:	60fb      	str	r3, [r7, #12]
  80018dc:	68fb      	ldr	r3, [r7, #12]
+    /* TIM9 interrupt Init */
+    HAL_NVIC_SetPriority(TIM1_BRK_TIM9_IRQn, 0, 0);
  80018de:	2200      	movs	r2, #0
  80018e0:	2100      	movs	r1, #0
  80018e2:	2018      	movs	r0, #24
  80018e4:	f000 ffa7 	bl	8002836 <HAL_NVIC_SetPriority>
+    HAL_NVIC_EnableIRQ(TIM1_BRK_TIM9_IRQn);
  80018e8:	2018      	movs	r0, #24
  80018ea:	f000 ffc0 	bl	800286e <HAL_NVIC_EnableIRQ>
+  /* USER CODE BEGIN TIM9_MspInit 1 */
+
+  /* USER CODE END TIM9_MspInit 1 */
+  }
+
+}
  80018ee:	bf00      	nop
  80018f0:	3710      	adds	r7, #16
  80018f2:	46bd      	mov	sp, r7
@@ -2790,15 +2959,28 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80018fc:	40023800 	.word	0x40023800
 
 08001900 <HAL_TIM_Base_MspInit>:
+* This function configures the hardware resources used in this example
+* @param htim_base: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
+{
  8001900:	b580      	push	{r7, lr}
  8001902:	b084      	sub	sp, #16
  8001904:	af00      	add	r7, sp, #0
  8001906:	6078      	str	r0, [r7, #4]
+  if(htim_base->Instance==TIM10)
  8001908:	687b      	ldr	r3, [r7, #4]
  800190a:	681b      	ldr	r3, [r3, #0]
  800190c:	4a0e      	ldr	r2, [pc, #56]	; (8001948 <HAL_TIM_Base_MspInit+0x48>)
  800190e:	4293      	cmp	r3, r2
  8001910:	d115      	bne.n	800193e <HAL_TIM_Base_MspInit+0x3e>
+  {
+  /* USER CODE BEGIN TIM10_MspInit 0 */
+
+  /* USER CODE END TIM10_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM10_CLK_ENABLE();
  8001912:	2300      	movs	r3, #0
  8001914:	60fb      	str	r3, [r7, #12]
  8001916:	4b0d      	ldr	r3, [pc, #52]	; (800194c <HAL_TIM_Base_MspInit+0x4c>)
@@ -2811,12 +2993,21 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001926:	f403 3300 	and.w	r3, r3, #131072	; 0x20000
  800192a:	60fb      	str	r3, [r7, #12]
  800192c:	68fb      	ldr	r3, [r7, #12]
+    /* TIM10 interrupt Init */
+    HAL_NVIC_SetPriority(TIM1_UP_TIM10_IRQn, 0, 0);
  800192e:	2200      	movs	r2, #0
  8001930:	2100      	movs	r1, #0
  8001932:	2019      	movs	r0, #25
  8001934:	f000 ff7f 	bl	8002836 <HAL_NVIC_SetPriority>
+    HAL_NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
  8001938:	2019      	movs	r0, #25
  800193a:	f000 ff98 	bl	800286e <HAL_NVIC_EnableIRQ>
+  /* USER CODE BEGIN TIM10_MspInit 1 */
+
+  /* USER CODE END TIM10_MspInit 1 */
+  }
+
+}
  800193e:	bf00      	nop
  8001940:	3710      	adds	r7, #16
  8001942:	46bd      	mov	sp, r7
@@ -2826,10 +3017,14 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  800194c:	40023800 	.word	0x40023800
 
 08001950 <HAL_TIM_MspPostInit>:
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
+{
  8001950:	b580      	push	{r7, lr}
  8001952:	b08a      	sub	sp, #40	; 0x28
  8001954:	af00      	add	r7, sp, #0
  8001956:	6078      	str	r0, [r7, #4]
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
  8001958:	f107 0314 	add.w	r3, r7, #20
  800195c:	2200      	movs	r2, #0
  800195e:	601a      	str	r2, [r3, #0]
@@ -2837,11 +3032,18 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001962:	609a      	str	r2, [r3, #8]
  8001964:	60da      	str	r2, [r3, #12]
  8001966:	611a      	str	r2, [r3, #16]
+  if(htim->Instance==TIM3)
  8001968:	687b      	ldr	r3, [r7, #4]
  800196a:	681b      	ldr	r3, [r3, #0]
  800196c:	4a21      	ldr	r2, [pc, #132]	; (80019f4 <HAL_TIM_MspPostInit+0xa4>)
  800196e:	4293      	cmp	r3, r2
  8001970:	d13b      	bne.n	80019ea <HAL_TIM_MspPostInit+0x9a>
+  {
+  /* USER CODE BEGIN TIM3_MspPostInit 0 */
+
+  /* USER CODE END TIM3_MspPostInit 0 */
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
  8001972:	2300      	movs	r3, #0
  8001974:	613b      	str	r3, [r7, #16]
  8001976:	4b20      	ldr	r3, [pc, #128]	; (80019f8 <HAL_TIM_MspPostInit+0xa8>)
@@ -2854,6 +3056,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001986:	f003 0301 	and.w	r3, r3, #1
  800198a:	613b      	str	r3, [r7, #16]
  800198c:	693b      	ldr	r3, [r7, #16]
+    __HAL_RCC_GPIOB_CLK_ENABLE();
  800198e:	2300      	movs	r3, #0
  8001990:	60fb      	str	r3, [r7, #12]
  8001992:	4b19      	ldr	r3, [pc, #100]	; (80019f8 <HAL_TIM_MspPostInit+0xa8>)
@@ -2866,34 +3069,58 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80019a2:	f003 0302 	and.w	r3, r3, #2
  80019a6:	60fb      	str	r3, [r7, #12]
  80019a8:	68fb      	ldr	r3, [r7, #12]
+    /**TIM3 GPIO Configuration
+    PA6     ------> TIM3_CH1
+    PB0     ------> TIM3_CH3
+    PB5     ------> TIM3_CH2
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_6;
  80019aa:	2340      	movs	r3, #64	; 0x40
  80019ac:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  80019ae:	2302      	movs	r3, #2
  80019b0:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  80019b2:	2300      	movs	r3, #0
  80019b4:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  80019b6:	2300      	movs	r3, #0
  80019b8:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
  80019ba:	2302      	movs	r3, #2
  80019bc:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  80019be:	f107 0314 	add.w	r3, r7, #20
  80019c2:	4619      	mov	r1, r3
  80019c4:	480d      	ldr	r0, [pc, #52]	; (80019fc <HAL_TIM_MspPostInit+0xac>)
  80019c6:	f000 ff6d 	bl	80028a4 <HAL_GPIO_Init>
+
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_5;
  80019ca:	2321      	movs	r3, #33	; 0x21
  80019cc:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  80019ce:	2302      	movs	r3, #2
  80019d0:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  80019d2:	2300      	movs	r3, #0
  80019d4:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  80019d6:	2300      	movs	r3, #0
  80019d8:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
  80019da:	2302      	movs	r3, #2
  80019dc:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  80019de:	f107 0314 	add.w	r3, r7, #20
  80019e2:	4619      	mov	r1, r3
  80019e4:	4806      	ldr	r0, [pc, #24]	; (8001a00 <HAL_TIM_MspPostInit+0xb0>)
  80019e6:	f000 ff5d 	bl	80028a4 <HAL_GPIO_Init>
+  /* USER CODE BEGIN TIM3_MspPostInit 1 */
+
+  /* USER CODE END TIM3_MspPostInit 1 */
+  }
+
+}
  80019ea:	bf00      	nop
  80019ec:	3728      	adds	r7, #40	; 0x28
  80019ee:	46bd      	mov	sp, r7
@@ -2905,10 +3132,17 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001a00:	40020400 	.word	0x40020400
 
 08001a04 <HAL_UART_MspInit>:
+* This function configures the hardware resources used in this example
+* @param huart: UART handle pointer
+* @retval None
+*/
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
+{
  8001a04:	b580      	push	{r7, lr}
  8001a06:	b08a      	sub	sp, #40	; 0x28
  8001a08:	af00      	add	r7, sp, #0
  8001a0a:	6078      	str	r0, [r7, #4]
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
  8001a0c:	f107 0314 	add.w	r3, r7, #20
  8001a10:	2200      	movs	r2, #0
  8001a12:	601a      	str	r2, [r3, #0]
@@ -2916,11 +3150,18 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001a16:	609a      	str	r2, [r3, #8]
  8001a18:	60da      	str	r2, [r3, #12]
  8001a1a:	611a      	str	r2, [r3, #16]
+  if(huart->Instance==USART1)
  8001a1c:	687b      	ldr	r3, [r7, #4]
  8001a1e:	681b      	ldr	r3, [r3, #0]
  8001a20:	4a28      	ldr	r2, [pc, #160]	; (8001ac4 <HAL_UART_MspInit+0xc0>)
  8001a22:	4293      	cmp	r3, r2
  8001a24:	d14a      	bne.n	8001abc <HAL_UART_MspInit+0xb8>
+  {
+  /* USER CODE BEGIN USART1_MspInit 0 */
+
+  /* USER CODE END USART1_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_USART1_CLK_ENABLE();
  8001a26:	2300      	movs	r3, #0
  8001a28:	613b      	str	r3, [r7, #16]
  8001a2a:	4b27      	ldr	r3, [pc, #156]	; (8001ac8 <HAL_UART_MspInit+0xc4>)
@@ -2933,6 +3174,8 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001a3a:	f003 0310 	and.w	r3, r3, #16
  8001a3e:	613b      	str	r3, [r7, #16]
  8001a40:	693b      	ldr	r3, [r7, #16]
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
  8001a42:	2300      	movs	r3, #0
  8001a44:	60fb      	str	r3, [r7, #12]
  8001a46:	4b20      	ldr	r3, [pc, #128]	; (8001ac8 <HAL_UART_MspInit+0xc4>)
@@ -2945,6 +3188,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001a56:	f003 0301 	and.w	r3, r3, #1
  8001a5a:	60fb      	str	r3, [r7, #12]
  8001a5c:	68fb      	ldr	r3, [r7, #12]
+    __HAL_RCC_GPIOB_CLK_ENABLE();
  8001a5e:	2300      	movs	r3, #0
  8001a60:	60bb      	str	r3, [r7, #8]
  8001a62:	4b19      	ldr	r3, [pc, #100]	; (8001ac8 <HAL_UART_MspInit+0xc4>)
@@ -2957,34 +3201,57 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001a72:	f003 0302 	and.w	r3, r3, #2
  8001a76:	60bb      	str	r3, [r7, #8]
  8001a78:	68bb      	ldr	r3, [r7, #8]
+    /**USART1 GPIO Configuration
+    PA15     ------> USART1_TX
+    PB3     ------> USART1_RX
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_15;
  8001a7a:	f44f 4300 	mov.w	r3, #32768	; 0x8000
  8001a7e:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  8001a80:	2302      	movs	r3, #2
  8001a82:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  8001a84:	2300      	movs	r3, #0
  8001a86:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  8001a88:	2303      	movs	r3, #3
  8001a8a:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
  8001a8c:	2307      	movs	r3, #7
  8001a8e:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  8001a90:	f107 0314 	add.w	r3, r7, #20
  8001a94:	4619      	mov	r1, r3
  8001a96:	480d      	ldr	r0, [pc, #52]	; (8001acc <HAL_UART_MspInit+0xc8>)
  8001a98:	f000 ff04 	bl	80028a4 <HAL_GPIO_Init>
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
  8001a9c:	2308      	movs	r3, #8
  8001a9e:	617b      	str	r3, [r7, #20]
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  8001aa0:	2302      	movs	r3, #2
  8001aa2:	61bb      	str	r3, [r7, #24]
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
  8001aa4:	2300      	movs	r3, #0
  8001aa6:	61fb      	str	r3, [r7, #28]
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  8001aa8:	2303      	movs	r3, #3
  8001aaa:	623b      	str	r3, [r7, #32]
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
  8001aac:	2307      	movs	r3, #7
  8001aae:	627b      	str	r3, [r7, #36]	; 0x24
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  8001ab0:	f107 0314 	add.w	r3, r7, #20
  8001ab4:	4619      	mov	r1, r3
  8001ab6:	4806      	ldr	r0, [pc, #24]	; (8001ad0 <HAL_UART_MspInit+0xcc>)
  8001ab8:	f000 fef4 	bl	80028a4 <HAL_GPIO_Init>
+  /* USER CODE BEGIN USART1_MspInit 1 */
+
+  /* USER CODE END USART1_MspInit 1 */
+  }
+
+}
  8001abc:	bf00      	nop
  8001abe:	3728      	adds	r7, #40	; 0x28
  8001ac0:	46bd      	mov	sp, r7
