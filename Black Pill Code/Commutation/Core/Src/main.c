@@ -69,9 +69,9 @@ uint16_t Commutation[6][3] = {
 
 uint16_t len = 0;
 uint16_t TargetRPM = 0;
+uint16_t PWM = 100;
 
-uint8_t PWM = 100;
-uint8_t Mode = 0;
+uint8_t Mode = 1;
 
 double CurrentRPM = 0;
 char buf[64];
@@ -166,7 +166,12 @@ int main(void)
 	// Read Hall sensor for new PWM calculation
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	TargetRPM = (HAL_ADC_GetValue(&hadc1) / 4096.0) * TIM1->ARR;
+	TargetRPM = HAL_ADC_GetValue(&hadc1);
+
+	// Keep minimum RPM
+	if ( TargetRPM < MinimumRPM ) {
+		TargetRPM = MinimumRPM;
+	}
 
 	// Transmit RPM value to PC via USB
 	len = snprintf(buf, sizeof(buf), "\n\rCurrent RPM: %04.2lf", CurrentRPM);
@@ -665,7 +670,7 @@ HAL_StatusTypeDef StartupSequence(char Direction) {
 	// Write some registers
 	TIM1->CR2  |= 0x0005; 			// Set CCPC 1 and CCUS 1 in CR2
 	TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
-	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable Commutation events in DIER register
+	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable commutation events in DIER register
 	// TIM1->BDTR |= TIM_BDTR_OSSR;
 
 	return HAL_OK;
@@ -682,10 +687,10 @@ HAL_StatusTypeDef StopSequence() {
 	TIM1->CCMR1 = 0x0808;
 	TIM1->CCMR2 = 0x0808;
 
-	// Disable Commutation
-	TIM1->EGR |= TIM_EGR_COMG; // Trigger one last commutation event
-	while (((TIM1->SR >> 5) & 0x1) == 1); // Wait until Commutation event has happened
-	TIM1->DIER &= ~TIM_DIER_COMIE; // Disable Commutation events in DIER register
+	// Disable commutation
+	TIM1->EGR |= TIM_EGR_COMG; 				// Trigger one last commutation event
+	while (((TIM1->SR >> 5) & 0x1) == 1); 	// Wait until commutation event has happened
+	TIM1->DIER &= ~TIM_DIER_COMIE; 			// Disable commutation events in DIER register
 
 	// Stop interrupts
 	HAL_TIM_Base_Stop_IT(&htim1);
@@ -718,8 +723,7 @@ HAL_StatusTypeDef PrepareCommutation(char Direction) {
 		Hall %= 6; // If original was 0 it needs to become 5, this also negates the 6 we added previously
 	break;
 	default:
-		// If F or B is not supplied the function should return with an error
-		return HAL_ERROR;
+		return HAL_ERROR; // If F or B is not supplied the function should return with an error
 	break;
 	}
 
