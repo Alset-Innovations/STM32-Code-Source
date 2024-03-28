@@ -74,6 +74,7 @@ void Error_Handler(void);
 #define OffsetU (AANTAL_TIJDSTAPPEN / 3) * 0
 #define OffsetV (AANTAL_TIJDSTAPPEN / 3) * 1
 #define OffsetW (AANTAL_TIJDSTAPPEN / 3) * 2
+#define RxSize 6
 
 /* USER CODE END Private defines */
 

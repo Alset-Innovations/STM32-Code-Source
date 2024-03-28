@@ -44,7 +44,6 @@
 ADC_HandleTypeDef hadc1;
 
 I2C_HandleTypeDef hi2c1;
-I2C_HandleTypeDef hi2c2;
 
 SPI_HandleTypeDef hspi1;
 
@@ -69,8 +68,10 @@ uint16_t Commutation[6][3] = {
 
 uint16_t len = 0;
 uint16_t TargetRPM = 0;
-uint16_t PWM = 100;
+uint16_t PWM = 1000;
+uint16_t count = 0;
 
+uint8_t RxData[RxSize];
 uint8_t Mode = 1;
 
 double CurrentRPM = 0;
@@ -83,13 +84,41 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM1_Init(void);
-static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM9_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+
+extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef *hi2c)
+{
+	HAL_I2C_EnableListen_IT(hi2c);
+}
+
+extern void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode)
+{
+	if(TransferDirection == I2C_DIRECTION_TRANSMIT)  // if the master wants to transmit the data
+	{
+		HAL_I2C_Slave_Sequential_Receive_IT(hi2c, RxData, 6, I2C_FIRST_AND_LAST_FRAME);
+		PWM = RxData[0] * 12;
+	}
+	else  // master requesting the data is not supported yet
+	{
+		Error_Handler();
+	}
+}
+
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+	count++;
+}
+
+
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
+{
+	HAL_I2C_EnableListen_IT(hi2c);
+}
 
 HAL_StatusTypeDef StartupSequence(char Direction);
 HAL_StatusTypeDef StopSequence();
@@ -134,27 +163,28 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_TIM1_Init();
-  MX_I2C2_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
   MX_TIM2_Init();
   MX_TIM9_Init();
   MX_I2C1_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
-  StartupSequence('F');
+	StartupSequence('F');
 
-  /*
-  // Registers for XOR function (Done in IOC)
-  TIM4->ARR = 0xFFFFFFFF; 	// Set ARR to max value (32 bits)
-  TIM4->PSC = 0xFFFF; 		// Set PSC to max value (16 bits)
-  TIM4->CR2 |= 0x00D0; 		// Turn on XOR function.
-  TIM4->CCMR1 &= 0xFCFF; 	// Can also be done in the ioc.
-  TIM4->CCMR1 |= 0x7003; 	// Can also be done in the ioc.
-  */
+	// I2C1->CR1 |= 0x0003;
 
-  // Dead-time can be controlled using DTG[7:0] in TIM1->BDTR register.
+	/*
+	// Registers for XOR function (Done in IOC)
+	TIM4->ARR = 0xFFFFFFFF; // Set ARR to max value (32 bits)
+	TIM4->PSC = 0xFFFF; 	// Set PSC to max value (16 bits)
+	TIM4->CR2 |= 0x00D0; 	// Turn on XOR function.
+	TIM4->CCMR1 &= 0xFCFF; 	// Can also be done in the ioc.
+	TIM4->CCMR1 |= 0x7003; 	// Can also be done in the ioc.
+	*/
+
+	// Dead-time can be controlled using DTG[7:0] in TIM1->BDTR register.
 
   /* USER CODE END 2 */
 
@@ -163,6 +193,7 @@ int main(void)
   while (1)
   {
 
+	/*
 	// Read Hall sensor for new PWM calculation
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
@@ -171,13 +202,17 @@ int main(void)
 	// Keep minimum RPM
 	if ( TargetRPM < MinimumRPM ) {
 		TargetRPM = MinimumRPM;
-	}
+	*/
+
+	TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
+	TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
+	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
 
 	// Transmit RPM value to PC via USB
 	len = snprintf(buf, sizeof(buf), "\n\rCurrent RPM: %04.2lf", CurrentRPM);
 	CDC_Transmit_FS((uint8_t *) buf, len);
 
-	HAL_Delay(10);
+	// HAL_Delay(100);
 
 	// Update RPM
 	// Disable UDIS in CR1
@@ -306,7 +341,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = 32;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -319,40 +354,6 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
-  * @brief I2C2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2C2_Init(void)
-{
-
-  /* USER CODE BEGIN I2C2_Init 0 */
-
-  /* USER CODE END I2C2_Init 0 */
-
-  /* USER CODE BEGIN I2C2_Init 1 */
-
-  /* USER CODE END I2C2_Init 1 */
-  hi2c2.Instance = I2C2;
-  hi2c2.Init.ClockSpeed = 100000;
-  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c2.Init.OwnAddress1 = 36;
-  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c2.Init.OwnAddress2 = 0;
-  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2C2_Init 2 */
-
-  /* USER CODE END I2C2_Init 2 */
 
 }
 
@@ -632,6 +633,9 @@ static void MX_GPIO_Init(void)
 
 HAL_StatusTypeDef StartupSequence(char Direction) {
 
+	// Enable I2C in Interrupt mode
+	HAL_I2C_EnableListen_IT(&hi2c1);
+
 	// Set first commutation state according to Hall sensors
 	if (PrepareCommutation(Direction) == HAL_ERROR) {
 		return HAL_ERROR;
@@ -714,12 +718,12 @@ HAL_StatusTypeDef PrepareCommutation(char Direction) {
 	// Edit Hall data according to direction.
 	switch (Direction) {
 	case 'F':
-		Hall += 2; // Select next value in the array to go forward
+		Hall += 1; // Select next value in the array to go forward
 		Hall %= 6; // If original was 5 it needs to be 0 to we use % 6
 	break;
 	case 'B':
 		Hall += 6; // To not go negative in the next step we add 6
-		Hall -= 2; // Select previous value to go backwards
+		Hall -= 1; // Select previous value to go backwards
 		Hall %= 6; // If original was 0 it needs to become 5, this also negates the 6 we added previously
 	break;
 	default:

@@ -61,7 +61,6 @@ HAL_StatusTypeDef PrepareCommutation(char Direction);
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern I2C_HandleTypeDef hi2c1;
-extern I2C_HandleTypeDef hi2c2;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
@@ -267,9 +266,10 @@ void TIM2_IRQHandler(void)
 
 	// If maximum RPM is exceeded -> shutdown
 	if ( CurrentRPM > MaximumRPM ) {
-		StopSequence();
+		// StopSequence();
 	}
 
+	/*
 	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
 	// Once the PWM approaches its target slowly adjust the PWM
 	if ( TargetRPM > CurrentRPM) {
@@ -287,13 +287,14 @@ void TIM2_IRQHandler(void)
 			PWM--;
 		}
 	}
+	*/
 
 	// Update PWM according to temporary potentiometer input
-	TIM1->CR1 |= 0x0002;  // Disable Update Events
-	TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
-	TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
-	TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
-	TIM1->CR1 &= ~0x0002; // Enable Update Events
+	// TIM1->CR1 |= 0x0002;  // Disable Update Events
+	// TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
+	// TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
+	// TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
+	// TIM1->CR1 &= ~0x0002; // Enable Update Events
 
 	// Reset Timer 9 counter.
 	TIM9->CNT = 0x0;
@@ -315,8 +316,6 @@ void I2C1_EV_IRQHandler(void)
 {
   /* USER CODE BEGIN I2C1_EV_IRQn 0 */
 
-
-
   /* USER CODE END I2C1_EV_IRQn 0 */
   HAL_I2C_EV_IRQHandler(&hi2c1);
   /* USER CODE BEGIN I2C1_EV_IRQn 1 */
@@ -336,20 +335,6 @@ void I2C1_ER_IRQHandler(void)
   /* USER CODE BEGIN I2C1_ER_IRQn 1 */
 
   /* USER CODE END I2C1_ER_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C2 event interrupt.
-  */
-void I2C2_EV_IRQHandler(void)
-{
-  /* USER CODE BEGIN I2C2_EV_IRQn 0 */
-
-  /* USER CODE END I2C2_EV_IRQn 0 */
-  HAL_I2C_EV_IRQHandler(&hi2c2);
-  /* USER CODE BEGIN I2C2_EV_IRQn 1 */
-
-  /* USER CODE END I2C2_EV_IRQn 1 */
 }
 
 /**
