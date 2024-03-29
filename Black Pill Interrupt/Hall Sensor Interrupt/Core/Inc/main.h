@@ -62,6 +62,17 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 
+#define AANTAL_TIJDSTAPPEN 512
+#define RPM_Constante 60 * AANTAL_TIJDSTAPPEN
+#define MinimumRPM 100
+#define MaximumRPM 4100
+#define Fapb1clk HAL_RCC_GetPCLK1Freq() * 2
+#define Fapb2clk HAL_RCC_GetPCLK2Freq() * 2
+#define TIM3ARR TIM3->ARR
+#define OffsetU (AANTAL_TIJDSTAPPEN / 3) * 0
+#define OffsetV (AANTAL_TIJDSTAPPEN / 3) * 1
+#define OffsetW (AANTAL_TIJDSTAPPEN / 3) * 2
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

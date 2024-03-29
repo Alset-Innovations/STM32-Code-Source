@@ -1,0 +1,335 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    stm32f4xx_it.c
+  * @brief   Interrupt Service Routines.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "stm32f4xx_it.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+#include <stdio.h>
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN TD */
+
+/* USER CODE END TD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN PV */
+
+int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0, j = 0;
+
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN PFP */
+
+int CheckActive(uint32_t x);
+
+extern uint8_t CDC_Transmit_FS(uint8_t* buf, uint16_t len);
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/* External variables --------------------------------------------------------*/
+extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+extern TIM_HandleTypeDef htim4;
+/* USER CODE BEGIN EV */
+
+extern int PWMPulse;
+extern double sintab[];
+extern uint8_t CurrentRPM, WantedRPM;
+
+// extern UART_HandleTypeDef huart6;
+
+/* USER CODE END EV */
+
+/******************************************************************************/
+/*           Cortex-M4 Processor Interruption and Exception Handlers          */
+/******************************************************************************/
+/**
+  * @brief This function handles Non maskable interrupt.
+  */
+void NMI_Handler(void)
+{
+  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+
+  /* USER CODE END NonMaskableInt_IRQn 0 */
+  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  while (1)
+  {
+  }
+  /* USER CODE END NonMaskableInt_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Hard fault interrupt.
+  */
+void HardFault_Handler(void)
+{
+  /* USER CODE BEGIN HardFault_IRQn 0 */
+
+  /* USER CODE END HardFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    /* USER CODE END W1_HardFault_IRQn 0 */
+  }
+}
+
+/**
+  * @brief This function handles Memory management fault.
+  */
+void MemManage_Handler(void)
+{
+  /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+
+  /* USER CODE END MemoryManagement_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+    /* USER CODE END W1_MemoryManagement_IRQn 0 */
+  }
+}
+
+/**
+  * @brief This function handles Pre-fetch fault, memory access fault.
+  */
+void BusFault_Handler(void)
+{
+  /* USER CODE BEGIN BusFault_IRQn 0 */
+
+  /* USER CODE END BusFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+    /* USER CODE END W1_BusFault_IRQn 0 */
+  }
+}
+
+/**
+  * @brief This function handles Undefined instruction or illegal state.
+  */
+void UsageFault_Handler(void)
+{
+  /* USER CODE BEGIN UsageFault_IRQn 0 */
+
+  /* USER CODE END UsageFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+    /* USER CODE END W1_UsageFault_IRQn 0 */
+  }
+}
+
+/**
+  * @brief This function handles System service call via SWI instruction.
+  */
+void SVC_Handler(void)
+{
+  /* USER CODE BEGIN SVCall_IRQn 0 */
+
+  /* USER CODE END SVCall_IRQn 0 */
+  /* USER CODE BEGIN SVCall_IRQn 1 */
+
+  /* USER CODE END SVCall_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Debug monitor.
+  */
+void DebugMon_Handler(void)
+{
+  /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+
+  /* USER CODE END DebugMonitor_IRQn 0 */
+  /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+
+  /* USER CODE END DebugMonitor_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Pendable request for system service.
+  */
+void PendSV_Handler(void)
+{
+  /* USER CODE BEGIN PendSV_IRQn 0 */
+
+  /* USER CODE END PendSV_IRQn 0 */
+  /* USER CODE BEGIN PendSV_IRQn 1 */
+
+  /* USER CODE END PendSV_IRQn 1 */
+}
+
+/**
+  * @brief This function handles System tick timer.
+  */
+void SysTick_Handler(void)
+{
+  /* USER CODE BEGIN SysTick_IRQn 0 */
+
+  /* USER CODE END SysTick_IRQn 0 */
+  HAL_IncTick();
+  /* USER CODE BEGIN SysTick_IRQn 1 */
+
+  /* USER CODE END SysTick_IRQn 1 */
+}
+
+/******************************************************************************/
+/* STM32F4xx Peripheral Interrupt Handlers                                    */
+/* Add here the Interrupt Handlers for the used peripherals.                  */
+/* For the available peripheral interrupt handler names,                      */
+/* please refer to the startup file (startup_stm32f4xx.s).                    */
+/******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+
+	// Calculate CurrentRPM using TIM2 and Hall Sensor Interrupt
+	CurrentRPM = TIM2->CNT / (100000000 / 60);
+
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
+
+	// Reset TIM2 for next measurement
+	TIM2->CNT = 0x0000;
+
+	// Send RPM data to PCzz
+	char buf[] = "\n\nHello World Hello World";
+	//uint16_t len = snprintf(buf, sizeof(buf), "Wanted RPM / Current RPM: %d / %d \n", WantedRPM, CurrentRPM);
+	CDC_Transmit_FS((uint8_t *) buf, sizeof(buf));
+
+	/*
+	//TIM2->CCR3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) * PWMPulse;
+
+	// Save current state of Timers with new PWM duty cycle
+	int PWMU = PWMPulse * CheckActive(TIM3->CCR1);
+	int PWMV = PWMPulse * CheckActive(TIM3->CCR2);
+	int PWMW = PWMPulse * CheckActive(TIM3->CCR3);
+
+	// Set PWM duty cycle to zero for switching MOSFETS states
+	TIM3->CCR1 = 0;
+	TIM3->CCR2 = 0;
+	TIM3->CCR3 = 0;
+
+	// Set new MOSFETS states
+	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output U to HAL state W
+	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6)); // Set output V to HAL state U
+	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)); // Set output W to HAL state V
+
+	// OR
+
+	GPIOC->ODR = GPIOB->IDR << 8;
+	// HALPrev = GPIOB->IDR << 8;
+
+	// Set PWM duty cycle to previous saved state of preceding channel
+	TIM3->CCR1 = PWMU;
+	TIM3->CCR2 = PWMV;
+	TIM3->CCR3 = PWMW;
+
+	// Cycle through states
+	int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+	TIM2->CCR1 = PWMPulse * CheckActive(TIM2->CCR2);
+	TIM2->CCR2 = PWMPulse * CheckActive(TIM2->CCR3);
+	TIM2->CCR3 = temp;
+	*/
+
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM4 global interrupt.
+  */
+void TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM4_IRQn 0 */
+
+	// Set PWM timers to next step in sinusoid generation
+	  uint32_t ARR = TIM3->ARR;
+	  TIM3->CCR1 = ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+	  TIM3->CCR2 = ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+	  TIM3->CCR3 = ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
+
+	  j++;
+
+	  if( j > AANTAL_TIJDSTAPPEN) {
+		  j = 0; // Reset j when full sinusoid has been made.
+	  }
+
+  /* USER CODE END TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim4);
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USB On The Go FS global interrupt.
+  */
+void OTG_FS_IRQHandler(void)
+{
+  /* USER CODE BEGIN OTG_FS_IRQn 0 */
+
+  /* USER CODE END OTG_FS_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
+  /* USER CODE BEGIN OTG_FS_IRQn 1 */
+
+  /* USER CODE END OTG_FS_IRQn 1 */
+}
+
+/* USER CODE BEGIN 1 */
+
+// Check if value is positive using simple IF-statement
+int CheckActive(uint32_t x) {
+	if (x > 0) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+/* USER CODE END 1 */

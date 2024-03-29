@@ -1,0 +1,42 @@
+!SESSION 2024-03-18 18:44:58.717 -----------------------------------------------
+eclipse.buildId=Version 1.13.1
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-18 18:45:25.899
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-18 18:45:25.901
+!MESSAGE Log4j2 initialized with config file C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-18 18:45:29.101
+!MESSAGE Started RMI Server, listening on port 41338
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-18 18:48:24.627
+!MESSAGE Indexed 'Sinus' (19 sources, 81 headers) in 2.73 sec: 4,260 declarations; 17,964 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-18 23:38:22.919
+!MESSAGE Indexed 'Commutation' (19 sources, 81 headers) in 1.51 sec: 4,260 declarations; 17,964 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
+
+!ENTRY org.eclipse.equinox.p2.touchpoint.natives 2 0 2024-03-19 19:58:43.444
+!MESSAGE Could not remove temporary backup directory (it is safe to manually delete it and its contents): C:\Users\luuk\AppData\Local\Temp\STM32CubeIDE_230aacf7-defb-4278-9d18-64df3941825d
+!SESSION 2024-03-19 20:02:20.127 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-19 20:02:35.705
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-19 20:02:35.707
+!MESSAGE Log4j2 initialized with config file C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Code\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2024-03-19 20:02:40.607
+!MESSAGE Removing PartDescriptorImpl with the "org.eclipse.ui.views.ResourceNavigator" id and the "Navigator (Deprecated)" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-19 20:02:43.210
+!MESSAGE Started RMI Server, listening on port 41338

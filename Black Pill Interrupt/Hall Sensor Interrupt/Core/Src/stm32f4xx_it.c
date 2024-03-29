@@ -22,6 +22,9 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +45,8 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0;
+int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0, j = 0;
+uint16_t RPM = 0;
 
 /* USER CODE END PV */
 
@@ -50,6 +54,8 @@ int HALPrevU = 0, HALPrevV = 0, HALPrevW = 0, HALPrev = 0;
 /* USER CODE BEGIN PFP */
 
 int CheckActive(uint32_t x);
+
+extern uint8_t CDC_Transmit_FS(uint8_t* buf, uint16_t len);
 
 /* USER CODE END PFP */
 
@@ -59,10 +65,18 @@ int CheckActive(uint32_t x);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim9;
+extern TIM_HandleTypeDef htim10;
 /* USER CODE BEGIN EV */
 
 extern int PWMPulse;
+extern double sintab[];
+extern uint16_t CurrentRPM, WantedRPM;
+extern ADC_HandleTypeDef hadc1;
+
+// extern UART_HandleTypeDef huart6;
 
 /* USER CODE END EV */
 
@@ -211,17 +225,32 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 
+	RPM++;
+
+	/*
+	// Calculate CurrentRPM using TIM2 and Hall Sensor Interrupt
+	CurrentRPM = (TIM2->CNT / Fapb1clk) * 360;
+
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
+
+	// Reset TIM2 for next measurement
+	TIM2->CNT = 0x0000;
+	*/
+
+	/*
 	//TIM2->CCR3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) * PWMPulse;
 
 	// Save current state of Timers with new PWM duty cycle
-	int PWMU = PWMPulse * CheckActive(TIM2->CCR1);
-	int PWMV = PWMPulse * CheckActive(TIM2->CCR2);
-	int PWMW = PWMPulse * CheckActive(TIM2->CCR3);
+	int PWMU = PWMPulse * CheckActive(TIM3->CCR1);
+	int PWMV = PWMPulse * CheckActive(TIM3->CCR2);
+	int PWMW = PWMPulse * CheckActive(TIM3->CCR3);
 
 	// Set PWM duty cycle to zero for switching MOSFETS states
-	TIM2->CCR1 = 0;
-	TIM2->CCR2 = 0;
-	TIM2->CCR3 = 0;
+	TIM3->CCR1 = 0;
+	TIM3->CCR2 = 0;
+	TIM3->CCR3 = 0;
 
 	// Set new MOSFETS states
 	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5)); // Set output U to HAL state W
@@ -234,37 +263,89 @@ void EXTI9_5_IRQHandler(void)
 	// HALPrev = GPIOB->IDR << 8;
 
 	// Set PWM duty cycle to previous saved state of preceding channel
-	TIM2->CCR1 = PWMV;
-	TIM2->CCR2 = PWMW;
-	TIM2->CCR3 = PWMU;
+	TIM3->CCR1 = PWMU;
+	TIM3->CCR2 = PWMV;
+	TIM3->CCR3 = PWMW;
 
 	// Cycle through states
-	/*int temp   = PWMPulse * CheckActive(TIM2->CCR1);
+	int temp   = PWMPulse * CheckActive(TIM2->CCR1);
 	TIM2->CCR1 = PWMPulse * CheckActive(TIM2->CCR2);
 	TIM2->CCR2 = PWMPulse * CheckActive(TIM2->CCR3);
-	TIM2->CCR3 = temp; */
+	TIM2->CCR3 = temp;
+	*/
 
   /* USER CODE END EXTI9_5_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
 
   /* USER CODE END EXTI9_5_IRQn 1 */
 }
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
+  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
   */
-void TIM1_TRG_COM_TIM11_IRQHandler(void)
+void TIM1_BRK_TIM9_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
+	CurrentRPM = 600 * (RPM / 6.0f);
+	RPM = 0;
+
+	// Disable Gate Drivers if RPM is too high.
+	if (CurrentRPM > MaximumRPM) {
+		GPIOC->ODR &= 0x1FFF;
+	}
+
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
+  HAL_TIM_IRQHandler(&htim9);
+  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
 
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
+  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
+  */
+void TIM1_UP_TIM10_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
+
+
+	// Set PWM timers to next step in sinusoid generation
+	TIM3->CCR1 = TIM3ARR * sintab[ (j + OffsetU) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR2 = TIM3ARR * sintab[ (j + OffsetV) % AANTAL_TIJDSTAPPEN];
+	TIM3->CCR3 = TIM3ARR * sintab[ (j + OffsetW) % AANTAL_TIJDSTAPPEN];
+
+	j++;
+
+	if( j > AANTAL_TIJDSTAPPEN) {
+	  j = 0; // Reset j when full sinusoid has been made.
+	}
+
+
+  /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim10);
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USB On The Go FS global interrupt.
+  */
+void OTG_FS_IRQHandler(void)
+{
+  /* USER CODE BEGIN OTG_FS_IRQn 0 */
+
+  /* USER CODE END OTG_FS_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
+  /* USER CODE BEGIN OTG_FS_IRQn 1 */
+
+  /* USER CODE END OTG_FS_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

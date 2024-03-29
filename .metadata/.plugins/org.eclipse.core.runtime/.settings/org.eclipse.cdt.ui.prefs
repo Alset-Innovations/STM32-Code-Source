@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+scalability.detect=false
 spelling_locale_initialized=true
+spelling_user_dictionary=C\:\\Users\\luuk\\Documents\\GitHub\\STM32-Code-Source\\Black Pill Code\\Commutation\\Core\\Src\\Dictionary.txt
+spelling_user_dictionary_encoding=Cp1252
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true
