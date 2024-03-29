@@ -101,7 +101,8 @@ extern void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirect
 	if(TransferDirection == I2C_DIRECTION_TRANSMIT)  // if the master wants to transmit the data
 	{
 		HAL_I2C_Slave_Sequential_Receive_IT(hi2c, RxData, 6, I2C_FIRST_AND_LAST_FRAME);
-		PWM = RxData[0] * 12;
+		double Percentage = RxData[0] / 100;
+		PWM = Percentage * TIM1->ARR;
 	}
 	else  // master requesting the data is not supported yet
 	{
