@@ -1,10 +1,16 @@
-16:28:00 **** Incremental Build of configuration Debug for project Black Pill Test ****
-make -j8 all 
+12:44:03 **** Build of configuration Debug for project Black Pill Test ****
+make -j12 all 
+arm-none-eabi-gcc -o "Black Pill Test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Test/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Black Pill Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Black Pill Test.elf
+ 
 arm-none-eabi-size  Black\ Pill\ Test.elf 
+arm-none-eabi-objdump -h -S Black\ Pill\ Test.elf  > "Black Pill Test.list"
    text	   data	    bss	    dec	    hex	filename
    9576	     20	   1644	  11240	   2be8	Black Pill Test.elf
 Finished building: default.size.stdout
  
+Finished building: Black Pill Test.list
+ 
 
-16:28:01 Build Finished. 0 errors, 0 warnings. (took 315ms)
+12:44:03 Build Finished. 0 errors, 0 warnings. (took 272ms)
 

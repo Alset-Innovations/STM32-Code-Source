@@ -58,12 +58,12 @@ UART_HandleTypeDef huart1;
 // Hex values are for CCER, CCMR2 and CCMR1 in this order.
 // CCER enables output while CCMRx sets PWM mode, forced active or forced inactive.
 uint16_t Commutation[6][3] = {
-		{0x0C01, 0x0868, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
-		{0x010C, 0x0868, 0x4868}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
-		{0x0C10, 0x0868, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
-		{0x001C, 0x0848, 0x6868}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
-		{0x00C1, 0x0848, 0x6868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
-		{0x01C0, 0x0868, 0x6848}  // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+		{0x0401, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
+		{0x0104, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
+		{0x0410, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
+		{0x0014, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
+		{0x0041, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
+		{0x0140, 0x0868, 0x5848}  // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
 };
 
 uint16_t len = 0;
