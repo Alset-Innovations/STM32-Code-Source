@@ -66,12 +66,10 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint16_t TargetRPM;
+extern uint8_t Registers[];
 
-extern uint8_t PWM;
-extern uint8_t Mode;
-
-extern double CurrentRPM;
+extern uint32_t Fapb1tclk;
+extern uint32_t RPMConst;
 
 /* USER CODE END EV */
 
@@ -220,7 +218,29 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
-	CurrentRPM = 0;
+	if ( (TIM9->SR & TIM_SR_CC2IF) >= 1) { // If the CC2IF is set it means a input capture has happened
+		// uint32_t HallTime = HAL_TIM_ReadCapturedValue (&htim9, TIM_CHANNEL_2); // Original
+		// uint16_t HallTime = TIM9->CCR2; // Read the captured value
+		Registers[RPMReg] = RPMConst / (64000 + 1);
+
+		/*
+		if ( HallTime > 0 ) { // If the captured value is more than 0 calculate RPM, this is done to prevent division by 0
+			// double CurrentRPM = 1 / ((HallTime * 6.0 / Fapb2tclk) / 60); // Original equation
+			// uint32_t CurrentRPM = (60 * Fapb2tclk) / ((HallTime + 1) * (TIM9->PSC + 1));
+
+		} else {
+			Registers[RPMReg] = 0; // If the input capture was 0 or negative the RPM is just set to 0
+		}
+		*/
+
+		// If maximum RPM is exceeded -> shutdown
+		if ( Registers[RPMReg] > MaximumRPM ) {
+			StopSequence();
+		}
+	} else {
+		Registers[RPMReg] = 0; // If the CC2IF was not set it means the timer has overflowed and the motor is thus stationary
+	}
+
 
   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -237,11 +257,9 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	// Set next Commutation states
-	PrepareCommutation('F');
+	PrepareCommutation (Registers[DirReg]); // Set next Commutation states
 
-	// Reset COMIF in SR register
-	TIM1->SR &= ~TIM_SR_COMIF;
+	TIM1->SR &= ~TIM_SR_COMIF; 				// Reset COMIF in SR register
 
   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -256,18 +274,6 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-
-	uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
-	if ( HallTime > 0 ) {
-		CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
-	} else {
-		CurrentRPM = 0;
-	}
-
-	// If maximum RPM is exceeded -> shutdown
-	if ( CurrentRPM > MaximumRPM ) {
-		// StopSequence();
-	}
 
 	/*
 	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
