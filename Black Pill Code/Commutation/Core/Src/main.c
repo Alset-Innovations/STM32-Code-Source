@@ -60,13 +60,46 @@ UART_HandleTypeDef huart1;
 // Commutation table for motor control
 // Hex values are for CCER, CCMR2 and CCMR1 in this order.
 // CCER enables output while CCMRx sets PWM mode, forced active or forced inactive.
+/*
 uint16_t Commutation[6][3] = {
-		{0x0C01, 0x0868, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
-		{0x010C, 0x0868, 0x4868}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
-		{0x0C10, 0x0868, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
-		{0x001C, 0x0848, 0x6868}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
-		{0x00C1, 0x0848, 0x6868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
-		{0x01C0, 0x0868, 0x6848}  // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+		{0x0405, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
+		{0x0504, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
+		{0x0450, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
+		{0x0054, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
+		{0x0045, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
+		{0x0540, 0x0868, 0x5848}  // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+};
+*/
+
+/*
+uint16_t Commutation[6][3] = {
+		{0x0540, 0x0868, 0x5848}, // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+		{0x0054, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
+		{0x0504, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
+		{0x0405, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
+		{0x0045, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
+		{0x0450, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
+};
+*/
+
+/*
+uint16_t Commutation[6][3] = {
+		{0x0504, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
+		{0x0540, 0x0868, 0x5848}, // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+		{0x0405, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
+		{0x0054, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
+		{0x0450, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
+		{0x0045, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
+};
+*/
+
+uint16_t Commutation[6][3] = {
+		{0x0405, 0x0858, 0x4868}, // 010 Phase 3 Low,  Phase 2 Off,  Phase 1 High
+		{0x0540, 0x0868, 0x5848}, // 100 Phase 3 High, Phase 2 Low,  Phase 1 Off
+		{0x0045, 0x0848, 0x5868}, // 110 Phase 3 Off,  Phase 2 Low,  Phase 1 High
+		{0x0054, 0x0848, 0x6858}, // 001 Phase 3 Off,  Phase 2 High, Phase 1 Low
+		{0x0450, 0x0858, 0x6848}, // 011 Phase 3 Low,  Phase 2 High, Phase 1 Off
+		{0x0504, 0x0868, 0x4858}, // 101 Phase 3 High, Phase 2 Off,  Phase 1 Low
 };
 
 // USB communication
@@ -74,7 +107,7 @@ uint16_t len = 0;
 char buf[64];
 
 // Storing data in a register
-uint8_t Registers[RegSize] = {}; // PWM, Direction, Current, RPM
+uint16_t Registers[RegSize] = {0, 0, 0, 0}; // PWM, Direction, Current, RPM
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
@@ -87,6 +120,8 @@ uint8_t RxData[RxSize];
 uint32_t Fapb1tclk = 0;
 uint32_t Fapb2tclk = 0;
 uint32_t RPMConst = 0;
+
+uint32_t RPMValue = 0;
 
 /* USER CODE END PV */
 
@@ -105,12 +140,15 @@ static void MX_USART1_UART_Init(void);
 HAL_StatusTypeDef PrepareCommutation (char Direction) {
 
 	// Read IDR for Hall Sensor status
-	uint8_t Hall = (GPIOA->IDR & 0b111) - 1;
+	uint16_t Hall = (GPIOA->IDR & 0b111) - 1;
+
+	/*
 
 	// Edit Hall data according to direction.
 	switch (Direction) {
 	case 'F':
-		Hall += 1; // Select next value in the array to go forward
+		Hall += 6;
+		Hall += 0; // Select next value in the array to go forward
 		Hall %= 6; // If original was 5 it needs to be 0 to we use % 6
 	break;
 	case 'B':
@@ -122,6 +160,32 @@ HAL_StatusTypeDef PrepareCommutation (char Direction) {
 		return HAL_ERROR; // If F or B is not supplied the function should return with an error
 	break;
 	}
+	*/
+
+	/*
+	uint16_t Hall = (GPIOA->IDR & 0b111);
+
+	switch (Hall) {
+		case 1:
+			Hall = 5;
+		break;
+		case 2:
+			Hall = 3;
+		break;
+		case 3:
+			Hall = 2;
+		break;
+		case 4:
+			Hall = 4;
+		break;
+		case 5:
+			Hall = 0;
+		break;
+		case 6:
+			Hall = 1;
+		break;
+	}
+	*/
 
 	// Set Registers to required values
 	TIM1->CCER  = Commutation[Hall][0];
@@ -134,10 +198,12 @@ HAL_StatusTypeDef PrepareCommutation (char Direction) {
 
 HAL_StatusTypeDef StartupSequence (char Direction) {
 
+	HAL_I2C_EnableListen_IT (&hi2c1);
+
 	// Initialize some variables
 	Fapb1tclk = HAL_RCC_GetPCLK1Freq() * 2;
 	Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;
-	RPMConst = Fapb2tclk / (TIM9->PSC + 1) * 60;
+	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 2;
 
 	// Set first commutation state according to Hall sensors
 	if (PrepareCommutation (Direction) == HAL_ERROR) {
@@ -162,6 +228,7 @@ HAL_StatusTypeDef StartupSequence (char Direction) {
 	HAL_TIM_Base_Start_IT (&htim1);
 	HAL_TIM_Base_Start_IT (&htim2);
 	HAL_TIM_Base_Start_IT (&htim9);
+	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 
 	// Clear all interrupt triggers
 	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag
@@ -199,7 +266,7 @@ HAL_StatusTypeDef StopSequence() {
 	if ( (TIM1->DIER & TIM_DIER_COMIE) >= 1 ) { 	// If COMIE bit in DIER is set commutation events are still enabled
 
 		TIM1->EGR |= TIM_EGR_COMG; 							// Trigger commutation event
-		while ( (TIM1->SR & TIM_SR_COMIF) >= 1 ); 	// Wait until commutation event has happened
+		// while ( (TIM1->SR & TIM_SR_COMIF) >= 1 ); 	// Wait until commutation event has happened
 		TIM1->DIER &= ~TIM_DIER_COMIE; 						// Disable commutation events in DIER register
 
 	}
@@ -208,11 +275,14 @@ HAL_StatusTypeDef StopSequence() {
 	HAL_TIM_Base_Stop_IT (&htim1);
 	HAL_TIM_Base_Stop_IT (&htim2);
 	HAL_TIM_Base_Stop_IT (&htim9);
+	HAL_TIM_IC_Stop_IT (&htim9, TIM_CHANNEL_2);
 
 	// Stop PWM Timers
 	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_3);
+
+	Registers[RPMReg] = 0;
 
 	return HAL_OK;
 
@@ -225,13 +295,13 @@ void ProcessData (void) {
 	EndReg = StartReg + NumReg - 1; // Last register to be written
 
 	// If the last register to be wriiten is larger than the size of the register call the error handler
-	if (EndReg > RegSize) {
-		Error_Handler();
+	if (EndReg > RxSize) {
+		//Error_Handler();
 	}
 
 	// Write data into the register using a for loop
 	for (int i = 1; i < NumReg + 1; i++) {
-		Registers[StartReg++] = RxData[i];
+		Registers[StartReg++] = RxData[i + 1];
 	}
 
 	// If the PWM is higher than 0 but the motor is not turning then startup
@@ -245,9 +315,13 @@ void ProcessData (void) {
 	}
 
 	// Update PWM values
-	if ( Registers[PWMReg] >= 0) {
+	if ( Registers[PWMReg] >= 0 ) {
 
 		uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+
+		if (PWM >= TIM1->ARR - 60) {
+			PWM = TIM1->ARR - 60;
+		}
 
 		TIM1->CR1 |= TIM_CR1_UDIS; 	// Disable Update Events
 		TIM1->CCR1 = PWM;	  		// Set new PWM for channel 1
@@ -277,7 +351,8 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef *hi2c, uint8_t TransferDirec
 
 		TxCount = 0;
 		StartReg = RxData[0];
-		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers + TxCount + StartReg, 1, I2C_FIRST_FRAME);
+		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_FIRST_FRAME);
+		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
 
 	}
 }
@@ -285,7 +360,8 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef *hi2c, uint8_t TransferDirec
 void HAL_I2C_SlaveTxCpltCallback (I2C_HandleTypeDef *hi2c) {
 
 	TxCount++;
-	HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers + TxCount + StartReg, 1, I2C_NEXT_FRAME);
+	HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_NEXT_FRAME);
+	HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
 
 }
 
@@ -372,7 +448,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-	StartupSequence ('F');
+	StartupSequence (Registers[DirReg]);
 
   /* USER CODE END 2 */
 
@@ -381,11 +457,30 @@ int main(void)
   while (1)
   {
 
+	/*
+	// Read Potentiometer data from ADC for RPM control.
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	uint32_t PWM = HAL_ADC_GetValue(&hadc1) / 2;
+
+	if (PWM >= TIM1->ARR - 60) {
+		PWM = TIM1->ARR - 60;
+	}
+
+	TIM1->CR1 |= TIM_CR1_UDIS; 	// Disable Update Events
+	TIM1->CCR1 = PWM;	  		// Set new PWM for channel 1
+	TIM1->CCR2 = PWM;	  		// Set new PWM for channel 2
+	TIM1->CCR3 = PWM;	  		// Set new PWM for channel 3
+	TIM1->CR1 &= ~TIM_CR1_UDIS; // Enable Update Events
+	*/
+
+	/*
 	// Transmit RPM value to PC via USB
-	len = snprintf(buf, sizeof(buf), "\n\rCurrent RPM: %4d", Registers[RPMReg]);
+	len = snprintf(buf, sizeof(buf), "\n\rCurrent PWM: %4d", PWM);
 	CDC_Transmit_FS ((uint8_t *) buf, len);
 
-	HAL_Delay(100);
+	HAL_Delay(10);
+	*/
 
 	// Update RPM
 	// Disable UDIS in CR1
@@ -616,7 +711,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -630,7 +725,6 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.Pulse = 0;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
@@ -679,7 +773,7 @@ static void MX_TIM2_Init(void)
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = 15;
+  sConfig.IC1Filter = 0;
   sConfig.Commutation_Delay = 0;
   if (HAL_TIMEx_HallSensor_Init(&htim2, &sConfig) != HAL_OK)
   {
@@ -727,7 +821,7 @@ static void MX_TIM9_Init(void)
   sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
   sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
   sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-  sConfigIC.ICFilter = 15;
+  sConfigIC.ICFilter = 2;
   if (HAL_TIM_IC_ConfigChannel(&htim9, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
@@ -778,25 +872,13 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : PC13 PC14 PC15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

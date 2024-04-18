@@ -66,10 +66,15 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint8_t Registers[];
+extern uint16_t Registers[];
 
 extern uint32_t Fapb1tclk;
+extern uint32_t Fapb2tclk;
 extern uint32_t RPMConst;
+
+extern uint32_t RPMValue;
+
+uint16_t Test[RegSize] = {};
 
 /* USER CODE END EV */
 
@@ -219,23 +224,12 @@ void TIM1_BRK_TIM9_IRQHandler(void)
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
 	if ( (TIM9->SR & TIM_SR_CC2IF) >= 1) { // If the CC2IF is set it means a input capture has happened
-		// uint32_t HallTime = HAL_TIM_ReadCapturedValue (&htim9, TIM_CHANNEL_2); // Original
-		// uint16_t HallTime = TIM9->CCR2; // Read the captured value
-		Registers[RPMReg] = RPMConst / (64000 + 1);
 
-		/*
-		if ( HallTime > 0 ) { // If the captured value is more than 0 calculate RPM, this is done to prevent division by 0
-			// double CurrentRPM = 1 / ((HallTime * 6.0 / Fapb2tclk) / 60); // Original equation
-			// uint32_t CurrentRPM = (60 * Fapb2tclk) / ((HallTime + 1) * (TIM9->PSC + 1));
-
-		} else {
-			Registers[RPMReg] = 0; // If the input capture was 0 or negative the RPM is just set to 0
-		}
-		*/
+		Registers[RPMReg] = RPMConst / (TIM9->CCR2);
 
 		// If maximum RPM is exceeded -> shutdown
 		if ( Registers[RPMReg] > MaximumRPM ) {
-			StopSequence();
+			//StopSequence();
 		}
 	} else {
 		Registers[RPMReg] = 0; // If the CC2IF was not set it means the timer has overflowed and the motor is thus stationary
