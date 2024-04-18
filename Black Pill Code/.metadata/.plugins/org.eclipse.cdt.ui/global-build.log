@@ -8013,3 +8013,366 @@ Finished building: default.size.stdout
  
 Finished building: Commutation.list
  
+22:09:00 **** Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64180	    752	   9656	  74588	  1235c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:09:01 **** Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-gcc -o "Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Sinus/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sinus.elf
+ 
+arm-none-eabi-size  Sinus.elf 
+arm-none-eabi-objdump -h -S Sinus.elf  > "Sinus.list"
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+Finished building: Sinus.list
+ 
+22:22:35 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/main.c:309:84: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  309 |                 HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_FIRST_FRAME);
+      |                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                                                    |
+      |                                                                                    int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c:310:63: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  310 |                 HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
+      |                                                      ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                                                               |
+      |                                                               uint16_t {aka short unsigned int}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t' {aka 'short unsigned int'}
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveTxCpltCallback':
+../Core/Src/main.c:318:76: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  318 |         HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_NEXT_FRAME);
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                                            |
+      |                                                                            int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c:319:55: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  319 |         HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
+      |                                              ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                                                       |
+      |                                                       uint16_t {aka short unsigned int}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t' {aka 'short unsigned int'}
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64332	    752	  10176	  75260	  125fc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:22:36 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+22:40:09 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_BRK_TIM9_IRQHandler':
+../Core/Src/stm32f4xx_it.c:252:17: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  252 |                 memset(RPM, 0, 256);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:23:1: note: include '<string.h>' or provide a declaration of 'memset'
+   22 | #include "stm32f4xx_it.h"
+  +++ |+#include <string.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/stm32f4xx_it.c:252:17: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  252 |                 memset(RPM, 0, 256);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:252:17: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/stm32f4xx_it.c:252:17: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:40:10 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+22:52:10 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_BRK_TIM9_IRQHandler':
+../Core/Src/stm32f4xx_it.c:252:17: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  252 |                 memset(RPM, 0, sizeof(RPM));
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:23:1: note: include '<string.h>' or provide a declaration of 'memset'
+   22 | #include "stm32f4xx_it.h"
+  +++ |+#include <string.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/stm32f4xx_it.c:252:17: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  252 |                 memset(RPM, 0, sizeof(RPM));
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:252:17: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/main.c:311:84: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  311 |                 HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_FIRST_FRAME);
+      |                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                                                    |
+      |                                                                                    int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c:312:63: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  312 |                 HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
+      |                                                      ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                                                               |
+      |                                                               uint16_t {aka short unsigned int}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t' {aka 'short unsigned int'}
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveTxCpltCallback':
+../Core/Src/main.c:320:76: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  320 |         HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg] >> 8, 1, I2C_NEXT_FRAME);
+      |                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                                            |
+      |                                                                            int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+../Core/Src/main.c:321:55: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  321 |         HAL_I2C_Slave_Seq_Transmit_IT (hi2c, Registers[TxCount + StartReg], 1, I2C_NEXT_FRAME);
+      |                                              ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                                                       |
+      |                                                       uint16_t {aka short unsigned int}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t' {aka 'short unsigned int'}
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:52:11 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+22:53:49 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_BRK_TIM9_IRQHandler':
+../Core/Src/stm32f4xx_it.c:256:17: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  256 |                 memset(RPM, 0, AvgSize);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:23:1: note: include '<string.h>' or provide a declaration of 'memset'
+   22 | #include "stm32f4xx_it.h"
+  +++ |+#include <string.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/stm32f4xx_it.c:256:17: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  256 |                 memset(RPM, 0, AvgSize);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:256:17: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/stm32f4xx_it.c:256:17: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:53:49 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+22:53:55 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+22:54:21 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+22:54:21 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+23:36:14 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_BRK_TIM9_IRQHandler':
+../Core/Src/stm32f4xx_it.c:256:17: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  256 |                 memset(RPM, 0, AvgSize);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:23:1: note: include '<string.h>' or provide a declaration of 'memset'
+   22 | #include "stm32f4xx_it.h"
+  +++ |+#include <string.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/stm32f4xx_it.c:256:17: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  256 |                 memset(RPM, 0, AvgSize);
+      |                 ^~~~~~
+../Core/Src/stm32f4xx_it.c:256:17: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/stm32f4xx_it.c:256:17: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64388	    752	  10176	  75316	  12634	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+23:36:14 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+23:50:33 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64380	    752	  10176	  75308	  1262c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+23:50:34 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 
+23:50:45 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  64380	    752	  10176	  75308	  1262c	Commutation.elf
+Finished building: default.size.stdout
+ 
+00:04:08 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  64364	    752	  10176	  75292	  1261c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+00:04:08 **** Incremental Build of configuration Debug for project Sinus ****
+make -j12 all 
+arm-none-eabi-size  Sinus.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56096	    344	  13792	  70232	  11258	Sinus.elf
+Finished building: default.size.stdout
+ 

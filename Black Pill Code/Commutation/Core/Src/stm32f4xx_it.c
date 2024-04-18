@@ -42,6 +42,10 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
+uint32_t Total = 0;
+uint16_t RPM[AvgSize] = {};
+uint8_t i = 0, j = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -225,11 +229,23 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 
 	if ( (TIM9->SR & TIM_SR_CC2IF) >= 1) { // If the CC2IF is set it means a input capture has happened
 
-		Registers[RPMReg] = RPMConst / (TIM9->CCR2);
+		Total -= RPM[i];
+		RPM[i] = RPMConst / (TIM9->CCR2);
+		Total += RPM[i];
+
+		i++;
+
+		if ( i > AvgSize ) {
+			i = 0;
+		}
+
+		Registers[RPMReg] = Total / AvgSize;
+
+		//Registers[RPMReg] = RPMConst / (TIM9->CCR2);
 
 		// If maximum RPM is exceeded -> shutdown
 		if ( Registers[RPMReg] > MaximumRPM ) {
-			//StopSequence();
+			StopSequence();
 		}
 	} else {
 		Registers[RPMReg] = 0; // If the CC2IF was not set it means the timer has overflowed and the motor is thus stationary
@@ -268,33 +284,6 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-
-	/*
-	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
-	// Once the PWM approaches its target slowly adjust the PWM
-	if ( TargetRPM > CurrentRPM) {
-		if ( TargetRPM > CurrentRPM + SpeedUp) {
-			PWM += Mode;
-		} else {
-			PWM++;
-		}
-	}
-
-	if ( TargetRPM < CurrentRPM ) {
-		if ( TargetRPM < CurrentRPM - SpeedUp) {
-			PWM -= Mode;
-		} else {
-			PWM--;
-		}
-	}
-	*/
-
-	// Update PWM according to temporary potentiometer input
-	// TIM1->CR1 |= 0x0002;  // Disable Update Events
-	// TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
-	// TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
-	// TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
-	// TIM1->CR1 &= ~0x0002; // Enable Update Events
 
 	// Reset Timer 9 counter.
 	TIM9->CNT = 0x0;

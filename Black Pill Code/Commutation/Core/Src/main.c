@@ -142,51 +142,6 @@ HAL_StatusTypeDef PrepareCommutation (char Direction) {
 	// Read IDR for Hall Sensor status
 	uint16_t Hall = (GPIOA->IDR & 0b111) - 1;
 
-	/*
-
-	// Edit Hall data according to direction.
-	switch (Direction) {
-	case 'F':
-		Hall += 6;
-		Hall += 0; // Select next value in the array to go forward
-		Hall %= 6; // If original was 5 it needs to be 0 to we use % 6
-	break;
-	case 'B':
-		Hall += 6; // To not go negative in the next step we add 6
-		Hall -= 1; // Select previous value to go backwards
-		Hall %= 6; // If original was 0 it needs to become 5, this also negates the 6 we added previously
-	break;
-	default:
-		return HAL_ERROR; // If F or B is not supplied the function should return with an error
-	break;
-	}
-	*/
-
-	/*
-	uint16_t Hall = (GPIOA->IDR & 0b111);
-
-	switch (Hall) {
-		case 1:
-			Hall = 5;
-		break;
-		case 2:
-			Hall = 3;
-		break;
-		case 3:
-			Hall = 2;
-		break;
-		case 4:
-			Hall = 4;
-		break;
-		case 5:
-			Hall = 0;
-		break;
-		case 6:
-			Hall = 1;
-		break;
-	}
-	*/
-
 	// Set Registers to required values
 	TIM1->CCER  = Commutation[Hall][0];
 	TIM1->CCMR1 = Commutation[Hall][2];
@@ -296,7 +251,7 @@ void ProcessData (void) {
 
 	// If the last register to be wriiten is larger than the size of the register call the error handler
 	if (EndReg > RxSize) {
-		//Error_Handler();
+		Error_Handler();
 	}
 
 	// Write data into the register using a for loop
@@ -331,6 +286,9 @@ void ProcessData (void) {
 
 	}
 
+	// Empty the RxData array
+	memset(RxData, 0, RxSize);
+
 }
 
 extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef *hi2c) {
@@ -344,7 +302,6 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef *hi2c, uint8_t TransferDirec
 	if ( TransferDirection == I2C_DIRECTION_TRANSMIT ) { // If the master wants to transmit the data
 
 		RxCount = 0;
-		memset(RxData, 0, RxSize); // Empty the RxData array
 		HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_FIRST_FRAME);
 
 	} else { // If the master wants tot recieve data

@@ -5,3 +5,5 @@ configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Sinus Debug,org.
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Commutation\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Commutation\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Sinus\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Sinus\ Debug/activeLaunchTarget=null\:---
