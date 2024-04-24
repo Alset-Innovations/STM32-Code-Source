@@ -51,9 +51,10 @@ uint8_t i = 0, j = 0;
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
 
-HAL_StatusTypeDef StartupSequence(char Direction);
-HAL_StatusTypeDef StopSequence();
-HAL_StatusTypeDef PrepareCommutation(char Direction);
+uint8_t StartupSequence(char Direction);
+uint8_t StopSequence(void);
+uint8_t PrepareCommutation(char Direction);
+uint8_t ChangePWM (void);
 
 /* USER CODE END PFP */
 
@@ -63,7 +64,6 @@ HAL_StatusTypeDef PrepareCommutation(char Direction);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
@@ -77,8 +77,6 @@ extern uint32_t Fapb2tclk;
 extern uint32_t RPMConst;
 
 extern uint32_t RPMValue;
-
-uint16_t Test[RegSize] = {};
 
 /* USER CODE END EV */
 
@@ -249,6 +247,8 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 		}
 	} else {
 		Registers[RPMReg] = 0; // If the CC2IF was not set it means the timer has overflowed and the motor is thus stationary
+		Total = 0;
+		memset(RPM, 0, AvgSize * 2);
 	}
 
 
@@ -324,20 +324,6 @@ void I2C1_ER_IRQHandler(void)
   /* USER CODE BEGIN I2C1_ER_IRQn 1 */
 
   /* USER CODE END I2C1_ER_IRQn 1 */
-}
-
-/**
-  * @brief This function handles USB On The Go FS global interrupt.
-  */
-void OTG_FS_IRQHandler(void)
-{
-  /* USER CODE BEGIN OTG_FS_IRQn 0 */
-
-  /* USER CODE END OTG_FS_IRQn 0 */
-  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
-  /* USER CODE BEGIN OTG_FS_IRQn 1 */
-
-  /* USER CODE END OTG_FS_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

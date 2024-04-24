@@ -2611,3 +2611,36 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Commutation/D
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-04-18 22:08:54.232
 !MESSAGE Indexed 'Sinus' (39 sources, 135 headers) in 1.02 sec: 15,247 declarations; 91,318 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.14%)
+!SESSION 2024-04-19 15:03:21.466 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-19 15:03:25.869
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-19 15:03:25.870
+!MESSAGE Log4j2 initialized with config file /home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-19 15:03:28.538
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-04-24 13:15:23.213 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-04-24 13:15:25.782
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-24 13:15:26.528
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-24 13:15:26.529
+!MESSAGE Log4j2 initialized with config file /home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-24 13:15:29.483
+!MESSAGE Started RMI Server, listening on port 41337
