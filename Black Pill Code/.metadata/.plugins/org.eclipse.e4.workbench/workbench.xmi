@@ -408,8 +408,9 @@
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
+        <tags>noFocus</tags>
         <children xsi:type="basic:Part" xmi:id="_zrTT8A4EEe-BJ7bL962-xw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="main.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;Commutation/Core/Src/main.c&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Commutation/Core/Src/main.c&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;289&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;Commutation/Core/Src/main.c&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Commutation/Core/Src/main.c&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;14161&quot; selectionTopPixel=&quot;6837&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
@@ -737,7 +738,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqdP5rEe6DwZXujf0DMg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_i3peoA4GEe-lwsBmodzP3Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_8ka15_5rEe6DwZXujf0DMg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NY9i4A7fEe-alO8AMogcPw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_8ka15_5rEe6DwZXujf0DMg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqhP5rEe6DwZXujf0DMg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -745,14 +746,14 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqhv5rEe6DwZXujf0DMg" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_i3qswA4GEe-lwsBmodzP3Q" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_8ka11f5rEe6DwZXujf0DMg"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_i3qswQ4GEe-lwsBmodzP3Q" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_8ka2d_5rEe6DwZXujf0DMg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NY-xAA7fEe-alO8AMogcPw" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_8ka11f5rEe6DwZXujf0DMg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NY-xAQ7fEe-alO8AMogcPw" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_8ka2d_5rEe6DwZXujf0DMg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqjv5rEe6DwZXujf0DMg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_8kZqj_5rEe6DwZXujf0DMg" elementId="additions" toBeRendered="false"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_8kZqsv5rEe6DwZXujf0DMg" elementId="org.eclipse.cdt.ui.CElementCreationActionSet" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_8kZqsv5rEe6DwZXujf0DMg" elementId="org.eclipse.cdt.ui.CElementCreationActionSet">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZquP5rEe6DwZXujf0DMg" elementId="org.eclipse.debug.ui.launchActionSet">
@@ -761,7 +762,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqvf5rEe6DwZXujf0DMg" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_8kZqwf5rEe6DwZXujf0DMg" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_8kZqwf5rEe6DwZXujf0DMg" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqyv5rEe6DwZXujf0DMg" elementId="group.nav" toBeRendered="false">
@@ -770,7 +771,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZqzP5rEe6DwZXujf0DMg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_i3rT0A4GEe-lwsBmodzP3Q" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8ka1i_5rEe6DwZXujf0DMg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NY-xBw7fEe-alO8AMogcPw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8ka1i_5rEe6DwZXujf0DMg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8kZq2v5rEe6DwZXujf0DMg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
