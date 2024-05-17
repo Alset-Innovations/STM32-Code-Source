@@ -56,10 +56,6 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
-uint8_t StartupSequence (char Direction);
-uint8_t StopSequence(void);
-uint8_t ChangePWM (void);
-
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

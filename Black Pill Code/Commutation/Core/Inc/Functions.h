@@ -15,6 +15,5 @@
 /* Private includes ----------------------------------------------------------*/
 
 #include "main.h"
-#include "Functions.h"
 #include "i2c.h"
 #include "tim.h"

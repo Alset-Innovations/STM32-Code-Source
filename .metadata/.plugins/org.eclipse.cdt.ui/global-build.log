@@ -1198,3 +1198,1445 @@ arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEB
       | ^
 make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:30:28 **** Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o"
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+../Core/Src/Functions.c:10:1: error: unknown type name 'uint16_t'
+   10 | uint16_t Commutation[6 * 4][3] = {
+      | ^~~~~~~~
+../Core/Src/Functions.c:1:1: note: 'uint16_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /*
+../Core/Src/Functions.c:45:1: error: unknown type name 'uint16_t'
+   45 | uint16_t len = 0;
+      | ^~~~~~~~
+../Core/Src/Functions.c:45:1: note: 'uint16_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:48:1: error: unknown type name 'uint32_t'
+   48 | uint32_t Fapb1tclk = 0;
+      | ^~~~~~~~
+../Core/Src/Functions.c:48:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:49:1: error: unknown type name 'uint32_t'
+   49 | uint32_t Fapb2tclk = 0;
+      | ^~~~~~~~
+../Core/Src/Functions.c:49:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:50:1: error: unknown type name 'uint32_t'
+   50 | uint32_t RPMConst = 0;
+      | ^~~~~~~~
+../Core/Src/Functions.c:50:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:52:1: error: unknown type name 'uint32_t'
+   52 | uint32_t RPMValue = 0;
+      | ^~~~~~~~
+../Core/Src/Functions.c:52:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:56:1: error: unknown type name 'uint8_t'
+   56 | uint8_t PrepareCommutation (char Direction);
+      | ^~~~~~~
+../Core/Src/Functions.c:56:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:57:1: error: unknown type name 'uint8_t'
+   57 | uint8_t StartupSequence (char Direction);
+      | ^~~~~~~
+../Core/Src/Functions.c:57:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:58:1: error: unknown type name 'uint8_t'
+   58 | uint8_t StopSequence(void);
+      | ^~~~~~~
+../Core/Src/Functions.c:58:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:59:1: error: unknown type name 'uint8_t'
+   59 | uint8_t ChangePWM (void);
+      | ^~~~~~~
+../Core/Src/Functions.c:59:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:63:1: error: unknown type name 'uint8_t'
+   63 | uint8_t PrepareCommutation (char Direction) {
+      | ^~~~~~~
+../Core/Src/Functions.c:63:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c: In function 'PrepareCommutation':
+../Core/Src/Functions.c:66:9: error: unknown type name 'uint16_t'
+   66 |         uint16_t Hall = (GPIOA->IDR & 0b111) - 1 + 6 * Direction;
+      |         ^~~~~~~~
+../Core/Src/Functions.c:66:9: note: 'uint16_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:66:26: error: 'GPIOA' undeclared (first use in this function)
+   66 |         uint16_t Hall = (GPIOA->IDR & 0b111) - 1 + 6 * Direction;
+      |                          ^~~~~
+../Core/Src/Functions.c:66:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/Functions.c:69:9: error: 'TIM1' undeclared (first use in this function)
+   69 |         TIM1->CCER  = Commutation[Hall][0];
+      |         ^~~~
+../Core/Src/Functions.c:73:16: error: 'HAL_OK' undeclared (first use in this function)
+   73 |         return HAL_OK;
+      |                ^~~~~~
+../Core/Src/Functions.c: At top level:
+../Core/Src/Functions.c:77:1: error: unknown type name 'uint8_t'
+   77 | uint8_t StartupSequence (char Direction) {
+      | ^~~~~~~
+../Core/Src/Functions.c:77:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:80:21: warning: implicit declaration of function 'HAL_RCC_GetPCLK1Freq' [-Wimplicit-function-declaration]
+   80 |         Fapb1tclk = HAL_RCC_GetPCLK1Freq() * 2;
+      |                     ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:81:21: warning: implicit declaration of function 'HAL_RCC_GetPCLK2Freq' [-Wimplicit-function-declaration]
+   81 |         Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;
+      |                     ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:82:34: error: 'TIM9' undeclared (first use in this function)
+   82 |         RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 2;
+      |                                  ^~~~
+../Core/Src/Functions.c:86:24: error: 'HAL_ERROR' undeclared (first use in this function)
+   86 |                 return HAL_ERROR;
+      |                        ^~~~~~~~~
+../Core/Src/Functions.c:90:9: warning: implicit declaration of function 'HAL_TIMEx_HallSensor_Start' [-Wimplicit-function-declaration]
+   90 |         HAL_TIMEx_HallSensor_Start (&htim2);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:90:38: error: 'htim2' undeclared (first use in this function)
+   90 |         HAL_TIMEx_HallSensor_Start (&htim2);
+      |                                      ^~~~~
+../Core/Src/Functions.c:93:9: warning: implicit declaration of function 'HAL_TIM_PWM_Start' [-Wimplicit-function-declaration]
+   93 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
+      |         ^~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:93:29: error: 'htim1' undeclared (first use in this function)
+   93 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
+      |                             ^~~~~
+../Core/Src/Functions.c:93:36: error: 'TIM_CHANNEL_1' undeclared (first use in this function)
+   93 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
+      |                                    ^~~~~~~~~~~~~
+../Core/Src/Functions.c:94:36: error: 'TIM_CHANNEL_2' undeclared (first use in this function)
+   94 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_2);
+      |                                    ^~~~~~~~~~~~~
+../Core/Src/Functions.c:95:36: error: 'TIM_CHANNEL_3' undeclared (first use in this function)
+   95 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_3);
+      |                                    ^~~~~~~~~~~~~
+../Core/Src/Functions.c:98:9: error: 'TIM1' undeclared (first use in this function)
+   98 |         TIM1->DIER &= ~TIM_DIER_COMIE;  // Disable Commutation events in DIER register
+      |         ^~~~
+../Core/Src/Functions.c:98:24: error: 'TIM_DIER_COMIE' undeclared (first use in this function)
+   98 |         TIM1->DIER &= ~TIM_DIER_COMIE;  // Disable Commutation events in DIER register
+      |                        ^~~~~~~~~~~~~~
+../Core/Src/Functions.c:99:24: error: 'TIM_DIER_BIE' undeclared (first use in this function)
+   99 |         TIM1->DIER &= ~TIM_DIER_BIE;    // Disable break interrupt as this is shared with timer 9 interrupt
+      |                        ^~~~~~~~~~~~
+../Core/Src/Functions.c:100:9: error: 'TIM2' undeclared (first use in this function)
+  100 |         TIM2->DIER &= ~TIM_DIER_TIE;    // Disable interrupt on timer 2
+      |         ^~~~
+../Core/Src/Functions.c:100:24: error: 'TIM_DIER_TIE' undeclared (first use in this function)
+  100 |         TIM2->DIER &= ~TIM_DIER_TIE;    // Disable interrupt on timer 2
+      |                        ^~~~~~~~~~~~
+../Core/Src/Functions.c:104:9: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT' [-Wimplicit-function-declaration]
+  104 |         HAL_TIM_Base_Start_IT (&htim1);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:106:33: error: 'htim9' undeclared (first use in this function)
+  106 |         HAL_TIM_Base_Start_IT (&htim9);
+      |                                 ^~~~~
+../Core/Src/Functions.c:107:9: warning: implicit declaration of function 'HAL_TIM_IC_Start_IT' [-Wimplicit-function-declaration]
+  107 |         HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
+      |         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:110:22: error: 'TIM_SR_COMIF' undeclared (first use in this function)
+  110 |         TIM1->SR &= ~TIM_SR_COMIF;              // Clear Commutation interrupt flag
+      |                      ^~~~~~~~~~~~
+../Core/Src/Functions.c:111:22: error: 'TIM_SR_BIF' undeclared (first use in this function)
+  111 |         TIM1->SR &= ~TIM_SR_BIF;                // Clear Break interrupt flag
+      |                      ^~~~~~~~~~
+../Core/Src/Functions.c:112:22: error: 'TIM_SR_TIF' undeclared (first use in this function)
+  112 |         TIM2->SR &= ~TIM_SR_TIF;                // Clear timer 2 interrupt flag
+      |                      ^~~~~~~~~~
+../Core/Src/Functions.c:121:23: error: 'TIM_CR2_CCPC' undeclared (first use in this function)
+  121 |         TIM1->CR2  |= TIM_CR2_CCPC;     // Set CCPC in CR2 to preload CCxE, CCxNE and OCxM bits
+      |                       ^~~~~~~~~~~~
+../Core/Src/Functions.c:122:24: error: 'TIM_BDTR_DTG' undeclared (first use in this function)
+  122 |         TIM1->BDTR &= ~TIM_BDTR_DTG;    // Reset DTG bits
+      |                        ^~~~~~~~~~~~
+../Core/Src/Functions.c:124:23: error: 'TIM_EGR_COMG' undeclared (first use in this function)
+  124 |         TIM1->EGR  |= TIM_EGR_COMG;     // Set COMG bit in EGR for first commutation
+      |                       ^~~~~~~~~~~~
+../Core/Src/Functions.c:127:16: error: 'HAL_OK' undeclared (first use in this function)
+  127 |         return HAL_OK;
+      |                ^~~~~~
+../Core/Src/Functions.c: At top level:
+../Core/Src/Functions.c:131:1: error: unknown type name 'uint8_t'
+  131 | uint8_t StopSequence(void) {
+      | ^~~~~~~
+../Core/Src/Functions.c:131:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c: In function 'StopSequence':
+../Core/Src/Functions.c:134:9: warning: implicit declaration of function 'HAL_TIMEx_HallSensor_Stop' [-Wimplicit-function-declaration]
+  134 |         HAL_TIMEx_HallSensor_Stop (&htim2);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:134:37: error: 'htim2' undeclared (first use in this function)
+  134 |         HAL_TIMEx_HallSensor_Stop (&htim2);
+      |                                     ^~~~~
+../Core/Src/Functions.c:137:9: error: 'TIM1' undeclared (first use in this function)
+  137 |         TIM1->CCER  = 0x0000;
+      |         ^~~~
+../Core/Src/Functions.c:142:28: error: 'TIM_DIER_COMIE' undeclared (first use in this function)
+  142 |         if ( (TIM1->DIER & TIM_DIER_COMIE) >= 1 ) {             // If COMIE bit in DIER is set commutation events are still enabled
+      |                            ^~~~~~~~~~~~~~
+../Core/Src/Functions.c:144:30: error: 'TIM_EGR_COMG' undeclared (first use in this function)
+  144 |                 TIM1->EGR |= TIM_EGR_COMG;                                              // Trigger commutation event
+      |                              ^~~~~~~~~~~~
+../Core/Src/Functions.c:151:24: error: 'TIM_DIER_BIE' undeclared (first use in this function)
+  151 |         TIM1->DIER &= ~TIM_DIER_BIE;    // Disable break interrupt as this is shared with timer 9 interrupt
+      |                        ^~~~~~~~~~~~
+../Core/Src/Functions.c:152:9: error: 'TIM2' undeclared (first use in this function)
+  152 |         TIM2->DIER &= ~TIM_DIER_TIE;    // Disable interrupt on timer 2
+      |         ^~~~
+../Core/Src/Functions.c:152:24: error: 'TIM_DIER_TIE' undeclared (first use in this function)
+  152 |         TIM2->DIER &= ~TIM_DIER_TIE;    // Disable interrupt on timer 2
+      |                        ^~~~~~~~~~~~
+../Core/Src/Functions.c:153:9: error: 'TIM9' undeclared (first use in this function)
+  153 |         TIM9->DIER &= ~TIM_DIER_TIE;    // Disable interrupt on timer 9
+      |         ^~~~
+../Core/Src/Functions.c:156:9: warning: implicit declaration of function 'HAL_TIM_Base_Stop_IT' [-Wimplicit-function-declaration]
+  156 |         HAL_TIM_Base_Stop_IT (&htim1);
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:156:32: error: 'htim1' undeclared (first use in this function)
+  156 |         HAL_TIM_Base_Stop_IT (&htim1);
+      |                                ^~~~~
+../Core/Src/Functions.c:158:32: error: 'htim9' undeclared (first use in this function)
+  158 |         HAL_TIM_Base_Stop_IT (&htim9);
+      |                                ^~~~~
+../Core/Src/Functions.c:159:9: warning: implicit declaration of function 'HAL_TIM_IC_Stop_IT' [-Wimplicit-function-declaration]
+  159 |         HAL_TIM_IC_Stop_IT (&htim9, TIM_CHANNEL_2);
+      |         ^~~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:159:37: error: 'TIM_CHANNEL_2' undeclared (first use in this function)
+  159 |         HAL_TIM_IC_Stop_IT (&htim9, TIM_CHANNEL_2);
+      |                                     ^~~~~~~~~~~~~
+../Core/Src/Functions.c:162:9: warning: implicit declaration of function 'HAL_TIM_PWM_Stop' [-Wimplicit-function-declaration]
+  162 |         HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_1);
+      |         ^~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:162:35: error: 'TIM_CHANNEL_1' undeclared (first use in this function)
+  162 |         HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_1);
+      |                                   ^~~~~~~~~~~~~
+../Core/Src/Functions.c:164:35: error: 'TIM_CHANNEL_3' undeclared (first use in this function)
+  164 |         HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_3);
+      |                                   ^~~~~~~~~~~~~
+../Core/Src/Functions.c:166:9: error: 'Registers' undeclared (first use in this function)
+  166 |         Registers[RPMReg] = 0;
+      |         ^~~~~~~~~
+../Core/Src/Functions.c:166:19: error: 'RPMReg' undeclared (first use in this function)
+  166 |         Registers[RPMReg] = 0;
+      |                   ^~~~~~
+../Core/Src/Functions.c:168:16: error: 'HAL_OK' undeclared (first use in this function)
+  168 |         return HAL_OK;
+      |                ^~~~~~
+../Core/Src/Functions.c: At top level:
+../Core/Src/Functions.c:172:1: error: unknown type name 'uint8_t'
+  172 | uint8_t ChangePWM (void) {
+      | ^~~~~~~
+../Core/Src/Functions.c:172:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c: In function 'ChangePWM':
+../Core/Src/Functions.c:174:9: error: unknown type name 'uint32_t'
+  174 |         uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+      |         ^~~~~~~~
+../Core/Src/Functions.c:174:9: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/Functions.c:174:25: error: 'Registers' undeclared (first use in this function)
+  174 |         uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+      |                         ^~~~~~~~~
+../Core/Src/Functions.c:174:35: error: 'PWMReg' undeclared (first use in this function)
+  174 |         uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+      |                                   ^~~~~~
+../Core/Src/Functions.c:174:45: error: 'TIM1' undeclared (first use in this function)
+  174 |         uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+      |                                             ^~~~
+../Core/Src/Functions.c:180:22: error: 'TIM_CR1_UDIS' undeclared (first use in this function)
+  180 |         TIM1->CR1 |= TIM_CR1_UDIS;      // Disable Update Events
+      |                      ^~~~~~~~~~~~
+../Core/Src/Functions.c:186:16: error: 'HAL_OK' undeclared (first use in this function)
+  186 |         return HAL_OK;
+      |                ^~~~~~
+../Core/Src/Functions.c: In function 'PrepareCommutation':
+../Core/Src/Functions.c:75:1: warning: control reaches end of non-void function [-Wreturn-type]
+   75 | }
+      | ^
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:129:1: warning: control reaches end of non-void function [-Wreturn-type]
+  129 | }
+      | ^
+../Core/Src/Functions.c: In function 'StopSequence':
+../Core/Src/Functions.c:170:1: warning: control reaches end of non-void function [-Wreturn-type]
+  170 | }
+      | ^
+../Core/Src/Functions.c: In function 'ChangePWM':
+../Core/Src/Functions.c:188:1: warning: control reaches end of non-void function [-Wreturn-type]
+  188 | }
+      | ^
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+make: *** [Core/Src/subdir.mk:55: Core/Src/Functions.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:32:06 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/spi.d" -MT"Core/Src/spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/spi.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+In file included from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Src/Functions.c:8:
+../Core/Inc/Functions.h:17:18: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   17 | #include "main.h"
+      |                  ^
+../Core/Inc/Functions.h:18:23: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   18 | #include "Functions.h"
+      |                       ^
+../Core/Inc/Functions.h:19:17: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   19 | #include "i2c.h"
+      |                 ^
+../Core/Inc/Functions.h:20:17: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   20 | #include "tim.h"
+      |                 ^
+In file included from ../Core/Inc/Functions.h:19,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Src/Functions.c:8:
+../Core/Inc/i2c.h:29:18: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   29 | #include "main.h"
+      |                  ^
+../Core/Inc/i2c.h:32:18: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   32 | #include "main.h"
+      |                  ^
+In file included from ../Core/Inc/Functions.h:20,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Src/Functions.c:8:
+../Core/Inc/tim.h:29:18: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   29 | #include "main.h"
+      |                  ^
+In file included from ../Core/Src/spi.c:21:
+../Core/Inc/spi.h:35:8: error: unknown type name 'SPI_HandleTypeDef'
+   35 | extern SPI_HandleTypeDef hspi1;
+      |        ^~~~~~~~~~~~~~~~~
+../Core/Src/spi.c:27:1: error: unknown type name 'SPI_HandleTypeDef'; did you mean 'TIM_HandleTypeDef'?
+   27 | SPI_HandleTypeDef hspi1;
+      | ^~~~~~~~~~~~~~~~~
+      | TIM_HandleTypeDef
+../Core/Src/spi.c: In function 'MX_SPI1_Init':
+../Core/Src/spi.c:40:8: error: request for member 'Instance' in something not a structure or union
+   40 |   hspi1.Instance = SPI1;
+      |        ^
+../Core/Src/spi.c:41:8: error: request for member 'Init' in something not a structure or union
+   41 |   hspi1.Init.Mode = SPI_MODE_MASTER;
+      |        ^
+../Core/Src/spi.c:41:21: error: 'SPI_MODE_MASTER' undeclared (first use in this function); did you mean 'HAL_I2C_MODE_MASTER'?
+   41 |   hspi1.Init.Mode = SPI_MODE_MASTER;
+      |                     ^~~~~~~~~~~~~~~
+      |                     HAL_I2C_MODE_MASTER
+../Core/Src/spi.c:41:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/spi.c:42:8: error: request for member 'Init' in something not a structure or union
+   42 |   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+      |        ^
+../Core/Src/spi.c:42:26: error: 'SPI_DIRECTION_2LINES' undeclared (first use in this function)
+   42 |   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+      |                          ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/spi.c:43:8: error: request for member 'Init' in something not a structure or union
+   43 |   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+      |        ^
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+../Core/Src/spi.c:43:25: error: 'SPI_DATASIZE_8BIT' undeclared (first use in this function)
+   43 |   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+      |                         ^~~~~~~~~~~~~~~~~
+../Core/Src/spi.c:44:8: error: request for member 'Init' in something not a structure or union
+   44 |   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+      |        ^
+make: *** [Core/Src/subdir.mk:55: Core/Src/Functions.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/spi.c:44:28: error: 'SPI_POLARITY_LOW' undeclared (first use in this function); did you mean 'TIM_OCPOLARITY_LOW'?
+   44 |   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+      |                            ^~~~~~~~~~~~~~~~
+      |                            TIM_OCPOLARITY_LOW
+../Core/Src/spi.c:45:8: error: request for member 'Init' in something not a structure or union
+   45 |   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+      |        ^
+../Core/Src/spi.c:45:25: error: 'SPI_PHASE_1EDGE' undeclared (first use in this function)
+   45 |   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+      |                         ^~~~~~~~~~~~~~~
+../Core/Src/spi.c:46:8: error: request for member 'Init' in something not a structure or union
+   46 |   hspi1.Init.NSS = SPI_NSS_SOFT;
+      |        ^
+../Core/Src/spi.c:46:20: error: 'SPI_NSS_SOFT' undeclared (first use in this function)
+   46 |   hspi1.Init.NSS = SPI_NSS_SOFT;
+      |                    ^~~~~~~~~~~~
+../Core/Src/spi.c:47:8: error: request for member 'Init' in something not a structure or union
+   47 |   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+      |        ^
+../Core/Src/spi.c:47:34: error: 'SPI_BAUDRATEPRESCALER_2' undeclared (first use in this function)
+   47 |   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/spi.c:48:8: error: request for member 'Init' in something not a structure or union
+   48 |   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+      |        ^
+../Core/Src/spi.c:48:25: error: 'SPI_FIRSTBIT_MSB' undeclared (first use in this function)
+   48 |   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+      |                         ^~~~~~~~~~~~~~~~
+../Core/Src/spi.c:49:8: error: request for member 'Init' in something not a structure or union
+   49 |   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+      |        ^
+../Core/Src/spi.c:49:23: error: 'SPI_TIMODE_DISABLE' undeclared (first use in this function); did you mean 'SPI_TIMODE_DISABLED'?
+   49 |   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+      |                       ^~~~~~~~~~~~~~~~~~
+      |                       SPI_TIMODE_DISABLED
+../Core/Src/spi.c:50:8: error: request for member 'Init' in something not a structure or union
+   50 |   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+      |        ^
+../Core/Src/spi.c:50:31: error: 'SPI_CRCCALCULATION_DISABLE' undeclared (first use in this function); did you mean 'SPI_CRCCALCULATION_DISABLED'?
+   50 |   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                               SPI_CRCCALCULATION_DISABLED
+../Core/Src/spi.c:51:8: error: request for member 'Init' in something not a structure or union
+   51 |   hspi1.Init.CRCPolynomial = 10;
+      |        ^
+../Core/Src/spi.c:52:7: warning: implicit declaration of function 'HAL_SPI_Init'; did you mean 'HAL_GPIO_Init'? [-Wimplicit-function-declaration]
+   52 |   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+      |       ^~~~~~~~~~~~
+      |       HAL_GPIO_Init
+../Core/Src/spi.c: At top level:
+../Core/Src/spi.c:62:22: error: unknown type name 'SPI_HandleTypeDef'; did you mean 'TIM_HandleTypeDef'?
+   62 | void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
+      |                      ^~~~~~~~~~~~~~~~~
+      |                      TIM_HandleTypeDef
+../Core/Src/spi.c:93:24: error: unknown type name 'SPI_HandleTypeDef'; did you mean 'TIM_HandleTypeDef'?
+   93 | void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        TIM_HandleTypeDef
+make: *** [Core/Src/subdir.mk:55: Core/Src/spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:34:53 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+In file included from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Inc/Functions.h:18,
+                 from ../Core/Src/Functions.c:8:
+../Core/Inc/Functions.h:17:18: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   17 | #include "main.h"
+      |                  ^
+../Core/Inc/Functions.h:18:23: error: #include nested depth 200 exceeds maximum of 200 (use -fmax-include-depth=DEPTH to increase the maximum)
+   18 | #include "Functions.h"
+      |                       ^
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:92:38: error: 'htim2' undeclared (first use in this function)
+   92 |         HAL_TIMEx_HallSensor_Start (&htim2);
+      |                                      ^~~~~
+../Core/Src/Functions.c:92:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/Functions.c:95:29: error: 'htim1' undeclared (first use in this function)
+   95 |         HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
+      |                             ^~~~~
+../Core/Src/Functions.c:108:33: error: 'htim9' undeclared (first use in this function)
+  108 |         HAL_TIM_Base_Start_IT (&htim9);
+      |                                 ^~~~~
+../Core/Src/Functions.c: In function 'StopSequence':
+../Core/Src/Functions.c:136:37: error: 'htim2' undeclared (first use in this function)
+  136 |         HAL_TIMEx_HallSensor_Stop (&htim2);
+      |                                     ^~~~~
+../Core/Src/Functions.c:158:32: error: 'htim1' undeclared (first use in this function)
+  158 |         HAL_TIM_Base_Stop_IT (&htim1);
+      |                                ^~~~~
+../Core/Src/Functions.c:160:32: error: 'htim9' undeclared (first use in this function)
+  160 |         HAL_TIM_Base_Stop_IT (&htim9);
+      |                                ^~~~~
+../Core/Src/Functions.c:168:9: error: 'Registers' undeclared (first use in this function)
+  168 |         Registers[RPMReg] = 0;
+      |         ^~~~~~~~~
+../Core/Src/Functions.c: In function 'ChangePWM':
+../Core/Src/Functions.c:176:25: error: 'Registers' undeclared (first use in this function)
+  176 |         uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
+      |                         ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/Functions.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:36:06 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+../Core/Src/i2c.c: In function 'ProcessData':
+../Core/Src/i2c.c:238:17: warning: implicit declaration of function 'StartupSequence' [-Wimplicit-function-declaration]
+  238 |                 StartupSequence(Registers[DirReg]);
+      |                 ^~~~~~~~~~~~~~~
+../Core/Src/i2c.c:247:9: warning: implicit declaration of function 'ChangePWM' [-Wimplicit-function-declaration]
+  247 |         ChangePWM();                            // Update PWM values
+      |         ^~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+In file included from ../Core/Src/usart.c:21:
+../Core/Inc/usart.h:35:8: error: unknown type name 'UART_HandleTypeDef'
+   35 | extern UART_HandleTypeDef huart1;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:27:1: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   27 | UART_HandleTypeDef huart1;
+      | ^~~~~~~~~~~~~~~~~~
+      | ADC_HandleTypeDef
+../Core/Src/usart.c: In function 'MX_USART1_UART_Init':
+../Core/Src/usart.c:41:9: error: request for member 'Instance' in something not a structure or union
+   41 |   huart1.Instance = USART1;
+      |         ^
+../Core/Src/usart.c:42:9: error: request for member 'Init' in something not a structure or union
+   42 |   huart1.Init.BaudRate = 115200;
+      |         ^
+../Core/Src/usart.c:43:9: error: request for member 'Init' in something not a structure or union
+   43 |   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+      |         ^
+../Core/Src/usart.c:43:28: error: 'UART_WORDLENGTH_8B' undeclared (first use in this function)
+   43 |   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+      |                            ^~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:43:28: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/usart.c:44:9: error: request for member 'Init' in something not a structure or union
+   44 |   huart1.Init.StopBits = UART_STOPBITS_1;
+      |         ^
+../Core/Src/usart.c:44:26: error: 'UART_STOPBITS_1' undeclared (first use in this function)
+   44 |   huart1.Init.StopBits = UART_STOPBITS_1;
+      |                          ^~~~~~~~~~~~~~~
+../Core/Src/usart.c:45:9: error: request for member 'Init' in something not a structure or union
+   45 |   huart1.Init.Parity = UART_PARITY_NONE;
+      |         ^
+../Core/Src/usart.c:45:24: error: 'UART_PARITY_NONE' undeclared (first use in this function)
+   45 |   huart1.Init.Parity = UART_PARITY_NONE;
+      |                        ^~~~~~~~~~~~~~~~
+../Core/Src/usart.c:46:9: error: request for member 'Init' in something not a structure or union
+   46 |   huart1.Init.Mode = UART_MODE_TX_RX;
+      |         ^
+../Core/Src/usart.c:46:22: error: 'UART_MODE_TX_RX' undeclared (first use in this function)
+   46 |   huart1.Init.Mode = UART_MODE_TX_RX;
+      |                      ^~~~~~~~~~~~~~~
+../Core/Src/usart.c:47:9: error: request for member 'Init' in something not a structure or union
+   47 |   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+      |         ^
+../Core/Src/usart.c:47:27: error: 'UART_HWCONTROL_NONE' undeclared (first use in this function)
+   47 |   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+      |                           ^~~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:48:9: error: request for member 'Init' in something not a structure or union
+   48 |   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+      |         ^
+../Core/Src/usart.c:48:30: error: 'UART_OVERSAMPLING_16' undeclared (first use in this function)
+   48 |   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+      |                              ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:49:7: warning: implicit declaration of function 'HAL_UART_Init'; did you mean 'HAL_ADC_Init'? [-Wimplicit-function-declaration]
+   49 |   if (HAL_UART_Init(&huart1) != HAL_OK)
+      |       ^~~~~~~~~~~~~
+      |       HAL_ADC_Init
+../Core/Src/usart.c: At top level:
+../Core/Src/usart.c:59:23: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   59 | void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+      |                       ^~~~~~~~~~~~~~~~~~
+      |                       ADC_HandleTypeDef
+../Core/Src/usart.c:97:25: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   97 | void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+      |                         ^~~~~~~~~~~~~~~~~~
+      |                         ADC_HandleTypeDef
+make: *** [Core/Src/subdir.mk:52: Core/Src/usart.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:36:18 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+In file included from ../Core/Src/usart.c:21:
+../Core/Inc/usart.h:35:8: error: unknown type name 'UART_HandleTypeDef'
+   35 | extern UART_HandleTypeDef huart1;
+      |        ^~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:27:1: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   27 | UART_HandleTypeDef huart1;
+      | ^~~~~~~~~~~~~~~~~~
+      | ADC_HandleTypeDef
+../Core/Src/usart.c: In function 'MX_USART1_UART_Init':
+../Core/Src/usart.c:41:9: error: request for member 'Instance' in something not a structure or union
+   41 |   huart1.Instance = USART1;
+      |         ^
+../Core/Src/usart.c:42:9: error: request for member 'Init' in something not a structure or union
+   42 |   huart1.Init.BaudRate = 115200;
+      |         ^
+../Core/Src/usart.c:43:9: error: request for member 'Init' in something not a structure or union
+   43 |   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+      |         ^
+../Core/Src/usart.c:43:28: error: 'UART_WORDLENGTH_8B' undeclared (first use in this function)
+   43 |   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+      |                            ^~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:43:28: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/usart.c:44:9: error: request for member 'Init' in something not a structure or union
+   44 |   huart1.Init.StopBits = UART_STOPBITS_1;
+      |         ^
+../Core/Src/usart.c:44:26: error: 'UART_STOPBITS_1' undeclared (first use in this function)
+   44 |   huart1.Init.StopBits = UART_STOPBITS_1;
+      |                          ^~~~~~~~~~~~~~~
+../Core/Src/usart.c:45:9: error: request for member 'Init' in something not a structure or union
+   45 |   huart1.Init.Parity = UART_PARITY_NONE;
+      |         ^
+../Core/Src/usart.c:45:24: error: 'UART_PARITY_NONE' undeclared (first use in this function)
+   45 |   huart1.Init.Parity = UART_PARITY_NONE;
+      |                        ^~~~~~~~~~~~~~~~
+../Core/Src/usart.c:46:9: error: request for member 'Init' in something not a structure or union
+   46 |   huart1.Init.Mode = UART_MODE_TX_RX;
+      |         ^
+../Core/Src/usart.c:46:22: error: 'UART_MODE_TX_RX' undeclared (first use in this function)
+   46 |   huart1.Init.Mode = UART_MODE_TX_RX;
+      |                      ^~~~~~~~~~~~~~~
+../Core/Src/usart.c:47:9: error: request for member 'Init' in something not a structure or union
+   47 |   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+      |         ^
+../Core/Src/usart.c:47:27: error: 'UART_HWCONTROL_NONE' undeclared (first use in this function)
+   47 |   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+      |                           ^~~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:48:9: error: request for member 'Init' in something not a structure or union
+   48 |   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+      |         ^
+../Core/Src/usart.c:48:30: error: 'UART_OVERSAMPLING_16' undeclared (first use in this function)
+   48 |   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+      |                              ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/usart.c:49:7: warning: implicit declaration of function 'HAL_UART_Init'; did you mean 'HAL_ADC_Init'? [-Wimplicit-function-declaration]
+   49 |   if (HAL_UART_Init(&huart1) != HAL_OK)
+      |       ^~~~~~~~~~~~~
+      |       HAL_ADC_Init
+../Core/Src/usart.c: At top level:
+../Core/Src/usart.c:59:23: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   59 | void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+      |                       ^~~~~~~~~~~~~~~~~~
+      |                       ADC_HandleTypeDef
+../Core/Src/usart.c:97:25: error: unknown type name 'UART_HandleTypeDef'; did you mean 'ADC_HandleTypeDef'?
+   97 | void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+      |                         ^~~~~~~~~~~~~~~~~~
+      |                         ADC_HandleTypeDef
+make: *** [Core/Src/subdir.mk:52: Core/Src/usart.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:36:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+../Core/Src/i2c.c: In function 'ProcessData':
+../Core/Src/i2c.c:238:17: warning: implicit declaration of function 'StartupSequence' [-Wimplicit-function-declaration]
+  238 |                 StartupSequence(Registers[DirReg]);
+      |                 ^~~~~~~~~~~~~~~
+../Core/Src/i2c.c:247:9: warning: implicit declaration of function 'ChangePWM' [-Wimplicit-function-declaration]
+  247 |         ChangePWM();                            // Update PWM values
+      |         ^~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  40956	    620	   2916	  44492	   adcc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 

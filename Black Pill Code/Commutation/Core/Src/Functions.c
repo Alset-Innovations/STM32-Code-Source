@@ -5,6 +5,8 @@
  *      Author: luuk
  */
 
+#include "Functions.h"
+
 /* Private variables ---------------------------------------------------------*/
 
 uint16_t Commutation[6 * 4][3] = {

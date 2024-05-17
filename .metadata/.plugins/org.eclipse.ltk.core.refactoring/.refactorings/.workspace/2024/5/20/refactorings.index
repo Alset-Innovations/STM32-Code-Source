@@ -1,2 +1,7 @@
 1715846988446	Delete resource 'Commutation'
 1715846991859	Delete resource 'Sinus'
+1715948890075	Delete 2 resources
+1715949218538	Delete resource 'Commutation/Core/Src/spi.c'
+1715949223603	Delete resource 'Commutation/Core/Inc/spi.h'
+1715949395170	Delete resource 'Commutation/Core/Inc/usart.h'
+1715949399781	Delete resource 'Commutation/Core/Src/usart.c'

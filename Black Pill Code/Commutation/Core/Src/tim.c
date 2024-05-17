@@ -73,11 +73,7 @@ void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-<<<<<<< HEAD
   sConfigOC.Pulse = 0;
-=======
-  sConfigOC.Pulse = 500;
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -91,10 +87,6 @@ void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-<<<<<<< HEAD
-=======
-  sConfigOC.Pulse = 0;
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
@@ -206,17 +198,12 @@ void MX_TIM9_Init(void)
 
   /* USER CODE END TIM9_Init 0 */
 
-<<<<<<< HEAD
   TIM_IC_InitTypeDef sConfigIC = {0};
-=======
-  TIM_OC_InitTypeDef sConfigOC = {0};
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 
   /* USER CODE BEGIN TIM9_Init 1 */
 
   /* USER CODE END TIM9_Init 1 */
   htim9.Instance = TIM9;
-<<<<<<< HEAD
   htim9.Init.Prescaler = 1499;
   htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim9.Init.Period = 63999;
@@ -231,22 +218,6 @@ void MX_TIM9_Init(void)
   sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
   sConfigIC.ICFilter = 2;
   if (HAL_TIM_IC_ConfigChannel(&htim9, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
-=======
-  htim9.Init.Prescaler = 9999;
-  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim9.Init.Period = 9599;
-  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_OC_Init(&htim9) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_TIMING;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_OC_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
   {
     Error_Handler();
   }
@@ -298,11 +269,7 @@ void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef* timex_hallsensorHandle)
     */
     GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-<<<<<<< HEAD
     GPIO_InitStruct.Pull = GPIO_PULLUP;
-=======
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -316,9 +283,6 @@ void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef* timex_hallsensorHandle)
   }
 }
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* tim_pwmHandle)
 {
 
@@ -335,18 +299,11 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* tim_pwmHandle)
   }
 }
 
->>>>>>> Stashed changes
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef* tim_icHandle)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(tim_icHandle->Instance==TIM9)
-=======
-void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* tim_ocHandle)
-{
-
-  if(tim_ocHandle->Instance==TIM9)
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
   {
   /* USER CODE BEGIN TIM9_MspInit 0 */
 
@@ -354,7 +311,6 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* tim_ocHandle)
     /* TIM9 clock enable */
     __HAL_RCC_TIM9_CLK_ENABLE();
 
-<<<<<<< HEAD
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**TIM9 GPIO Configuration
     PA3     ------> TIM9_CH2
@@ -366,8 +322,6 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef* tim_ocHandle)
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM9;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-=======
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
     /* TIM9 interrupt Init */
     HAL_NVIC_SetPriority(TIM1_BRK_TIM9_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(TIM1_BRK_TIM9_IRQn);
@@ -470,9 +424,6 @@ void HAL_TIMEx_HallSensor_MspDeInit(TIM_HandleTypeDef* timex_hallsensorHandle)
   }
 }
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
 void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
 {
 
@@ -489,17 +440,10 @@ void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
   }
 }
 
->>>>>>> Stashed changes
 void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef* tim_icHandle)
 {
 
   if(tim_icHandle->Instance==TIM9)
-=======
-void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* tim_ocHandle)
-{
-
-  if(tim_ocHandle->Instance==TIM9)
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
   {
   /* USER CODE BEGIN TIM9_MspDeInit 0 */
 
@@ -507,14 +451,11 @@ void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* tim_ocHandle)
     /* Peripheral clock disable */
     __HAL_RCC_TIM9_CLK_DISABLE();
 
-<<<<<<< HEAD
     /**TIM9 GPIO Configuration
     PA3     ------> TIM9_CH2
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_3);
 
-=======
->>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
     /* TIM9 interrupt Deinit */
   /* USER CODE BEGIN TIM9:TIM1_BRK_TIM9_IRQn disable */
     /**
