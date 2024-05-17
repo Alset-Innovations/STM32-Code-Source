@@ -25,7 +25,10 @@
 /* USER CODE END 0 */
 
 I2C_HandleTypeDef hi2c1;
+<<<<<<< HEAD
 I2C_HandleTypeDef hi2c2;
+=======
+>>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 
 /* I2C1 init function */
 void MX_I2C1_Init(void)
@@ -56,6 +59,7 @@ void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 2 */
 
 }
+<<<<<<< HEAD
 /* I2C2 init function */
 void MX_I2C2_Init(void)
 {
@@ -85,6 +89,8 @@ void MX_I2C2_Init(void)
   /* USER CODE END I2C2_Init 2 */
 
 }
+=======
+>>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 {
@@ -120,6 +126,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C1_MspInit 1 */
   }
+<<<<<<< HEAD
   else if(i2cHandle->Instance==I2C2)
   {
   /* USER CODE BEGIN I2C2_MspInit 0 */
@@ -151,6 +158,8 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C2_MspInit 1 */
   }
+=======
+>>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 }
 
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
@@ -179,6 +188,7 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C1_MspDeInit 1 */
   }
+<<<<<<< HEAD
   else if(i2cHandle->Instance==I2C2)
   {
   /* USER CODE BEGIN I2C2_MspDeInit 0 */
@@ -199,6 +209,8 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C2_MspDeInit 1 */
   }
+=======
+>>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 }
 
 /* USER CODE BEGIN 1 */

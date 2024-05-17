@@ -18,8 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+<<<<<<< HEAD
 #include "i2c.h"
 #include "tim.h"
+=======
+#include "adc.h"
+#include "i2c.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
+>>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
