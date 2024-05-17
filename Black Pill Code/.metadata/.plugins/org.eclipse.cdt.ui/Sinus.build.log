@@ -1,10 +1,16 @@
-18:28:57 **** Incremental Build of configuration Debug for project Sinus ****
+14:46:48 **** Build of configuration Debug for project Sinus ****
 make -j12 all 
+arm-none-eabi-gcc -o "Sinus.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Sinus/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sinus.elf
+ 
 arm-none-eabi-size  Sinus.elf 
+arm-none-eabi-objdump -h -S Sinus.elf  > "Sinus.list"
    text	   data	    bss	    dec	    hex	filename
   56096	    344	  13792	  70232	  11258	Sinus.elf
 Finished building: default.size.stdout
  
+Finished building: Sinus.list
+ 
 
-18:28:57 Build Finished. 0 errors, 0 warnings. (took 168ms)
+14:46:48 Build Finished. 0 errors, 0 warnings. (took 370ms)
 
