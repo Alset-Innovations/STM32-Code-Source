@@ -3,6 +3,10 @@
 >>>>>>>=d0382e7ea1b534594a6f93a301f1a6eb990b6cb2
 EXIT_PROMPT_ON_CLOSE_LAST_WINDOW=false
 eclipse.preferences.version=1
+<<<<<<< Updated upstream
 platformState=1710614379999
+=======
+platformState=1693829104792
+>>>>>>> Stashed changes
 quickStart=false
 tipsAndTricks=true

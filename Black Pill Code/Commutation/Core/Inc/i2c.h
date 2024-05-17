@@ -26,28 +26,36 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 
 /* USER CODE BEGIN Includes */
+#include "main.h"
 
 /* USER CODE END Includes */
 
 extern I2C_HandleTypeDef hi2c1;
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 extern I2C_HandleTypeDef hi2c2;
 
 =======
 >>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
+=======
+>>>>>>> Stashed changes
 /* USER CODE BEGIN Private defines */
+
+extern uint16_t Registers[];
 
 /* USER CODE END Private defines */
 
 void MX_I2C1_Init(void);
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 void MX_I2C2_Init(void);
 =======
 >>>>>>> 0c96aad6ab26f8d26f8ab5eac361d675e90b3938
+=======
+>>>>>>> Stashed changes
 
 /* USER CODE BEGIN Prototypes */
 

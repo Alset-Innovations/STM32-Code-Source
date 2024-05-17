@@ -64,8 +64,8 @@ all: main-build
 main-build: Sinus.elf secondary-outputs
 
 # Tool invocations
-Sinus.elf Sinus.map: $(OBJS) $(USER_OBJS) /home/luuk/Documents/GitHub/STM32-Code-Source/Black\ Pill\ Code/Sinus/STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Sinus.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/STM32-Code-Source/Black Pill Code/Sinus/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Sinus.elf Sinus.map: $(OBJS) $(USER_OBJS) C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black\ Pill\ Code\Sinus\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Sinus.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Sinus\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

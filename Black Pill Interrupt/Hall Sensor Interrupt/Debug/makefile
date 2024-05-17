@@ -64,8 +64,8 @@ all: main-build
 main-build: Hall\ Sensor\ Sinus.elf secondary-outputs
 
 # Tool invocations
-Hall\ Sensor\ Sinus.elf Hall\ Sensor\ Sinus.map: $(OBJS) $(USER_OBJS) C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black\ Pill\ Interrupt\Hall\ Sensor\ Interrupt\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Hall Sensor Sinus.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Hall\ Sensor\ Sinus.elf Hall\ Sensor\ Sinus.map: $(OBJS) $(USER_OBJS) C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black\ Pill\ Interrupt\Hall\ Sensor\ Interrupt\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Hall Sensor Sinus.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Interrupt\Hall Sensor Interrupt\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hall Sensor Sinus.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
