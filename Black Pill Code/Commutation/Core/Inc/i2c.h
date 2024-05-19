@@ -36,6 +36,8 @@ extern I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN Private defines */
 
+extern uint16_t Registers[];
+
 /* USER CODE END Private defines */
 
 void MX_I2C1_Init(void);

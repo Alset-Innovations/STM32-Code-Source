@@ -32,6 +32,8 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <string.h>
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -62,9 +64,15 @@ void Error_Handler(void);
 
 #define MinimumRPM 0200
 #define MaximumRPM 5000
-#define Fapb1clk 96000000 // 96MHz
-#define SpeedUp 50
+
 #define RxSize 6
+#define RegSize 4
+#define AvgSize 256
+
+#define PWMReg 0
+#define DirReg 1
+#define CurReg 2
+#define RPMReg 3
 
 /* USER CODE END Private defines */
 

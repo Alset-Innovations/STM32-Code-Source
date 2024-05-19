@@ -1,10 +1,10 @@
-00:10:42 **** Incremental Build of configuration Debug for project Commutation ****
-make -j8 all 
-arm-none-eabi-size   Commutation.elf 
+14:47:04 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-size  Commutation.elf 
    text	   data	    bss	    dec	    hex	filename
-  36336	    260	   9276	  45872	   b330	Commutation.elf
+  40956	    620	   2916	  44492	   adcc	Commutation.elf
 Finished building: default.size.stdout
  
 
-00:10:42 Build Finished. 0 errors, 0 warnings. (took 616ms)
+14:47:04 Build Finished. 0 errors, 0 warnings. (took 170ms)
 

@@ -3138,103 +3138,46 @@ Disassembly of section .text:
  8002028:	e000ed00 	.word	0xe000ed00
 
 0800202c <Reset_Handler>:
-*/
-
-    .section  .text.Reset_Handler
-  .weak  Reset_Handler
-  .type  Reset_Handler, %function
-Reset_Handler:   ldr   sp, =_estack    		 /* set stack pointer */
  800202c:	f8df d034 	ldr.w	sp, [pc, #52]	; 8002064 <LoopFillZerobss+0x12>
-
-/* Copy the data segment initializers from flash to SRAM */  
-  ldr r0, =_sdata
  8002030:	480d      	ldr	r0, [pc, #52]	; (8002068 <LoopFillZerobss+0x16>)
-  ldr r1, =_edata
  8002032:	490e      	ldr	r1, [pc, #56]	; (800206c <LoopFillZerobss+0x1a>)
-  ldr r2, =_sidata
  8002034:	4a0e      	ldr	r2, [pc, #56]	; (8002070 <LoopFillZerobss+0x1e>)
-  movs r3, #0
  8002036:	2300      	movs	r3, #0
-  b LoopCopyDataInit
  8002038:	e002      	b.n	8002040 <LoopCopyDataInit>
 
 0800203a <CopyDataInit>:
-
-CopyDataInit:
-  ldr r4, [r2, r3]
  800203a:	58d4      	ldr	r4, [r2, r3]
-  str r4, [r0, r3]
  800203c:	50c4      	str	r4, [r0, r3]
-  adds r3, r3, #4
  800203e:	3304      	adds	r3, #4
 
 08002040 <LoopCopyDataInit>:
-
-LoopCopyDataInit:
-  adds r4, r0, r3
  8002040:	18c4      	adds	r4, r0, r3
-  cmp r4, r1
  8002042:	428c      	cmp	r4, r1
-  bcc CopyDataInit
  8002044:	d3f9      	bcc.n	800203a <CopyDataInit>
-  
-/* Zero fill the bss segment. */
-  ldr r2, =_sbss
  8002046:	4a0b      	ldr	r2, [pc, #44]	; (8002074 <LoopFillZerobss+0x22>)
-  ldr r4, =_ebss
  8002048:	4c0b      	ldr	r4, [pc, #44]	; (8002078 <LoopFillZerobss+0x26>)
-  movs r3, #0
  800204a:	2300      	movs	r3, #0
-  b LoopFillZerobss
  800204c:	e001      	b.n	8002052 <LoopFillZerobss>
 
 0800204e <FillZerobss>:
-
-FillZerobss:
-  str  r3, [r2]
  800204e:	6013      	str	r3, [r2, #0]
-  adds r2, r2, #4
  8002050:	3204      	adds	r2, #4
 
 08002052 <LoopFillZerobss>:
-
-LoopFillZerobss:
-  cmp r2, r4
  8002052:	42a2      	cmp	r2, r4
-  bcc FillZerobss
  8002054:	d3fb      	bcc.n	800204e <FillZerobss>
-
-/* Call the clock system initialization function.*/
-  bl  SystemInit   
  8002056:	f7ff ffd7 	bl	8002008 <SystemInit>
-/* Call static constructors */
-    bl __libc_init_array
  800205a:	f008 fd25 	bl	800aaa8 <__libc_init_array>
-/* Call the application's entry point.*/
-  bl  main
  800205e:	f7fe ff2b 	bl	8000eb8 <main>
-  bx  lr    
  8002062:	4770      	bx	lr
-Reset_Handler:   ldr   sp, =_estack    		 /* set stack pointer */
  8002064:	20020000 	.word	0x20020000
-  ldr r0, =_sdata
  8002068:	20000000 	.word	0x20000000
-  ldr r1, =_edata
  800206c:	2000014c 	.word	0x2000014c
-  ldr r2, =_sidata
  8002070:	0800c6d0 	.word	0x0800c6d0
-  ldr r2, =_sbss
  8002074:	20000150 	.word	0x20000150
-  ldr r4, =_ebss
  8002078:	2000317c 	.word	0x2000317c
 
 0800207c <ADC_IRQHandler>:
- * @retval None       
-*/
-    .section  .text.Default_Handler,"ax",%progbits
-Default_Handler:
-Infinite_Loop:
-  b  Infinite_Loop
  800207c:	e7fe      	b.n	800207c <ADC_IRQHandler>
 	...
 

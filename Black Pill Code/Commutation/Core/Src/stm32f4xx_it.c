@@ -42,14 +42,19 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
+uint32_t Total = 0;
+uint16_t RPM[AvgSize] = {};
+uint8_t i = 0, j = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
 
-HAL_StatusTypeDef StartupSequence(char Direction);
-HAL_StatusTypeDef StopSequence();
-HAL_StatusTypeDef PrepareCommutation(char Direction);
+uint8_t StartupSequence(char Direction);
+uint8_t StopSequence(void);
+uint8_t PrepareCommutation(char Direction);
+uint8_t ChangePWM (void);
 
 /* USER CODE END PFP */
 
@@ -59,19 +64,20 @@ HAL_StatusTypeDef PrepareCommutation(char Direction);
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+extern ADC_HandleTypeDef hadc1;
 extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
-extern uint16_t TargetRPM;
+extern uint16_t Registers[];
 
-extern uint8_t PWM;
-extern uint8_t Mode;
+extern uint32_t Fapb1tclk;
+extern uint32_t Fapb2tclk;
+extern uint32_t RPMConst;
 
-extern double CurrentRPM;
+extern uint32_t RPMValue;
 
 /* USER CODE END EV */
 
@@ -214,13 +220,52 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles ADC1 global interrupt.
+  */
+void ADC_IRQHandler(void)
+{
+  /* USER CODE BEGIN ADC_IRQn 0 */
+
+  /* USER CODE END ADC_IRQn 0 */
+  HAL_ADC_IRQHandler(&hadc1);
+  /* USER CODE BEGIN ADC_IRQn 1 */
+
+  /* USER CODE END ADC_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
   */
 void TIM1_BRK_TIM9_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
 
-	CurrentRPM = 0;
+	if ( (TIM9->SR & TIM_SR_CC2IF) >= 1) { // If the CC2IF is set it means a input capture has happened
+
+		Total -= RPM[i];
+		RPM[i] = RPMConst / (TIM9->CCR2);
+		Total += RPM[i];
+
+		i++;
+
+		if ( i > AvgSize ) {
+			i = 0;
+		}
+
+		Registers[RPMReg] = Total / AvgSize;
+
+		//Registers[RPMReg] = RPMConst / (TIM9->CCR2);
+
+		// If maximum RPM is exceeded -> shutdown
+		if ( Registers[RPMReg] > MaximumRPM ) {
+			StopSequence();
+		}
+	} else {
+		Registers[RPMReg] = 0; // If the CC2IF was not set it means the timer has overflowed and the motor is thus stationary
+		Total = 0;
+		memset(RPM, 0, AvgSize * 2);
+	}
+
 
   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -237,11 +282,9 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	// Set next Commutation states
-	PrepareCommutation('F');
+	PrepareCommutation (Registers[DirReg]); // Set next Commutation states
 
-	// Reset COMIF in SR register
-	TIM1->SR &= ~TIM_SR_COMIF;
+	TIM1->SR &= ~TIM_SR_COMIF; 				// Reset COMIF in SR register
 
   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -256,45 +299,6 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-
-	uint32_t HallTime = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
-	if ( HallTime > 0 ) {
-		CurrentRPM = 1 / ((HallTime * 6.0 / Fapb1clk) / 60);
-	} else {
-		CurrentRPM = 0;
-	}
-
-	// If maximum RPM is exceeded -> shutdown
-	if ( CurrentRPM > MaximumRPM ) {
-		// StopSequence();
-	}
-
-	/*
-	// If RPM is higher or lower than expected / wanted, increase or decrease PWM
-	// Once the PWM approaches its target slowly adjust the PWM
-	if ( TargetRPM > CurrentRPM) {
-		if ( TargetRPM > CurrentRPM + SpeedUp) {
-			PWM += Mode;
-		} else {
-			PWM++;
-		}
-	}
-
-	if ( TargetRPM < CurrentRPM ) {
-		if ( TargetRPM < CurrentRPM - SpeedUp) {
-			PWM -= Mode;
-		} else {
-			PWM--;
-		}
-	}
-	*/
-
-	// Update PWM according to temporary potentiometer input
-	// TIM1->CR1 |= 0x0002;  // Disable Update Events
-	// TIM1->CCR1 = PWM;	  // Set new PWM for channel 1
-	// TIM1->CCR2 = PWM;	  // Set new PWM for channel 2
-	// TIM1->CCR3 = PWM;	  // Set new PWM for channel 3
-	// TIM1->CR1 &= ~0x0002; // Enable Update Events
 
 	// Reset Timer 9 counter.
 	TIM9->CNT = 0x0;
@@ -335,20 +339,6 @@ void I2C1_ER_IRQHandler(void)
   /* USER CODE BEGIN I2C1_ER_IRQn 1 */
 
   /* USER CODE END I2C1_ER_IRQn 1 */
-}
-
-/**
-  * @brief This function handles USB On The Go FS global interrupt.
-  */
-void OTG_FS_IRQHandler(void)
-{
-  /* USER CODE BEGIN OTG_FS_IRQn 0 */
-
-  /* USER CODE END OTG_FS_IRQn 0 */
-  HAL_PCD_IRQHandler(&hpcd_USB_OTG_FS);
-  /* USER CODE BEGIN OTG_FS_IRQn 1 */
-
-  /* USER CODE END OTG_FS_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

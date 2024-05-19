@@ -1,10 +1,16 @@
-16:28:01 **** Incremental Build of configuration Debug for project Black pill v2 ****
+14:44:31 **** Build of configuration Debug for project Black pill v2 ****
 make -j8 all 
+arm-none-eabi-gcc -o "Black pill v2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black pill v2\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Black pill v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Black pill v2.elf
+ 
 arm-none-eabi-size  Black\ pill\ v2.elf 
+arm-none-eabi-objdump -h -S Black\ pill\ v2.elf  > "Black pill v2.list"
    text	   data	    bss	    dec	    hex	filename
    4756	     20	   1572	   6348	   18cc	Black pill v2.elf
 Finished building: default.size.stdout
  
+Finished building: Black pill v2.list
+ 
 
-16:28:01 Build Finished. 0 errors, 0 warnings. (took 311ms)
+14:44:32 Build Finished. 0 errors, 0 warnings. (took 668ms)
 
