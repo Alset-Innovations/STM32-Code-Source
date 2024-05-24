@@ -31,7 +31,7 @@ Core/Src/Functions.o: ../Core/Src/Functions.c ../Core/Inc/Functions.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Core/Inc/i2c.h ../Core/Inc/tim.h
+ ../Core/Inc/i2c.h ../Core/Inc/Functions.h ../Core/Inc/tim.h
 ../Core/Inc/Functions.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -67,4 +67,5 @@ Core/Src/Functions.o: ../Core/Src/Functions.c ../Core/Inc/Functions.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Core/Inc/i2c.h:
+../Core/Inc/Functions.h:
 ../Core/Inc/tim.h:

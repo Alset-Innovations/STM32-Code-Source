@@ -17,3 +17,10 @@
 #include "main.h"
 #include "i2c.h"
 #include "tim.h"
+
+/* Private function prototypes -----------------------------------------------*/
+
+uint8_t PrepareCommutation (char Direction);
+uint8_t StartupSequence (char Direction);
+uint8_t StopSequence(void);
+uint8_t ChangePWM (void);

@@ -30,10 +30,12 @@ uint8_t RxCount = 0;
 uint8_t RxData[RxSize];
 
 // Storing data in a register
-uint16_t Registers[RegSize] = {0, 0, 0, 0}; // PWM, Direction, Current, RPM
+uint16_t Registers[RegSize] = {0, 0, 0, 500}; // PWM, Direction, Current, RPM, Temp
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
+
+extern int Buzzer;
 
 /* Private function prototypes -----------------------------------------------*/
 
@@ -53,6 +55,7 @@ void ProcessData (void);
 /* USER CODE END 0 */
 
 I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef hi2c2;
 
 /* I2C1 init function */
 void MX_I2C1_Init(void)
@@ -83,6 +86,35 @@ void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 2 */
 
 }
+/* I2C2 init function */
+void MX_I2C2_Init(void)
+{
+
+  /* USER CODE BEGIN I2C2_Init 0 */
+
+  /* USER CODE END I2C2_Init 0 */
+
+  /* USER CODE BEGIN I2C2_Init 1 */
+
+  /* USER CODE END I2C2_Init 1 */
+  hi2c2.Instance = I2C2;
+  hi2c2.Init.ClockSpeed = 100000;
+  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c2.Init.OwnAddress1 = 0;
+  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c2.Init.OwnAddress2 = 0;
+  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C2_Init 2 */
+
+  /* USER CODE END I2C2_Init 2 */
+
+}
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 {
@@ -101,7 +133,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
     */
     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -117,6 +149,37 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
   /* USER CODE BEGIN I2C1_MspInit 1 */
 
   /* USER CODE END I2C1_MspInit 1 */
+  }
+  else if(i2cHandle->Instance==I2C2)
+  {
+  /* USER CODE BEGIN I2C2_MspInit 0 */
+
+  /* USER CODE END I2C2_MspInit 0 */
+
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**I2C2 GPIO Configuration
+    PB10     ------> I2C2_SCL
+    PB3     ------> I2C2_SDA
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF9_I2C2;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* I2C2 clock enable */
+    __HAL_RCC_I2C2_CLK_ENABLE();
+  /* USER CODE BEGIN I2C2_MspInit 1 */
+
+  /* USER CODE END I2C2_MspInit 1 */
   }
 }
 
@@ -146,75 +209,115 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C1_MspDeInit 1 */
   }
+  else if(i2cHandle->Instance==I2C2)
+  {
+  /* USER CODE BEGIN I2C2_MspDeInit 0 */
+
+  /* USER CODE END I2C2_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_I2C2_CLK_DISABLE();
+
+    /**I2C2 GPIO Configuration
+    PB10     ------> I2C2_SCL
+    PB3     ------> I2C2_SDA
+    */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10);
+
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_3);
+
+  /* USER CODE BEGIN I2C2_MspDeInit 1 */
+
+  /* USER CODE END I2C2_MspDeInit 1 */
+  }
 }
 
 /* USER CODE BEGIN 1 */
 
 extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef *hi2c) {
 
-	HAL_I2C_EnableListen_IT (hi2c);
+	//if (hi2c->Instance == I2C1) {
+		HAL_I2C_EnableListen_IT (hi2c);
+	//}
 
 }
 
 extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode) {
 
-	if ( TransferDirection == I2C_DIRECTION_TRANSMIT ) { // If the master wants to transmit the data
+	//if (hi2c->Instance == I2C1) {
+		if ( TransferDirection == I2C_DIRECTION_TRANSMIT ) { // If the master wants to transmit the data
 
-		RxCount = 0;
-		HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_FIRST_FRAME);
+			RxCount = 0;
+			HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_FIRST_FRAME);
 
-	} else { // If the master wants tot recieve data
+		} else { // If the master wants to recieve data
 
-		TxCount = 0;
-		StartReg = RxData[0];
-		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
-		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+			TxCount = 0;
+			StartReg = RxData[0];
+			HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
+			HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
 
-	}
+		}
+
+	//}
+
+
 }
 
 void HAL_I2C_SlaveTxCpltCallback (I2C_HandleTypeDef *hi2c) {
 
-	TxCount++;
-	HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_NEXT_FRAME);
-	HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+	//if (hi2c->Instance == I2C1) {
+
+		TxCount++;
+		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_NEXT_FRAME);
+		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+
+	//}
 
 }
 
 void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef *hi2c) {
 
-	RxCount++;
+	//if (hi2c->Instance == I2C1) {
 
-	if ( RxCount < RxSize ) {
+		RxCount++;
 
-		if (RxCount == RxSize - 1) {
-			HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_LAST_FRAME);
-		} else {
-			HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_NEXT_FRAME);
+		if ( RxCount < RxSize ) {
+
+			if (RxCount == RxSize - 1) {
+				HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_LAST_FRAME);
+			} else {
+				HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_NEXT_FRAME);
+			}
 		}
-	}
 
-	if ( RxCount == RxSize) {
-		ProcessData();
-	}
+		if ( RxCount == RxSize) {
+			ProcessData();
+		}
+
+	//}
 
 }
 
 void HAL_I2C_ErrorCallback (I2C_HandleTypeDef *hi2c) {
 
-	if ( HAL_I2C_GetError (hi2c) == 4) {
+	//if (hi2c->Instance == I2C1) {
 
-		__HAL_I2C_CLEAR_FLAG (hi2c, I2C_FLAG_AF); 	// Clear AF flag
+		if ( HAL_I2C_GetError (hi2c) == 4) {
 
-		if ( TxCount == 0) { 						// Error while recieving
-			ProcessData();
-		} else { 									// Error while transmitting
-			TxCount--;
+			__HAL_I2C_CLEAR_FLAG (hi2c, I2C_FLAG_AF); 	// Clear AF flag
+
+			if ( TxCount == 0) { 						// Error while recieving
+				ProcessData();
+			} else { 									// Error while transmitting
+				TxCount--;
+			}
+
 		}
 
-	}
-
 	HAL_I2C_EnableListen_IT(hi2c);
+
+	//}
+
 }
 
 void ProcessData (void) {
@@ -246,6 +349,8 @@ void ProcessData (void) {
 	// Call some functions
 	ChangePWM(); 				// Update PWM values
 	memset(RxData, 0, RxSize); 	// Empty the RxData array
+
+	Buzzer = 1;
 
 }
 

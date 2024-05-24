@@ -65,14 +65,16 @@ void Error_Handler(void);
 #define MinimumRPM 0200
 #define MaximumRPM 5000
 
-#define RxSize 6
 #define RegSize 4
+#define RxSize RegSize + 2
 #define AvgSize 256
 
 #define PWMReg 0
 #define DirReg 1
 #define CurReg 2
 #define RPMReg 3
+
+#define MCP9808_ADDR 0x18
 
 /* USER CODE END Private defines */
 

@@ -49,6 +49,13 @@
 
 /* USER CODE BEGIN PV */
 
+int Buzzer = 0;
+
+uint8_t buff[2];
+float Temp = 0;
+
+HAL_StatusTypeDef ret;
+
 // Commutation table for motor control
 // Hex values are for CCER, CCMR2 and CCMR1 in this order.
 // CCER enables output while CCMRx sets PWM mode, forced active or forced inactive.
@@ -134,6 +141,7 @@ int main(void)
   MX_I2C1_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
 	HAL_I2C_EnableListen_IT (&hi2c1);
@@ -144,6 +152,24 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  if (Buzzer == 1) {
+
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 1);
+		  HAL_Delay(20);
+		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 0);
+
+		  Buzzer = 0;
+
+	  }
+
+	  buff[0] = 0x05;
+	  buff[1] = 0x00;
+
+	  //ret = HAL_I2C_Master_Transmit(&hi2c2, MCP9808_ADDR << 1, buff, 1, HAL_MAX_DELAY);
+	  //ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
+
+	  Temp = ((((int16_t)buff[0] << 11) + ((int16_t)buff[1] << 3)) >> 3) / 1600.0;
 
 	/*
 	// Read Potentiometer data from ADC for RPM control.
