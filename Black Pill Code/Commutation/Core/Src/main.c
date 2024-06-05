@@ -140,11 +140,14 @@ int main(void)
   MX_TIM9_Init();
   MX_I2C1_Init();
   MX_ADC1_Init();
-  MX_TIM3_Init();
   MX_I2C2_Init();
+  MX_TIM4_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-	HAL_I2C_EnableListen_IT (&hi2c1);
+	// HAL_I2C_EnableListen_IT (&hi2c1);
+    StartupSequence(1);
+    ChangePWM();
 
   /* USER CODE END 2 */
 
@@ -153,6 +156,7 @@ int main(void)
   while (1)
   {
 
+	  /*
 	  if (Buzzer == 1) {
 
 		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, 1);
@@ -170,15 +174,14 @@ int main(void)
 	  //ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
 
 	  Temp = ((((int16_t)buff[0] << 11) + ((int16_t)buff[1] << 3)) >> 3) / 1600.0;
+	  */
 
-	/*
-	// Read Potentiometer data from ADC for RPM control.
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	uint32_t PWM = HAL_ADC_GetValue(&hadc1) / 2;
-	*/
-
-	//ChangePWM();
+	  /*
+	  // Read Potentiometer data from ADC for RPM control.
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	  Registers[CurReg] = HAL_ADC_GetValue(&hadc1);
+	  */
 
 	/*
 	// Transmit RPM value to PC via USB

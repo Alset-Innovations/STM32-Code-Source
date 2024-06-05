@@ -17,6 +17,7 @@
 #include "main.h"
 #include "i2c.h"
 #include "tim.h"
+#include "adc.h"
 
 /* Private function prototypes -----------------------------------------------*/
 

@@ -45,7 +45,7 @@
 
 uint32_t Total = 0;
 uint16_t RPM[AvgSize] = {};
-uint8_t i = 0, j = 0;
+uint16_t i = 0, j = 0;
 
 /* USER CODE END PV */
 
@@ -61,7 +61,6 @@ uint8_t i = 0, j = 0;
 
 /* External variables --------------------------------------------------------*/
 extern ADC_HandleTypeDef hadc1;
-extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim9;
@@ -262,13 +261,11 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 
 		i++;
 
-		if ( i > AvgSize ) {
+		if ( i >= AvgSize - 1 ) {
 			i = 0;
 		}
 
 		Registers[RPMReg] = Total / AvgSize;
-
-		//Registers[RPMReg] = RPMConst / (TIM9->CCR2);
 
 		// If maximum RPM is exceeded -> shutdown
 		if ( Registers[RPMReg] > MaximumRPM ) {
@@ -325,34 +322,6 @@ void TIM2_IRQHandler(void)
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
   /* USER CODE END TIM2_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C1 event interrupt.
-  */
-void I2C1_EV_IRQHandler(void)
-{
-  /* USER CODE BEGIN I2C1_EV_IRQn 0 */
-
-  /* USER CODE END I2C1_EV_IRQn 0 */
-  HAL_I2C_EV_IRQHandler(&hi2c1);
-  /* USER CODE BEGIN I2C1_EV_IRQn 1 */
-
-  /* USER CODE END I2C1_EV_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C1 error interrupt.
-  */
-void I2C1_ER_IRQHandler(void)
-{
-  /* USER CODE BEGIN I2C1_ER_IRQn 0 */
-
-  /* USER CODE END I2C1_ER_IRQn 0 */
-  HAL_I2C_ER_IRQHandler(&hi2c1);
-  /* USER CODE BEGIN I2C1_ER_IRQn 1 */
-
-  /* USER CODE END I2C1_ER_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

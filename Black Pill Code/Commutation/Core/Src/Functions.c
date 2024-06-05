@@ -81,7 +81,7 @@ uint8_t StartupSequence (char Direction) {
 	// Initialize some variables
 	Fapb1tclk = HAL_RCC_GetPCLK1Freq() * 2;
 	Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;
-	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 2;
+	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 1.35;
 
 	// Set first commutation state according to Hall sensors
 	if (PrepareCommutation (Direction + 6 * 2)) {
@@ -108,6 +108,11 @@ uint8_t StartupSequence (char Direction) {
 	HAL_TIM_Base_Start_IT (&htim9);
 	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 
+	// Start ADC for current
+	// HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+	HAL_ADC_Start_IT(&hadc1);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
 	// Clear all interrupt triggers
 	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag
 	TIM1->SR &= ~TIM_SR_BIF;		// Clear Break interrupt flag
@@ -120,9 +125,10 @@ uint8_t StartupSequence (char Direction) {
 	TIM9->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 9
 
 	// Write some registers
+	ADC1->CR1  |= ADC_CR1_EOCIE;	// Enable ADC interrupts
 	TIM1->CR2  |= TIM_CR2_CCPC; 	// Set CCPC in CR2 to preload CCxE, CCxNE and OCxM bits
 	TIM1->BDTR &= ~TIM_BDTR_DTG;	// Reset DTG bits
-	TIM1->BDTR |= 0x800A;			// Set dead-time to 100ns and make sure to enable MOE bit
+	TIM1->BDTR |= 0x800F;			// Set dead-time to 100ns and make sure to enable MOE bit
 	TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
 	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable commutation events in DIER register
 

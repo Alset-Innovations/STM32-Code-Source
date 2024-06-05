@@ -30,6 +30,8 @@ extern "C" {
 
 /* USER CODE BEGIN Includes */
 
+#include "i2c.h"
+
 /* USER CODE END Includes */
 
 extern ADC_HandleTypeDef hadc1;
