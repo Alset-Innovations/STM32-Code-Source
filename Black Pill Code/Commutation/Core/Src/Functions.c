@@ -83,6 +83,8 @@ uint8_t StartupSequence (char Direction) {
 	Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;
 	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 1.35;
 
+	ChangePWM();
+
 	// Set first commutation state according to Hall sensors
 	if (PrepareCommutation (Direction + 6 * 2)) {
 		return HAL_ERROR;
@@ -110,8 +112,8 @@ uint8_t StartupSequence (char Direction) {
 
 	// Start ADC for current
 	// HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-	HAL_ADC_Start_IT(&hadc1);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	// HAL_ADC_Start_IT(&hadc1);
+	// HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
 	// Clear all interrupt triggers
 	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag

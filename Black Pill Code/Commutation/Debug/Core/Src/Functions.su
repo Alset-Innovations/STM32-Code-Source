@@ -1,4 +1,4 @@
 ../Core/Src/Functions.c:65:9:PrepareCommutation	24	static
 ../Core/Src/Functions.c:79:9:StartupSequence	16	static
-../Core/Src/Functions.c:139:9:StopSequence	8	static
-../Core/Src/Functions.c:180:9:ChangePWM	16	static
+../Core/Src/Functions.c:141:9:StopSequence	8	static
+../Core/Src/Functions.c:182:9:ChangePWM	16	static

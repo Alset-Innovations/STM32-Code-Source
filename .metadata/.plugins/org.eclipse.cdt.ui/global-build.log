@@ -412,3 +412,570 @@ arm-none-eabi-size  Commutation.elf
   34780	    628	  68332	 103740	  1953c	Commutation.elf
 Finished building: default.size.stdout
  
+15:18:08 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  32444	    628	  68324	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:18:18 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    628	  68324	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:19:35 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    628	  68324	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:20:23 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    628	  68324	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:21:12 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:23:51 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:23:54 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:27:11 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:28:13 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:31:19 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  32444	    620	  68332	 101396	  18c14	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:32:41 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:34:32 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:34:39 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:34:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:34:46 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:34:52 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42588	    620	  68364	 111572	  1b3d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+15:57:14 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42180	    620	  68364	 111164	  1b23c	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+15:57:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42180	    620	  68364	 111164	  1b23c	Commutation.elf
+Finished building: default.size.stdout
+ 
+16:11:17 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+16:12:44 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:16:39 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42204	    620	  68364	 111188	  1b254	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:17:48 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42204	    620	  68364	 111188	  1b254	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:19:42 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42204	    620	  68364	 111188	  1b254	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:20:09 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:23:49 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:25:59 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:42:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_ListenCpltCallback':
+../Core/Src/i2c.c:239:42: error: 'hi2c' undeclared (first use in this function); did you mean 'hi2c2'?
+  239 |                 HAL_I2C_EnableListen_IT (hi2c);
+      |                                          ^~~~
+      |                                          hi2c2
+../Core/Src/i2c.c:239:42: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:43:07 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42188	    620	  68364	 111172	  1b244	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:48:16 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:61: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(hi2c, 1, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                             ^
+      |                                                             |
+      |                                                             int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:49:19 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:61: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(hi2c, 0x0001, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                             ^~~~~~
+      |                                                             |
+      |                                                             int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:49:28 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:50:15 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+17:53:59 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:61: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(hi2c, 0x0001, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                             ^~~~~~
+      |                                                             |
+      |                                                             int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:54:35 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:61: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(hi2c, 0x0001, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                             ^~~~~~
+      |                                                             |
+      |                                                             int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:56:11 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:61: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(hi2c, 0x01, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                             ^~~~
+      |                                                             |
+      |                                                             int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+17:56:23 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42044	    620	  68364	 111028	  1b1b4	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:00:38 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:66: warning: passing argument 2 of 'HAL_I2C_Slave_Seq_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  258 |                         HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, 0x01, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                                                                  ^~~~
+      |                                                                  |
+      |                                                                  int
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/i2c.h:29,
+                 from ../Core/Src/i2c.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:584:83: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+  584 | HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t XferOptions);
+      |                                                                          ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42060	    620	  68364	 111044	  1b1c4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:01:49 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42060	    620	  68364	 111044	  1b1c4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:01:55 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42060	    620	  68364	 111044	  1b1c4	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:04:44 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_ErrorCallback':
+../Core/Src/i2c.c:303:13: error: 'hi2c' undeclared (first use in this function); did you mean 'hi2c2'?
+  303 |         if (hi2c->Instance == I2C1) {
+      |             ^~~~
+      |             hi2c2
+../Core/Src/i2c.c:303:13: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:05:02 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42092	    620	  68364	 111076	  1b1e4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:06:02 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'HAL_I2C_AddrCallback':
+../Core/Src/i2c.c:258:25: error: 'ret' undeclared (first use in this function)
+  258 |                         ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) 0x01, 1, I2C_FIRST_AND_LAST_FRAME);
+      |                         ^~~
+../Core/Src/i2c.c:258:25: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:08:16 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/Debug/../Core/Src/main.c:57: multiple definition of `ret'; ./Core/Src/i2c.o:C:/Users/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/Debug/../Core/Src/i2c.c:40: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: Commutation.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:08:24 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/Debug/../Core/Src/main.c:57: multiple definition of `ret'; ./Core/Src/i2c.o:C:/Users/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/Debug/../Core/Src/i2c.c:40: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: Commutation.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:09:03 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\luuk\Documents\GitHub\Allset\STM32-Code-Source\Black Pill Code\Commutation\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  42108	    620	  68372	 111100	  1b1fc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+18:11:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42108	    620	  68372	 111100	  1b1fc	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:13:51 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42108	    620	  68372	 111100	  1b1fc	Commutation.elf
+Finished building: default.size.stdout
+ 
+18:14:46 **** Incremental Build of configuration Debug for project Commutation ****
+make -j8 all 
+arm-none-eabi-size  Commutation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42108	    620	  68372	 111100	  1b1fc	Commutation.elf
+Finished building: default.size.stdout
+ 

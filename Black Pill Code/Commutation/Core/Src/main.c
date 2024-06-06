@@ -145,9 +145,9 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-	// HAL_I2C_EnableListen_IT (&hi2c1);
-    StartupSequence(1);
-    ChangePWM();
+	HAL_I2C_EnableListen_IT (&hi2c1);
+    // StartupSequence(1);
+    // ChangePWM();
 
   /* USER CODE END 2 */
 

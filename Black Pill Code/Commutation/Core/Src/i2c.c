@@ -30,12 +30,14 @@ uint8_t RxCount = 0;
 uint8_t RxData[RxSize];
 
 // Storing data in a register
-uint16_t Registers[RegSize] = {50, 1, 0, 0}; // PWM, Direction, Current, RPM, Temp
+uint16_t Registers[RegSize] = {0, 0, 0, 0}; // PWM, Direction, Current, RPM, Temp
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
 
 extern int Buzzer;
+
+extern HAL_StatusTypeDef ret;
 
 /* Private function prototypes -----------------------------------------------*/
 
@@ -71,7 +73,7 @@ void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = 32;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -140,6 +142,12 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 
     /* I2C1 clock enable */
     __HAL_RCC_I2C1_CLK_ENABLE();
+
+    /* I2C1 interrupt Init */
+    HAL_NVIC_SetPriority(I2C1_EV_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
+    HAL_NVIC_SetPriority(I2C1_ER_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
   /* USER CODE BEGIN I2C1_MspInit 1 */
 
   /* USER CODE END I2C1_MspInit 1 */
@@ -196,6 +204,9 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_7);
 
+    /* I2C1 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(I2C1_EV_IRQn);
+    HAL_NVIC_DisableIRQ(I2C1_ER_IRQn);
   /* USER CODE BEGIN I2C1_MspDeInit 1 */
 
   /* USER CODE END I2C1_MspDeInit 1 */
@@ -224,60 +235,60 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
 /* USER CODE BEGIN 1 */
 
-extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef *hi2c) {
+extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 
-	//if (hi2c->Instance == I2C1) {
-		HAL_I2C_EnableListen_IT (hi2c);
-	//}
+	if (i2cHandle->Instance == I2C1) {
+		HAL_I2C_EnableListen_IT (i2cHandle);
+	}
 
 }
 
-extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode) {
+extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef* i2cHandle, uint8_t TransferDirection, uint16_t AddrMatchCode) {
 
-	//if (hi2c->Instance == I2C1) {
+	if (i2cHandle->Instance == I2C1) {
 		if ( TransferDirection == I2C_DIRECTION_TRANSMIT ) { // If the master wants to transmit the data
 
 			RxCount = 0;
-			HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_FIRST_FRAME);
+			HAL_I2C_Slave_Sequential_Receive_IT (i2cHandle, RxData + RxCount, 1, I2C_FIRST_FRAME);
 
 		} else { // If the master wants to recieve data
 
 			TxCount = 0;
 			StartReg = RxData[0];
-			HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
-			HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
+			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+			ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) 0x01, 1, I2C_FIRST_AND_LAST_FRAME);
 
 		}
 
-	//}
-
-
-}
-
-void HAL_I2C_SlaveTxCpltCallback (I2C_HandleTypeDef *hi2c) {
-
-	//if (hi2c->Instance == I2C1) {
-
-		TxCount++;
-		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_NEXT_FRAME);
-		HAL_I2C_Slave_Seq_Transmit_IT (hi2c, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
-
-	//}
+	}
 
 }
 
-void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef *hi2c) {
+void HAL_I2C_SlaveTxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 
-	//if (hi2c->Instance == I2C1) {
+	if (i2cHandle->Instance == I2C1) {
+
+		// TxCount++;
+		// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_NEXT_FRAME);
+		// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+
+	}
+
+}
+
+void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
+
+	if (i2cHandle->Instance == I2C1) {
 
 		RxCount++;
 
 		if ( RxCount < RxSize ) {
 
 			if (RxCount == RxSize - 1) {
-				HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_LAST_FRAME);
+				HAL_I2C_Slave_Sequential_Receive_IT (i2cHandle, RxData + RxCount, 1, I2C_LAST_FRAME);
 			} else {
-				HAL_I2C_Slave_Sequential_Receive_IT (hi2c, RxData + RxCount, 1, I2C_NEXT_FRAME);
+				HAL_I2C_Slave_Sequential_Receive_IT (i2cHandle, RxData + RxCount, 1, I2C_NEXT_FRAME);
 			}
 		}
 
@@ -285,17 +296,17 @@ void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef *hi2c) {
 			ProcessData();
 		}
 
-	//}
+	}
 
 }
 
-void HAL_I2C_ErrorCallback (I2C_HandleTypeDef *hi2c) {
+void HAL_I2C_ErrorCallback (I2C_HandleTypeDef* i2cHandle) {
 
-	//if (hi2c->Instance == I2C1) {
+	if (i2cHandle->Instance == I2C1) {
 
-		if ( HAL_I2C_GetError (hi2c) == 4) {
+		if ( HAL_I2C_GetError (i2cHandle) == 4) {
 
-			__HAL_I2C_CLEAR_FLAG (hi2c, I2C_FLAG_AF); 	// Clear AF flag
+			__HAL_I2C_CLEAR_FLAG (i2cHandle, I2C_FLAG_AF); 	// Clear AF flag
 
 			if ( TxCount == 0) { 						// Error while recieving
 				ProcessData();
@@ -305,9 +316,9 @@ void HAL_I2C_ErrorCallback (I2C_HandleTypeDef *hi2c) {
 
 		}
 
-	HAL_I2C_EnableListen_IT(hi2c);
+	HAL_I2C_EnableListen_IT(i2cHandle);
 
-	//}
+	}
 
 }
 
@@ -317,14 +328,14 @@ void ProcessData (void) {
 	NumReg = RxCount - 1; 			// Number of registers to be written
 	EndReg = StartReg + NumReg - 1; // Last register to be written
 
-	// If the last register to be wriiten is larger than the size of the register call the error handler
+	// If the last register to be writen is larger than the size of the register call the error handler
 	if (EndReg > RxSize) {
 		//Error_Handler();
 	}
 
 	// Write data into the register using a for loop
-	for (int i = 1; i < NumReg + 1; i++) {
-		Registers[StartReg++] = RxData[i + 1];
+	for (int i = 2; i < NumReg + 1; i++) {
+		Registers[StartReg++] = RxData[i];
 	}
 
 	// If the PWM is higher than 0 but the motor is not turning then startup
