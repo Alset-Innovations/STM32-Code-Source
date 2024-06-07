@@ -86,9 +86,19 @@ uint8_t StartupSequence (char Direction) {
 	ChangePWM();
 
 	// Set first commutation state according to Hall sensors
+	/*
 	if (PrepareCommutation (Direction + 6 * 2)) {
 		return HAL_ERROR;
 	}
+	*/
+
+	// Read IDR for Hall Sensor status
+	uint16_t Hall = (GPIOA->IDR & 0b111) + 6 * Direction;
+
+	// Set Registers to required values
+	TIM1->CCER  = Commutation[Hall][0];
+	TIM1->CCMR1 = Commutation[Hall][2];
+	TIM1->CCMR2 = Commutation[Hall][1];
 
 	// Start HallSensor timer
 	HAL_TIMEx_HallSensor_Start (&htim2);
@@ -97,6 +107,9 @@ uint8_t StartupSequence (char Direction) {
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_3);
+
+	// Start Temp timer
+	// HAL_TIM_PWM_Start (&htim5, TIM_CHANNEL_1);
 
 	// Disable all interrupts
 	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
@@ -107,6 +120,7 @@ uint8_t StartupSequence (char Direction) {
 	// Start Interrupts
 	HAL_TIM_Base_Start_IT (&htim1);
 	HAL_TIM_Base_Start_IT (&htim2);
+	// HAL_TIM_Base_Start_IT (&htim5);
 	HAL_TIM_Base_Start_IT (&htim9);
 	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 

@@ -30,7 +30,7 @@ uint8_t RxCount = 0;
 uint8_t RxData[RxSize];
 
 // Storing data in a register
-uint16_t Registers[RegSize] = {0, 0, 0, 0}; // PWM, Direction, Current, RPM, Temp
+uint16_t Registers[RegSize] = {0, 0, 6969, 257}; // PWM, Direction, Current, RPM, Temp
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
@@ -257,7 +257,8 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef* i2cHandle, uint8_t Transfer
 			StartReg = RxData[0];
 			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
 			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
-			ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) 0x01, 1, I2C_FIRST_AND_LAST_FRAME);
+			ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) Registers, RegSize * 2, I2C_FIRST_FRAME);
+			// ret = HAL_I2C_Slave_Transmit(i2cHandle, (uint8_t *) 0x01, 1, 0x01);
 
 		}
 
@@ -350,7 +351,7 @@ void ProcessData (void) {
 
 	// Call some functions
 	ChangePWM(); 				// Update PWM values
-	memset(RxData, 0, RxSize); 	// Empty the RxData array
+	//memset(RxData, 0, RxSize); 	// Empty the RxData array
 
 	Buzzer = 1;
 

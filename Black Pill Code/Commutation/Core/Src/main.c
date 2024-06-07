@@ -51,9 +51,6 @@
 
 int Buzzer = 0;
 
-uint8_t buff[2];
-float Temp = 0;
-
 HAL_StatusTypeDef ret;
 
 // Commutation table for motor control
@@ -143,9 +140,11 @@ int main(void)
   MX_I2C2_Init();
   MX_TIM4_Init();
   MX_TIM3_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
 	HAL_I2C_EnableListen_IT (&hi2c1);
+
     // StartupSequence(1);
     // ChangePWM();
 
@@ -182,14 +181,6 @@ int main(void)
 	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	  Registers[CurReg] = HAL_ADC_GetValue(&hadc1);
 	  */
-
-	/*
-	// Transmit RPM value to PC via USB
-	len = snprintf(buf, sizeof(buf), "\n\rCurrent PWM: %4d", PWM);
-	CDC_Transmit_FS ((uint8_t *) buf, len);
-
-	HAL_Delay(10);
-	*/
 
     /* USER CODE END WHILE */
 

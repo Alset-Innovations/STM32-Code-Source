@@ -47,6 +47,8 @@ uint32_t Total = 0;
 uint16_t RPM[AvgSize] = {};
 uint16_t i = 0, j = 0;
 
+extern HAL_StatusTypeDef ret;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -64,6 +66,7 @@ extern ADC_HandleTypeDef hadc1;
 extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
 
@@ -351,6 +354,31 @@ void I2C1_ER_IRQHandler(void)
   /* USER CODE BEGIN I2C1_ER_IRQn 1 */
 
   /* USER CODE END I2C1_ER_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM5 global interrupt.
+  */
+void TIM5_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM5_IRQn 0 */
+
+	uint8_t buff[2];
+	float Temp = 0;
+
+	buff[0] = 0x05;
+	buff[1] = 0x00;
+
+	ret = HAL_I2C_Master_Transmit(&hi2c2, MCP9808_ADDR << 1, buff, 1, HAL_MAX_DELAY);
+	ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
+
+	Temp = ((((int16_t)buff[0] << 11) + ((int16_t)buff[1] << 3)) >> 3) / 1600.0;
+
+  /* USER CODE END TIM5_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim5);
+  /* USER CODE BEGIN TIM5_IRQn 1 */
+
+  /* USER CODE END TIM5_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
