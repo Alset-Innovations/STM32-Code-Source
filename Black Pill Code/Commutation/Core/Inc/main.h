@@ -66,7 +66,7 @@ void Error_Handler(void);
 #define MaximumRPM 5000
 
 #define RegSize 4
-#define RxSize RegSize + 2
+#define RxSize 4
 #define AvgSize 128
 #define AvgSizeCur 32768
 

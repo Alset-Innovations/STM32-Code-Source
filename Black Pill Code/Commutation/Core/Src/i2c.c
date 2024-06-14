@@ -30,13 +30,14 @@ uint8_t RxCount = 0;
 uint8_t RxData[RxSize];
 
 // Storing data in a register
-uint16_t Registers[RegSize] = {0, 0, 6969, 257}; // PWM, Direction, Current, RPM, Temp
+uint16_t Registers[RegSize] = {0, 0, 1010, 0}; // PWM, Direction, Current, RPM, Temp
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
 
 extern int Buzzer;
 
+HAL_StatusTypeDef I2C_Error = HAL_OK;
 extern HAL_StatusTypeDef ret;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -310,6 +311,7 @@ void HAL_I2C_ErrorCallback (I2C_HandleTypeDef* i2cHandle) {
 			__HAL_I2C_CLEAR_FLAG (i2cHandle, I2C_FLAG_AF); 	// Clear AF flag
 
 			if ( TxCount == 0) { 						// Error while recieving
+				I2C_Error = HAL_ERROR;
 				ProcessData();
 			} else { 									// Error while transmitting
 				TxCount--;
@@ -317,7 +319,7 @@ void HAL_I2C_ErrorCallback (I2C_HandleTypeDef* i2cHandle) {
 
 		}
 
-	HAL_I2C_EnableListen_IT(i2cHandle);
+		HAL_I2C_EnableListen_IT(i2cHandle);
 
 	}
 
@@ -346,12 +348,12 @@ void ProcessData (void) {
 
 	// If the PWM is 0 but the motor is still turning shutdown
 	if ( Registers[PWMReg] == 0 && Registers[RPMReg] > 0 ) {
-		//StopSequence();
+		// StopSequence();
 	}
 
 	// Call some functions
 	ChangePWM(); 				// Update PWM values
-	//memset(RxData, 0, RxSize); 	// Empty the RxData array
+	// memset(RxData, 0, RxSize); 	// Empty the RxData array
 
 	Buzzer = 1;
 
