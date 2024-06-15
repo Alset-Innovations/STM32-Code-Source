@@ -55,17 +55,17 @@ uint32_t RPMConst = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 
-uint8_t PrepareCommutation (char Direction);
-uint8_t StartupSequence (char Direction);
-uint8_t StopSequence(void);
-uint8_t ChangePWM (void);
+HAL_StatusTypeDef PrepareCommutation (void);
+HAL_StatusTypeDef StartupSequence (void);
+HAL_StatusTypeDef StopSequence(void);
+HAL_StatusTypeDef ChangePWM (void);
 
 /* Private function ----------------------------------------------------------*/
 
-uint8_t PrepareCommutation (char Direction) {
+HAL_StatusTypeDef PrepareCommutation () {
 
 	// Read IDR for Hall Sensor status
-	uint16_t Hall = (GPIOA->IDR & 0b111) - 1 + 6 * Direction;
+	uint16_t Hall = (GPIOA->IDR & 0b111) - 1 + 6 * Registers[DirReg];
 
 	// Set Registers to required values
 	TIM1->CCER  = Commutation[Hall][0];
@@ -76,13 +76,32 @@ uint8_t PrepareCommutation (char Direction) {
 
 }
 
-uint8_t StartupSequence (char Direction) {
+HAL_StatusTypeDef FaultHandling () {
 
-	// Initialize some variables
-	Fapb1tclk = HAL_RCC_GetPCLK1Freq() * 2;
-	Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;
-	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 1.35;
+	// Stop timer 1
+	HAL_TIM_Base_Stop_IT (&htim1);
 
+	// Stop PWM Timers
+	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Stop (&htim1, TIM_CHANNEL_3);
+
+	// Set PWM to zero
+	Registers[PWMReg] = 0;
+	ChangePWM();
+
+	return HAL_OK;
+
+}
+
+HAL_StatusTypeDef StartupSequence () {
+
+	// Initialize some constantes
+	Fapb1tclk = HAL_RCC_GetPCLK1Freq() * 2; 			// Get clock frequency for APB1 timer
+	Fapb2tclk = HAL_RCC_GetPCLK2Freq() * 2;				// Get clock frequency for APB2 timer
+	RPMConst = (Fapb2tclk / (TIM9->PSC + 1)) * 1.35; 	// Calculate a constant to later be used for RPM calculation
+
+	// Make sure PWM is set for first commutation
 	ChangePWM();
 
 	// Set first commutation state according to Hall sensors
@@ -92,60 +111,67 @@ uint8_t StartupSequence (char Direction) {
 	}
 	*/
 
-
+	// Set registers for first commutation
 	// Read IDR for Hall Sensor status
-	uint16_t Hall = (GPIOA->IDR & 0b111) + 6 * Direction + 3;
-	// uint16_t Hall = (GPIOA->IDR & 0b111) + 6 * Direction - 3;
+	// uint16_t Hall = (GPIOA->IDR & 0b111) + 6 * Direction + 3;
+	uint16_t Hall = (GPIOA->IDR & 0b111) + 6 * Registers[DirReg] - 3;
 
-	// Set Registers to required values
+	// Set registers to required values
 	TIM1->CCER  = Commutation[Hall][0];
 	TIM1->CCMR1 = Commutation[Hall][2];
 	TIM1->CCMR2 = Commutation[Hall][1];
-
-
-	// Start HallSensor timer
-	HAL_TIMEx_HallSensor_Start (&htim2);
 
 	// Start all PWM signals on TIM1
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start (&htim1, TIM_CHANNEL_3);
 
+	// Start HallSensor timer in XOR mode
+	HAL_TIMEx_HallSensor_Start (&htim2);
+
+	// Start ADC timer
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
 	// Start Temp timer
-	// HAL_TIM_PWM_Start (&htim5, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start (&htim5, TIM_CHANNEL_1);
 
 	// Disable all interrupts
 	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
 	TIM1->DIER &= ~TIM_DIER_BIE; 	// Disable break interrupt as this is shared with timer 9 interrupt
 	TIM2->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 2
+	TIM3->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 3
+	TIM5->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 5
 	TIM9->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 9
 
-	// Start Interrupts
+	// Start all timers
 	HAL_TIM_Base_Start_IT (&htim1);
 	HAL_TIM_Base_Start_IT (&htim2);
 	HAL_TIM_Base_Start_IT (&htim3);
-	// HAL_TIM_Base_Start_IT (&htim5);
+	HAL_TIM_Base_Start_IT (&htim5);
 	HAL_TIM_Base_Start_IT (&htim9);
 	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 
-	// Start ADC for current
+	// Start ADC for current sensing
 	// HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
 	HAL_ADC_Start_IT(&hadc1);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
 	// Clear all interrupt triggers
 	TIM1->SR &= ~TIM_SR_COMIF;		// Clear Commutation interrupt flag
 	TIM1->SR &= ~TIM_SR_BIF;		// Clear Break interrupt flag
 	TIM2->SR &= ~TIM_SR_TIF;		// Clear timer 2 interrupt flag
+	TIM3->SR &= ~TIM_SR_TIF;		// Clear timer 3 interrupt flag
+	TIM5->SR &= ~TIM_SR_TIF;		// Clear timer 5 interrupt flag
 	TIM9->SR &= ~TIM_SR_TIF;		// Clear timer 9 interrupt flag
 
-	// Enable interrupts
+	// Enable interrupts on the necessary timers
 	TIM1->DIER |= TIM_DIER_COMIE;	// Enable Commutation events in DIER register
 	TIM2->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 2
+	TIM3->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 3
+	TIM5->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 5
 	TIM9->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 9
 
 	// Write some registers
-	ADC1->CR1  |= ADC_CR1_EOCIE;	// Enable ADC interrupts
+	// ADC1->CR1  |= ADC_CR1_EOCIE;	// Enable ADC interrupts
 	TIM1->CR2  |= TIM_CR2_CCPC; 	// Set CCPC in CR2 to preload CCxE, CCxNE and OCxM bits
 	TIM1->BDTR &= ~TIM_BDTR_DTG;	// Reset DTG bits
 	TIM1->BDTR |= 0x800F;			// Set dead-time to 100ns and make sure to enable MOE bit
@@ -156,7 +182,7 @@ uint8_t StartupSequence (char Direction) {
 
 }
 
-uint8_t StopSequence(void) {
+HAL_StatusTypeDef StopSequence(void) {
 
 	// Stop HallSensor timer
 	HAL_TIMEx_HallSensor_Stop (&htim2);
@@ -197,7 +223,7 @@ uint8_t StopSequence(void) {
 
 }
 
-uint8_t ChangePWM (void) {
+HAL_StatusTypeDef ChangePWM (void) {
 
 	uint32_t PWM = (Registers[PWMReg] * TIM1->ARR) / 100; // Calculate required CCRx value
 

@@ -3912,3 +3912,51 @@ java.util.ConcurrentModificationException
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-05-17 14:46:27.640
 !MESSAGE Indexed 'Sinus' (68 sources, 178 headers) in 1.58 sec: 21,856 declarations; 152,113 references; 2 unresolved inclusions; 42 syntax errors; 149 unresolved names (0.086%)
+!SESSION 2024-06-14 21:51:02.962 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-06-14 21:51:09.162
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-06-14 21:51:09.162
+!MESSAGE Log4j2 initialized with config file /home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-06-14 21:51:12.197
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-06-15 12:57:18.505 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-06-15 12:57:21.390
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-06-15 12:57:23.065
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-06-15 12:57:23.066
+!MESSAGE Log4j2 initialized with config file /home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-06-15 12:57:25.588
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-06-15 22:41:15.724 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-06-15 22:41:21.028
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-06-15 22:41:21.028
+!MESSAGE Log4j2 initialized with config file /home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-06-15 22:41:23.701
+!MESSAGE Started RMI Server, listening on port 41337

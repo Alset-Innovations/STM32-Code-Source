@@ -297,7 +297,7 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	PrepareCommutation (Registers[DirReg]); // Set next Commutation states
+	PrepareCommutation (); // Set next Commutation states
 
 	TIM1->SR &= ~TIM_SR_COMIF; 				// Reset COMIF in SR register
 
@@ -373,6 +373,7 @@ void TIM5_IRQHandler(void)
 	ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
 
 	Temp = ((((int16_t)buff[0] << 11) + ((int16_t)buff[1] << 3)) >> 3) / 1600.0;
+	Registers[TempReg] = Temp;
 
   /* USER CODE END TIM5_IRQn 0 */
   HAL_TIM_IRQHandler(&htim5);

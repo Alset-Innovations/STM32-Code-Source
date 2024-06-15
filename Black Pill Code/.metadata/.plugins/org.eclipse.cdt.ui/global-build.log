@@ -9441,3 +9441,442 @@ arm-none-eabi-size  Commutation.elf
   40956	    620	   2916	  44492	   adcc	Commutation.elf
 Finished building: default.size.stdout
  
+21:59:21 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46340	    628	  68436	 115404	  1c2cc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:04:15 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    628	  68436	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:04:44 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    628	  68436	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:10:53 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    628	  68436	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:11:08 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46356	    628	  68436	 115420	  1c2dc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:11:25 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:79:1: error: number of arguments doesn't match prototype
+   79 | HAL_StatusTypeDef StartupSequence () {
+      | ^~~~~~~~~~~~~~~~~
+../Core/Src/Functions.c:59:19: error: prototype declaration
+   59 | HAL_StatusTypeDef StartupSequence (char Direction);
+      |                   ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:11:35 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+../Core/Src/Functions.c:59:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef()'
+   59 | HAL_StatusTypeDef StartupSequence ();
+      |                   ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c:59:1: note: an argument type that has a default promotion cannot match an empty parameter name list declaration
+   59 | HAL_StatusTypeDef StartupSequence ();
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c:79:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef()'
+   79 | HAL_StatusTypeDef StartupSequence () {
+      |                   ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:79:1: error: number of arguments doesn't match prototype
+   79 | HAL_StatusTypeDef StartupSequence () {
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: error: prototype declaration
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:11:56 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+../Core/Src/Functions.c:59:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(void)'
+   59 | HAL_StatusTypeDef StartupSequence (void);
+      |                   ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c:79:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(void)'
+   79 | HAL_StatusTypeDef StartupSequence () {
+      |                   ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:79:1: error: number of arguments doesn't match prototype
+   79 | HAL_StatusTypeDef StartupSequence () {
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: error: prototype declaration
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:13:05 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+../Core/Src/i2c.c: In function 'ProcessData':
+../Core/Src/i2c.c:346:17: error: too few arguments to function 'StartupSequence'
+  346 |                 StartupSequence();
+      |                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/i2c.h:33,
+                 from ../Core/Src/i2c.c:21:
+../Core/Inc/Functions.h:25:9: note: declared here
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c:59:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(void)'
+   59 | HAL_StatusTypeDef StartupSequence (void);
+      |                   ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c:79:19: error: conflicting types for 'StartupSequence'; have 'HAL_StatusTypeDef(void)'
+   79 | HAL_StatusTypeDef StartupSequence () {
+      |                   ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: note: previous declaration of 'StartupSequence' with type 'uint8_t(char)' {aka 'unsigned char(char)'}
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/Functions.c: In function 'StartupSequence':
+../Core/Src/Functions.c:79:1: error: number of arguments doesn't match prototype
+   79 | HAL_StatusTypeDef StartupSequence () {
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/Functions.c:10:
+../Core/Inc/Functions.h:25:9: error: prototype declaration
+   25 | uint8_t StartupSequence (char Direction);
+      |         ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:49: Core/Src/i2c.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:13:23 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_BRK_TIM9_IRQHandler':
+../Core/Src/stm32f4xx_it.c:276:25: warning: implicit declaration of function 'StopSequence' [-Wimplicit-function-declaration]
+  276 |                         StopSequence();
+      |                         ^~~~~~~~~~~~
+../Core/Src/i2c.c: In function 'ProcessData':
+../Core/Src/i2c.c:346:17: warning: implicit declaration of function 'StartupSequence' [-Wimplicit-function-declaration]
+  346 |                 StartupSequence();
+      |                 ^~~~~~~~~~~~~~~
+../Core/Src/i2c.c:355:9: warning: implicit declaration of function 'ChangePWM' [-Wimplicit-function-declaration]
+  355 |         ChangePWM();                            // Update PWM values
+      |         ^~~~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_TRG_COM_TIM11_IRQHandler':
+../Core/Src/stm32f4xx_it.c:300:9: warning: implicit declaration of function 'PrepareCommutation' [-Wimplicit-function-declaration]
+  300 |         PrepareCommutation (Registers[DirReg]); // Set next Commutation states
+      |         ^~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46340	    628	  68436	 115404	  1c2cc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:13:43 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46340	    628	  68436	 115404	  1c2cc	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:14:06 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_TRG_COM_TIM11_IRQHandler':
+../Core/Src/stm32f4xx_it.c:300:9: error: too many arguments to function 'PrepareCommutation'
+  300 |         PrepareCommutation (Registers[DirReg]); // Set next Commutation states
+      |         ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_it.h:31,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+../Core/Inc/Functions.h:24:19: note: declared here
+   24 | HAL_StatusTypeDef PrepareCommutation (void);
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/stm32f4xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:14:16 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM1_TRG_COM_TIM11_IRQHandler':
+../Core/Src/stm32f4xx_it.c:300:9: error: too many arguments to function 'PrepareCommutation'
+  300 |         PrepareCommutation (Registers[DirReg]); // Set next Commutation states
+      |         ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_it.h:31,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+../Core/Inc/Functions.h:24:19: note: declared here
+   24 | HAL_StatusTypeDef PrepareCommutation (void);
+      |                   ^~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/stm32f4xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:14:33 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46332	    628	  68436	 115396	  1c2c4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+22:15:49 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:376:19: error: 'TempReg' undeclared (first use in this function); did you mean 'Temp'?
+  376 |         Registers[TempReg] = int(Temp);
+      |                   ^~~~~~~
+      |                   Temp
+../Core/Src/stm32f4xx_it.c:376:19: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32f4xx_it.c:376:30: error: expected expression before 'int'
+  376 |         Registers[TempReg] = int(Temp);
+      |                              ^~~
+../Core/Src/stm32f4xx_it.c:367:15: warning: variable 'Temp' set but not used [-Wunused-but-set-variable]
+  367 |         float Temp = 0;
+      |               ^~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/stm32f4xx_it.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:16:01 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'TIM5_IRQHandler':
+../Core/Src/stm32f4xx_it.c:376:19: error: 'TempReg' undeclared (first use in this function); did you mean 'Temp'?
+  376 |         Registers[TempReg] = Temp;
+      |                   ^~~~~~~
+      |                   Temp
+../Core/Src/stm32f4xx_it.c:376:19: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/stm32f4xx_it.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:16:27 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    628	  68436	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+23:02:19 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+../Core/Src/Functions.c: In function 'FaultHandling':
+../Core/Src/Functions.c:90:9: error: 'Register' undeclared (first use in this function); did you mean 'Registers'?
+   90 |         Register[PWMReg] = 0;
+      |         ^~~~~~~~
+      |         Registers
+../Core/Src/Functions.c:90:9: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/Functions.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+23:02:26 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    628	  68436	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:05:16 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46364	    628	  68436	 115428	  1c2e4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:15:50 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/Functions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Functions.d" -MT"Core/Src/Functions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Functions.o"
+arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46348	    632	  68432	 115412	  1c2d4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 
+13:23:59 **** Incremental Build of configuration Debug for project Commutation ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc -o "Commutation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/luuk/Documents/GitHub/Allset/STM32-Code-Source/Black Pill Code/Commutation/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Commutation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Commutation.elf
+ 
+arm-none-eabi-size  Commutation.elf 
+arm-none-eabi-objdump -h -S Commutation.elf  > "Commutation.list"
+   text	   data	    bss	    dec	    hex	filename
+  46364	    632	  68432	 115428	  1c2e4	Commutation.elf
+Finished building: default.size.stdout
+ 
+Finished building: Commutation.list
+ 

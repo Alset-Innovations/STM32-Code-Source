@@ -30,7 +30,7 @@ uint8_t RxCount = 0;
 uint8_t RxData[RxSize];
 
 // Storing data in a register
-uint16_t Registers[RegSize] = {0, 0, 1010, 0}; // PWM, Direction, Current, RPM, Temp
+uint16_t Registers[RegSize] = {0, 0, 1010, 0, 0}; // PWM, Direction, Current, RPM, Temp
 int StartReg = 0;
 int NumReg = 0;
 int EndReg = 0;
@@ -238,6 +238,7 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
 extern void HAL_I2C_ListenCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 
+	// Once the transfer is complete start listening again.
 	if (i2cHandle->Instance == I2C1) {
 		HAL_I2C_EnableListen_IT (i2cHandle);
 	}
@@ -249,31 +250,19 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef* i2cHandle, uint8_t Transfer
 	if (i2cHandle->Instance == I2C1) {
 		if ( TransferDirection == I2C_DIRECTION_TRANSMIT ) { // If the master wants to transmit the data
 
+			// Reset number of recieved bytes and start recieving the first byte.
 			RxCount = 0;
 			HAL_I2C_Slave_Sequential_Receive_IT (i2cHandle, RxData + RxCount, 1, I2C_FIRST_FRAME);
 
 		} else { // If the master wants to recieve data
 
-			TxCount = 0;
-			StartReg = RxData[0];
-			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_FIRST_FRAME);
-			// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
+			// Transmit all data in the register
+			// Data is send 8 bits at a time while the register is 16 bit this is done by making the function
+			// believe the register is indeed 8 bits and then send double the length of the actual register.
+			// The resulting 2x 8 bits of data will be combined again by the raspberry pi.
 			ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) Registers, RegSize * 2, I2C_FIRST_FRAME);
-			// ret = HAL_I2C_Slave_Transmit(i2cHandle, (uint8_t *) 0x01, 1, 0x01);
 
 		}
-
-	}
-
-}
-
-void HAL_I2C_SlaveTxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
-
-	if (i2cHandle->Instance == I2C1) {
-
-		// TxCount++;
-		// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] >> 8), 1, I2C_NEXT_FRAME);
-		// HAL_I2C_Slave_Seq_Transmit_IT (i2cHandle, (uint8_t *) (Registers[TxCount + StartReg] & 0xFF), 1, I2C_NEXT_FRAME);
 
 	}
 
@@ -287,6 +276,7 @@ void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 
 		if ( RxCount < RxSize ) {
 
+			// If the number of recieved bytes is less than the total keep recieving and otherwise recieve te last byte.
 			if (RxCount == RxSize - 1) {
 				HAL_I2C_Slave_Sequential_Receive_IT (i2cHandle, RxData + RxCount, 1, I2C_LAST_FRAME);
 			} else {
@@ -294,6 +284,7 @@ void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 			}
 		}
 
+		// Once the maximum of recievable bytes has been reached start processing the data.
 		if ( RxCount == RxSize) {
 			ProcessData();
 		}
@@ -310,15 +301,16 @@ void HAL_I2C_ErrorCallback (I2C_HandleTypeDef* i2cHandle) {
 
 			__HAL_I2C_CLEAR_FLAG (i2cHandle, I2C_FLAG_AF); 	// Clear AF flag
 
-			if ( TxCount == 0) { 						// Error while recieving
-				I2C_Error = HAL_ERROR;
-				ProcessData();
-			} else { 									// Error while transmitting
+			if ( TxCount == 0) { 							// Error while recieving
+				I2C_Error = HAL_ERROR;						// Custom error to know if an error has occured. It is not cleared anywhere.
+				ProcessData();								// Error 4 is an unexpected termination of the transfer so the recieved data can still be used.
+			} else { 										// Error while transmitting, this is ignored
 				TxCount--;
 			}
 
 		}
 
+		// Start listening again since an error will most likely have terminated the transfer.
 		HAL_I2C_EnableListen_IT(i2cHandle);
 
 	}
@@ -327,34 +319,36 @@ void HAL_I2C_ErrorCallback (I2C_HandleTypeDef* i2cHandle) {
 
 void ProcessData (void) {
 
+	// Initialize some variables
 	StartReg = RxData[0]; 			// Start address of registers to be written
-	NumReg = RxCount - 1; 			// Number of registers to be written
-	EndReg = StartReg + NumReg - 1; // Last register to be written
+	NumReg = RxCount; 				// Number of registers to be written
+	EndReg = StartReg + NumReg - 2; // Last register to be written
 
 	// If the last register to be writen is larger than the size of the register call the error handler
-	if (EndReg > RxSize) {
-		//Error_Handler();
+	if (EndReg > RegSize) {
+		Error_Handler();
 	}
 
 	// Write data into the register using a for loop
-	for (int i = 2; i < NumReg + 1; i++) {
+	for (int i = 2; i < NumReg; i++) {
 		Registers[StartReg++] = RxData[i];
 	}
 
 	// If the PWM is higher than 0 but the motor is not turning then startup
 	if ( Registers[PWMReg] > 0 && Registers[RPMReg] == 0) {
-		StartupSequence(Registers[DirReg]);
+		StartupSequence();
 	}
 
-	// If the PWM is 0 but the motor is still turning shutdown
+	// If the PWM is 0 and the motor is still turning shutdown
 	if ( Registers[PWMReg] == 0 && Registers[RPMReg] > 0 ) {
-		// StopSequence();
+		StopSequence();
 	}
 
 	// Call some functions
 	ChangePWM(); 				// Update PWM values
-	// memset(RxData, 0, RxSize); 	// Empty the RxData array
+	memset(RxData, 0, RxSize); 	// Empty the RxData array for next transmission
 
+	// Activate the buzzer everytime a transfer has been completed
 	Buzzer = 1;
 
 }
