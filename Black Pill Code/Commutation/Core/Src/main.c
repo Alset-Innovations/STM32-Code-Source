@@ -165,18 +165,20 @@ int main(void)
 		  Buzzer = 0;
 
 	  }
+	  */
 
+	  /*
 	  buff[0] = 0x05;
 	  buff[1] = 0x00;
 
-	  //ret = HAL_I2C_Master_Transmit(&hi2c2, MCP9808_ADDR << 1, buff, 1, HAL_MAX_DELAY);
-	  //ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
+	  ret = HAL_I2C_Master_Transmit(&hi2c2, MCP9808_ADDR << 1, buff, 1, HAL_MAX_DELAY);
+	  ret = HAL_I2C_Master_Receive(&hi2c2, MCP9808_ADDR << 1, buff, 2, HAL_MAX_DELAY);
 
 	  Temp = ((((int16_t)buff[0] << 11) + ((int16_t)buff[1] << 3)) >> 3) / 1600.0;
 	  */
 
 	  /*
-	  // Read Potentiometer data from ADC for RPM control.
+	  // Read current data from ADC.
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	  Registers[CurReg] = HAL_ADC_GetValue(&hadc1);

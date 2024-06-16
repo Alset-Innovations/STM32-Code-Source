@@ -152,6 +152,8 @@ HAL_StatusTypeDef StartupSequence () {
 	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 
 	// Start ADC for current sensing
+	ADC1->CR2 &= ~ADC_CR2_CONT; // Set to single conversion mode
+	ADC1->CR2 |= ADC_CR2_CONT;  // Set to continuous mode
 	// HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
 	HAL_ADC_Start_IT(&hadc1);
 

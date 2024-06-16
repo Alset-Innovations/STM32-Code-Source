@@ -138,7 +138,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	TotalCurrent -= Current[Ci];
-	Current[Ci] = HAL_ADC_GetValue(&hadc1);
+	Current[Ci] = ADC1->DR;
 	TotalCurrent += Current[Ci];
 
 	Ci++;

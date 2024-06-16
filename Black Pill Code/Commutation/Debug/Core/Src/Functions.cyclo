@@ -1,5 +1,5 @@
 ../Core/Src/Functions.c:65:19:PrepareCommutation	1
 ../Core/Src/Functions.c:79:19:FaultHandling	1
 ../Core/Src/Functions.c:97:19:StartupSequence	1
-../Core/Src/Functions.c:185:19:StopSequence	2
-../Core/Src/Functions.c:226:19:ChangePWM	2
+../Core/Src/Functions.c:187:19:StopSequence	2
+../Core/Src/Functions.c:228:19:ChangePWM	2

@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "adc.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,6 +68,7 @@ extern ADC_HandleTypeDef hadc1;
 extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim9;
 /* USER CODE BEGIN EV */
@@ -291,15 +294,52 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
+  */
+void TIM1_UP_TIM10_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
+
+	/*
+
+	TotalCurrent -= Current[Ci];
+	Current[Ci] = ADC1->DR;
+	TotalCurrent += Current[Ci];
+
+	Ci++;
+
+	if ( Ci >= AvgSizeCur - 1 ) {
+		Ci = 0;
+	}
+
+	float current = (3.3 * (TotalCurrent / AvgSizeCur)) / 40960 / 0.015;
+	Registers[CurReg] = current * 1000;
+
+	Counter++;
+
+	// Enable timer three for current measurement delay
+	TIM3->ARR = 0;
+	TIM3->CR1 |= ITM_CR1_CEN;
+
+	*/
+
+  /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
   */
 void TIM1_TRG_COM_TIM11_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
 
-	PrepareCommutation (); // Set next Commutation states
+	PrepareCommutation ();		// Set next Commutation states
 
-	TIM1->SR &= ~TIM_SR_COMIF; 				// Reset COMIF in SR register
+	TIM1->SR &= ~TIM_SR_COMIF; 	// Reset COMIF in SR register
 
   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
@@ -318,7 +358,7 @@ void TIM2_IRQHandler(void)
 	// Reset Timer 9 counter.
 	TIM9->CNT = 0x0;
 
-	// Set COMG bit in EGR
+	// Set COMG bit in EGR to generate commutation interrupt
 	TIM1->EGR |= TIM_EGR_COMG;
 
   /* USER CODE END TIM2_IRQn 0 */
@@ -326,6 +366,28 @@ void TIM2_IRQHandler(void)
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
   /* USER CODE END TIM2_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM3 global interrupt.
+  */
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+
+	/*
+	// Start single conversion
+	ADC1->CR2 |= ADC_CR2_SWSTART;
+
+	// Disable timer again
+	TIM3->CR1 &= ~TIM_CR1_CEN;
+	*/
+
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /**
