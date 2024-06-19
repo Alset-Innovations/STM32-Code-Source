@@ -48,8 +48,13 @@
 uint32_t Total = 0;
 uint16_t RPM[AvgSize] = {};
 uint16_t i = 0, j = 0;
+uint32_t ADCCounter = 0;
 
 extern HAL_StatusTypeDef ret;
+extern uint32_t TotalCurrent;
+extern uint32_t Counter;
+extern uint16_t Ci;
+extern uint16_t Current[AvgSizeCur];
 
 /* USER CODE END PV */
 
@@ -101,7 +106,7 @@ void NMI_Handler(void)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
-}
+}\
 
 /**
   * @brief This function handles Hard fault interrupt.
@@ -301,7 +306,6 @@ void TIM1_UP_TIM10_IRQHandler(void)
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
 
 	/*
-
 	TotalCurrent -= Current[Ci];
 	Current[Ci] = ADC1->DR;
 	TotalCurrent += Current[Ci];
@@ -312,15 +316,13 @@ void TIM1_UP_TIM10_IRQHandler(void)
 		Ci = 0;
 	}
 
-	float current = (3.3 * (TotalCurrent / AvgSizeCur)) / 40960 / 0.015;
-	Registers[CurReg] = current * 1000;
-
 	Counter++;
 
 	// Enable timer three for current measurement delay
 	TIM3->ARR = 0;
-	TIM3->CR1 |= ITM_CR1_CEN;
 
+	// TIM3->CR1 |= TIM_CR1_CEN;
+	HAL_TIM_Base_Start_IT (&htim3);
 	*/
 
   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
@@ -375,13 +377,13 @@ void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
 
-	/*
 	// Start single conversion
 	ADC1->CR2 |= ADC_CR2_SWSTART;
+	ADCCounter++;
 
 	// Disable timer again
-	TIM3->CR1 &= ~TIM_CR1_CEN;
-	*/
+	// TIM3->CR1 &= ~TIM_CR1_CEN;
+	HAL_TIM_Base_Stop_IT (&htim3);
 
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);

@@ -137,6 +137,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 
+	/*
 	TotalCurrent -= Current[Ci];
 	Current[Ci] = ADC1->DR;
 	TotalCurrent += Current[Ci];
@@ -147,10 +148,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 		Ci = 0;
 	}
 
-	float current = (3.3 * (TotalCurrent / AvgSizeCur)) / 40960 / 0.015;
-	Registers[CurReg] = current * 1000;
+	// float current = (3.3 * (TotalCurrent / AvgSizeCur)) / 40960 / 0.015;
+	// Registers[CurReg] = current * 1000;
 
 	Counter++;
+	*/
 
 }
 

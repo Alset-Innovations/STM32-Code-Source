@@ -36,6 +36,7 @@ int NumReg = 0;
 int EndReg = 0;
 
 extern int Buzzer;
+extern uint32_t TotalCurrent;
 
 HAL_StatusTypeDef I2C_Error = HAL_OK;
 extern HAL_StatusTypeDef ret;
@@ -256,11 +257,21 @@ extern void HAL_I2C_AddrCallback (I2C_HandleTypeDef* i2cHandle, uint8_t Transfer
 
 		} else { // If the master wants to recieve data
 
+
+			// float current = (3.3 * (TotalCurrent / AvgSizeCur)) / 40960 / 0.015;
+			// Registers[CurReg] = current * 10 * Registers[PWMReg];
+
+			// Registers[CurReg] = (0.0537109 * Registers[PWMReg] * TotalCurrent) / AvgSizeCur;
+
 			// Transmit all data in the register
 			// Data is send 8 bits at a time while the register is 16 bit this is done by making the function
 			// believe the register is indeed 8 bits and then send double the length of the actual register.
 			// The resulting 2x 8 bits of data will be combined again by the raspberry pi.
-			ret = HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) Registers, RegSize * 2, I2C_FIRST_FRAME);
+			if( HAL_I2C_Slave_Seq_Transmit_IT(i2cHandle, (uint8_t *) Registers, RegSize * 2, I2C_FIRST_FRAME) == HAL_ERROR) {
+			}
+
+			HAL_I2C_DisableListen_IT(i2cHandle);
+			HAL_I2C_EnableListen_IT(i2cHandle);
 
 		}
 
@@ -288,6 +299,9 @@ void HAL_I2C_SlaveRxCpltCallback (I2C_HandleTypeDef* i2cHandle) {
 		if ( RxCount == RxSize) {
 			ProcessData();
 		}
+
+		HAL_I2C_DisableListen_IT(i2cHandle);
+		HAL_I2C_EnableListen_IT(i2cHandle);
 
 	}
 
@@ -341,7 +355,7 @@ void ProcessData (void) {
 
 	// If the PWM is 0 and the motor is still turning shutdown
 	if ( Registers[PWMReg] == 0 && Registers[RPMReg] > 0 ) {
-		StopSequence();
+		// StopSequence();
 	}
 
 	// Call some functions

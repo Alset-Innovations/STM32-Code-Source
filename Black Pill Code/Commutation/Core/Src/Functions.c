@@ -133,11 +133,12 @@ HAL_StatusTypeDef StartupSequence () {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
 	// Start Temp timer
-	HAL_TIM_PWM_Start (&htim5, TIM_CHANNEL_1);
+	// HAL_TIM_PWM_Start (&htim5, TIM_CHANNEL_1);
 
 	// Disable all interrupts
 	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
 	TIM1->DIER &= ~TIM_DIER_BIE; 	// Disable break interrupt as this is shared with timer 9 interrupt
+	TIM1->DIER &= ~TIM_DIER_UIE;
 	TIM2->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 2
 	TIM3->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 3
 	TIM5->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 5
@@ -146,8 +147,8 @@ HAL_StatusTypeDef StartupSequence () {
 	// Start all timers
 	HAL_TIM_Base_Start_IT (&htim1);
 	HAL_TIM_Base_Start_IT (&htim2);
-	HAL_TIM_Base_Start_IT (&htim3);
-	HAL_TIM_Base_Start_IT (&htim5);
+	// HAL_TIM_Base_Start_IT (&htim3);
+	// HAL_TIM_Base_Start_IT (&htim5);
 	HAL_TIM_Base_Start_IT (&htim9);
 	HAL_TIM_IC_Start_IT (&htim9, TIM_CHANNEL_2);
 
@@ -166,7 +167,7 @@ HAL_StatusTypeDef StartupSequence () {
 	TIM9->SR &= ~TIM_SR_TIF;		// Clear timer 9 interrupt flag
 
 	// Enable interrupts on the necessary timers
-	TIM1->DIER |= TIM_DIER_COMIE;	// Enable Commutation events in DIER register
+	TIM1->DIER |= TIM_DIER_UIE;		// Enable Update events in DIER register
 	TIM2->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 2
 	TIM3->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 3
 	TIM5->DIER |= TIM_DIER_TIE; 	// Enable interrupt on timer 5
@@ -176,7 +177,7 @@ HAL_StatusTypeDef StartupSequence () {
 	// ADC1->CR1  |= ADC_CR1_EOCIE;	// Enable ADC interrupts
 	TIM1->CR2  |= TIM_CR2_CCPC; 	// Set CCPC in CR2 to preload CCxE, CCxNE and OCxM bits
 	TIM1->BDTR &= ~TIM_BDTR_DTG;	// Reset DTG bits
-	TIM1->BDTR |= 0x800F;			// Set dead-time to 100ns and make sure to enable MOE bit
+	TIM1->BDTR |= 0x8010;			// Set dead-time to 100ns and make sure to enable MOE bit
 	TIM1->EGR  |= TIM_EGR_COMG; 	// Set COMG bit in EGR for first commutation
 	TIM1->DIER |= TIM_DIER_COMIE; 	// Enable commutation events in DIER register
 
@@ -205,6 +206,7 @@ HAL_StatusTypeDef StopSequence(void) {
 	// Disable all interrupts
 	TIM1->DIER &= ~TIM_DIER_COMIE;	// Disable Commutation events in DIER register
 	TIM1->DIER &= ~TIM_DIER_BIE; 	// Disable break interrupt as this is shared with timer 9 interrupt
+	TIM1->DIER &= ~TIM_DIER_UIE;
 	TIM2->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 2
 	TIM9->DIER &= ~TIM_DIER_TIE; 	// Disable interrupt on timer 9
 

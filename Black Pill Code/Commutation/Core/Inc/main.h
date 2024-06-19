@@ -68,7 +68,7 @@ void Error_Handler(void);
 #define RegSize 5
 #define RxSize 4
 #define AvgSize 128
-#define AvgSizeCur 32768
+#define AvgSizeCur 40000
 
 #define PWMReg 0
 #define DirReg 1
